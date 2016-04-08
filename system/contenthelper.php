@@ -1,6 +1,17 @@
 <?php
 class ContentHelper
 {
+
+
+    static function calculateKeyWordsWeight($url)
+    {
+        $keyWords = ContentHelper::extractKeyWords($url);
+        $uniqueKeyWords = array_unique ($keyWords);
+        $uniqueKeyWordCounts = array_count_values ($keyWords);
+
+        return $uniqueKeyWordCounts;
+    }
+
     //Return an array of kewwords
     static function extractKeyWords($url)
     {

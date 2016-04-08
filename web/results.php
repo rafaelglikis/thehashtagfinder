@@ -1,11 +1,14 @@
 <?php
 
 require('../vendor/autoload.php');
+
 require_once('../system/htmlhelper.php');
 require_once('../system/texthelper.php');
 require_once('../system/contenthelper.php');
+
 require_once('../system/url.php');
 require_once('../system/hashtag.php');
+
 include ('views/header.php');
 
 
@@ -20,7 +23,7 @@ $sourse = new Url($_POST["url"])
             <img src="<?php echo $sourse->getImage()?>"
                  alt="<?php echo $sourse->getTitle()?>">
             <p>
-                <?php var_dump(ContentHelper::extractKeyWords($_POST["url"]));?>
+                <?php var_dump(ContentHelper::calculateKeyWordsWeight($_POST["url"]));?>
             </p>
         </div>
     </div>
