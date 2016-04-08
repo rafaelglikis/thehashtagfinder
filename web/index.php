@@ -25,8 +25,10 @@ require('../vendor/autoload.php');
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <img src="images/hashtag_blue.png" alt="hashtag">
+        <div class="col-xs-12 col-md-6">
+            <img src="images/hashtag_blue.png" alt="hashtag" style="height:125px; width:125px; align-center:true;">
+        </div>
+        <div class="col-xs-12 col-md-6">
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                     <input type="text" class="form-control input-lg" placeholder="http://www.example.com/blabla/" />
