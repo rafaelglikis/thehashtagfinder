@@ -3,7 +3,7 @@ class ContentHelper
 {
 
 
-/*static function calculateKeyWordsWeight($keyWords)
+static function calculateKeyWordsWeight($keyWords)
     {
         $uniqueKeyWords = array_unique ($keyWords);
         $uniqueKeyWordCounts = array_count_values ($keyWords);
@@ -24,12 +24,11 @@ class ContentHelper
     {
         $content = ContentHelper::extractContent($url);
         $keyWords = explode(" ", $content);
-
-        var_dump($keyWords);
-        //$newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords);
         
-        return $keyWords;
-    }*/
+        $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords);
+        
+        return $newKeyWords;
+    }
     
     //Return a String clear from html, js, stopwords, smallwords
     static function extractContent($url)
