@@ -5,7 +5,7 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <div id="custom-search-input">
-                <form role="form"  method="get" action="../results.php">
+                <form role="form"  method="post" action="../results.php">
                     <h2>Give me the link!</h2>
                     <div class="input-group col-md-12">
                         <input type="text" class="form-control input-lg" placeholder="http://www.example.com/blabla/" id="url"/>
