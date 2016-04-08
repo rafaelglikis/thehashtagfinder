@@ -30,7 +30,6 @@ require('../vendor/autoload.php');
         </div>
         <div class="col-xs-12 col-md-6">
             <div id="custom-search-input">
-                <br>
                 <h2>Give me the link!</h2>
                 <div class="input-group col-md-12">
                     <input type="text" class="form-control input-lg" placeholder="http://www.example.com/blabla/" />
