@@ -17,7 +17,7 @@ require('../vendor/autoload.php');
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     -->
     
-    <link rel="stylesheet" type="text/css" href="../web/stylesheets/mystyles.css">
+    <link rel="stylesheet" type="text/html" href="../web/stylesheets/mystyles.css">
 </head>
 <body>
 <div class="container">
