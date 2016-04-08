@@ -20,7 +20,23 @@ require('../vendor/autoload.php');
         <p>A Tool that process a given url and retrieves <strong>#hashtags</strong> from its content.</p>
     </div>
 </div>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2></h2>
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="http://www.example.com/blabla/" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 
