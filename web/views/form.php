@@ -8,7 +8,9 @@
                 <form role="form"  method="post" action="../results.php">
                     <h2>Give me the link!</h2>
                     <div class="input-group col-md-12">
-                        <input type="url" pattern="https?://.+" class="form-control input-lg" placeholder="http://www.example.com/blabla/" name="url" id="focusedInput" required/>
+                        <input type="url" pattern="https?://.+" oninvalid="setCustomValidity('Enter a valid url bro!')"
+                               class="form-control input-lg" placeholder="http://www.example.com/blabla/" name="url" id="focusedInput" required/>
+
                         <span class="input-group-btn">
                             <button class="btn btn-info btn-lg" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
