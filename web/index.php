@@ -51,7 +51,7 @@ require('../vendor/autoload.php');
     </div>
 </div>
 
-<footer class="row-footer">
+<footer class="footer row-footer">
     <div class="container">
         <div class="row">
             <p>Developed by Rafael Glikis for nextWebNinja Contest.</p>
