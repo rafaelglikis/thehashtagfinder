@@ -25,7 +25,7 @@ require('../vendor/autoload.php');
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-1 col-md-offset-3">
+        <div class="col-xs-12 col-md-1 col-md-offset-2">
             <img src="images/hashtag_blue.png" alt="hashtag" style="height:125px; width:125px;">
         </div>
         <div class="col-xs-12 col-md-6">
@@ -41,7 +41,7 @@ require('../vendor/autoload.php');
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-2">
+        <div class="col-xs-12 col-md-3">
         </div>
     </div>
 </div>
