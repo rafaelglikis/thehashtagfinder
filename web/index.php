@@ -50,7 +50,7 @@ require('../vendor/autoload.php');
     </div>
 </div>
 
-<footer class="row-footer navbar navbar-fixed-bottom">
+<footer class="custom-footer navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
             <p>Developed by Rafael Glikis for nextWebNinja Contest.</p>

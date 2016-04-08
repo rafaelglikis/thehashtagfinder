@@ -1,7 +1,7 @@
 /* Search */
 #custom-search-input{
     padding: 3px;
-    border: solid 1px #E4E4E4;
+    /* border: solid 1px #E4E4E4; */
     border-radius: 6px;
     background-color: #fff;
 }
@@ -32,7 +32,7 @@
 }
 
 /* Footer */
-.row-footer {
+.custom-footer {
     margin: 0px auto;
     padding: 5px 0px;
     background-color: #AfAfAf;
