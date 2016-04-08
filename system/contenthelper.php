@@ -4,6 +4,7 @@ class ContentHelper
     static function takeContent($url)
     {
         $html = HtmlHelper::takeHtml($url);
+        $html = HtmlHelper::fixHtml($html);
         $content = strip_tags($html);
         $content = ContentHelper::remove2CharWords($content);
         $content = ContentHelper::removeCommonWords($content);

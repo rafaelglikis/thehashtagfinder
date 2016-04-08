@@ -30,6 +30,14 @@ class HtmlHelper
         return $html;
     }
 
+    static function fixHtml($html)
+    {
+        $html = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $html);
+        $html = strip_tags($html,'<p><strong><a><iframe><img><ul><ol><li><br><h1><h2><h3><h4>');
+
+        return $html;
+    }
+
     static function findTitle($url)
     {
         $html = HtmlHelper::takeHtml($url);
