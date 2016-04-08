@@ -28,7 +28,7 @@ $sourse = new Url($_POST["url"])
                 $keyWords = ContentHelper::extractKeyWords($url);
                 foreach ($keyWords as $hashTag)
                 {
-                   echo $hashTag->$name . "\t" . $hashTag->$weight . "\n";
+                   echo $hashTag->name . "\t" . $hashTag->weight . "\n";
                 }
 
                 ?>
