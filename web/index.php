@@ -56,7 +56,7 @@ require('../vendor/autoload.php');
                 <p>Developed by <a href="http://rafael.glikis.net/">Rafael Glikis</a> for <a href="http://nextweb.ninja/">Web Ninja</a> contest.</p>
             </div>
             <div class="col-xs-12 col-md-4">
-                <a href="http://www.facebook.com/rafael.glikis"> <i class="fa fa-facebook" id="custom-footer-icons"></i></a>
+                <a href="http://www.facebook.com/rafael.glikis"> <i class="fa fa-facebook" id="custom-footer-icon"></i></a>
                 <a href="http://www.linkedin.com/in/rafael-glikis-b4361a80?trk=hp-identity-name"><i class="fa fa-linkedin"></i></a>
                 <a href="http://github.com/rafaelglikis"> <i class="fa fa-github"></i></a>
                 <a href="mailto:rafaelglikis@gmail.com"><i class="fa fa-envelope"></i></a>
