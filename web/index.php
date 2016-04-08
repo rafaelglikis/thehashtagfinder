@@ -26,7 +26,7 @@ require('../vendor/autoload.php');
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-md-3">
-            <img src="images/hashtag_blue.png" alt="hashtag" style="height:125px; width:125px;">
+            <img src="images/hashtag_blue.png" alt="hashtag" style="height:125px; width:125px; position:absolute; left:100px; top:100px;">
         </div>
         <div class="col-xs-12 col-md-6">
             <div id="custom-search-input">
