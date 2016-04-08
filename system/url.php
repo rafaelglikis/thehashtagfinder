@@ -4,7 +4,7 @@ class Url
     private $url;
     private $title;
     private $image;
-    private $hashTags  = array();
+    private $hashTags;
     
     function __construct($url)
     {
