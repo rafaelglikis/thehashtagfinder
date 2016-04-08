@@ -24,12 +24,12 @@ $sourse = new Url($_POST["url"])
                  alt="<?php echo $sourse->getTitle()?>">
             <p>
                 <?php
-                $hashTags = $sourse->getHashTags();
+                //$hashTags = $sourse->getHashTags();
 
-                foreach ($hashTags as $hashTag)
-                {
-                    echo $hashTag->$name . "\t" . $hashTag->$weight . "\n";
-                }
+                //foreach ($hashTags as $hashTag)
+                //{
+                 //   echo $hashTag->$name . "\t" . $hashTag->$weight . "\n";
+               // }
 
                 ?>
             </p>
