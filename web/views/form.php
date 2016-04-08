@@ -5,15 +5,17 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <div id="custom-search-input">
-                <h2>Give me the link!</h2>
-                <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg" placeholder="http://www.example.com/blabla/" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                </div>
+                <form role="form" action="../results.php">
+                    <h2>Give me the link!</h2>
+                    <div class="input-group col-md-12">
+                        <input type="text" class="form-control input-lg" placeholder="http://www.example.com/blabla/" id="url"/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn-lg" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="col-xs-12 col-md-2">
