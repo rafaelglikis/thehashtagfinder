@@ -1,11 +1,11 @@
 <?php
 
 require('../vendor/autoload.php');
-require_once('../system/htmlhelper.php');
-require_once('../system/url.php');
+//require_once('../system/htmlhelper.php');
+//require_once('../system/url.php');
 include ('views/header.php');
 
-//$sourse = new Url($_POST["url"])
+$sourse = new Url($_POST["url"])
 
 ?>
 <div class="container">
