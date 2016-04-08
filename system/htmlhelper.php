@@ -19,7 +19,7 @@ class HtmlHelper
 
         if ($html == '0')
         {
-            //print "file_get_contents_failed!\n";
+            ///*/**/*/print "file_get_contents_failed!\n";
             //print "Trying cURL!\n";
             $html = HtmlHelper::curl($url);
             if ($html == '0')
