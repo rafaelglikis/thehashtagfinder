@@ -17,6 +17,8 @@ require('../vendor/autoload.php');
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="../web/stylesheets/mystyles.css">
+
+
 </head>
 <body>
 <div class="container">
@@ -49,6 +51,7 @@ require('../vendor/autoload.php');
 </div>
 
 <footer>
+    <script src="../web/js/footer.js"></script>
     <section id="footer" style="background-color:#292b34;">
         <div class="container">
             <center style="color:#fff;">
