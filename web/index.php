@@ -25,11 +25,12 @@ require('../vendor/autoload.php');
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-6">
-            <img src="images/hashtag_blue.png" alt="hashtag" style="height:125px; width:125px; align-center:true;">
+        <div class="col-xs-12 col-md-3">
+            <img src="images/hashtag_blue.png" alt="hashtag" style="height:125px; width:125px;">
         </div>
         <div class="col-xs-12 col-md-6">
             <div id="custom-search-input">
+                <br>
                 <div class="input-group col-md-12">
                     <input type="text" class="form-control input-lg" placeholder="http://www.example.com/blabla/" />
                     <span class="input-group-btn">
@@ -39,6 +40,8 @@ require('../vendor/autoload.php');
                     </span>
                 </div>
             </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
         </div>
     </div>
 </div>
