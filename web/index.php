@@ -57,11 +57,11 @@ require('../vendor/autoload.php');
                 <p>Developed by <a href="http://rafael.glikis.net/">Rafael Glikis</a> for <a href="http://nextweb.ninja/">Web Ninja</a> contest.</p>
             </div>
             <div class="col-xs-12 col-md-4">
-                <span id="fa fa-envelope">rafaelglikis@gmail.com</span>
-                <span id="fa fa-linkedin"></span>
-                <span id="fa fa-github"></span>
-                <span id="fa fa-skype"></span>
-                <span id="fa fa-facebook"></span>
+                <i id="fa fa-envelope">rafaelglikis@gmail.com</i>
+                <i id="fa fa-linkedin"></i>
+                <i id="fa fa-github"></i>
+                <i id="fa fa-skype"></i>
+                <i id="fa fa-facebook"></i>
             </div>
         </div>
     </div>
