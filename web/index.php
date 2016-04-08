@@ -14,9 +14,6 @@ require('../vendor/autoload.php');
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<h1>The HashTag Finder</h1>
-
 <div class="container">
     <div class="jumbotron">
         <h1>The HashTag Finder</h1>
