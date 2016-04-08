@@ -1,6 +1,4 @@
 <?php
-require_once('TextHelper.php');
-
 class HtmlHelper
 {
     static function curl($url)

@@ -1,5 +1,4 @@
 <?php
-
 class HashTag
 {
     private $name;

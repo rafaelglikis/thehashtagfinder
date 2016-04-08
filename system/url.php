@@ -1,5 +1,4 @@
 <?php
-require_once('hashtag.php');
 class Url
 {
     private $url;
@@ -49,3 +48,4 @@ class Url
         array_push($this->hashTags,$hashTag);
     }
 }
+?>
