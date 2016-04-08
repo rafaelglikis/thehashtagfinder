@@ -3,13 +3,20 @@ class ContentHelper
 {
 
 
-    static function calculateKeyWordsWeight($url)
+    static function calculateKeyWordsWeight($keyWords)
     {
-        $keyWords = ContentHelper::extractKeyWords($url);
         $uniqueKeyWords = array_unique ($keyWords);
         $uniqueKeyWordCounts = array_count_values ($keyWords);
 
-        return $uniqueKeyWordCounts;
+        $hashTags  = array();
+
+        foreach ($uniqueKeyWordCounts as $name => $weight) 
+        {
+            $hashtag = new HashTag($name,$weight);
+            array_push($hashTags,$hashtag);
+        }
+
+        return $hashTags;
     }
 
     //Return an array of kewwords
@@ -17,6 +24,8 @@ class ContentHelper
     {
         $content = ContentHelper::extractContent($url);
         $keyWords = explode(" ", $content);
+
+        $keyWords = ContentHelper::calculateKeyWordsWeight($keyWords);
         
         return $keyWords;
     }

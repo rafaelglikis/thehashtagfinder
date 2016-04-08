@@ -23,7 +23,7 @@ $sourse = new Url($_POST["url"])
             <img src="<?php echo $sourse->getImage()?>"
                  alt="<?php echo $sourse->getTitle()?>">
             <p>
-                <?php var_dump(ContentHelper::calculateKeyWordsWeight($_POST["url"]));?>
+                <?php var_dump($sourse->getHashTags());?>
             </p>
         </div>
     </div>

@@ -5,12 +5,13 @@ class Url
     private $title;
     private $image;
     private $hashTags  = array();
-
+    
     function __construct($url)
     {
         $this->url = $url;
         $this->title = HtmlHelper::findTitle($url);
         $this->image = HtmlHelper::findMainImage($url);
+        $this->hashTags = ContentHelper::extractKeyWords($url);
     }
 
     public function getImage()
@@ -47,5 +48,11 @@ class Url
     {
         array_push($this->hashTags,$hashTag);
     }
+
+    public function getHashTags()
+    {
+        return $this->hashTags;
+    }
+
 }
 ?>
