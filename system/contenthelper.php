@@ -25,9 +25,9 @@ class ContentHelper
         $content = ContentHelper::extractContent($url);
         $keyWords = explode(" ", $content);
 
-        $keyWords = ContentHelper::calculateKeyWordsWeight($keyWords);
+        $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords);
         
-        return $keyWords;
+        return $newKeyWords;
     }
     
     //Return a String clear from html, js, stopwords, smallwords
