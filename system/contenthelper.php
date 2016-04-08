@@ -25,6 +25,7 @@ class ContentHelper
         $content = ContentHelper::extractContent($url);
         $keyWords = explode(" ", $content);
 
+        var_dump($keyWords);
         //$newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords);
         
         return $keyWords;
