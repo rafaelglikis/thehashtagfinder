@@ -13,9 +13,7 @@ static function calculateKeyWordsWeight($keyWords)
         foreach ($uniqueKeyWordCounts as $name => $weight) 
         {
             $hashtag = new HashTag($name,$weight);
-            $density = $hashtag->getWeight()/count($keyWords) * 100;
-            $hashtag->setDensity($density);
-
+            
             array_push($hashTags,$hashtag);
         }
 
