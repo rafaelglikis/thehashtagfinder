@@ -4,14 +4,14 @@ class Url
     private $url;
     private $title;
     private $image;
-    private $hashTags;
+    private $hashTags  = array();
     
     function __construct($url)
     {
         $this->url = $url;
         $this->title = HtmlHelper::findTitle($url);
         $this->image = HtmlHelper::findMainImage($url);
-        $this->hashTags = ContentHelper::extractKeyWords($url);
+        $this->hashTags = array_merge($this->hashTags, ContentHelper::extractKeyWords($url));
     }
 
     public function getImage()
