@@ -26,7 +26,7 @@ require('../vendor/autoload.php');
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2></h2>
+            <img src="../web/images/hashtag.png" alt="hashtag">
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                     <input type="text" class="form-control input-lg" placeholder="http://www.example.com/blabla/" />
