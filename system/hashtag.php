@@ -5,11 +5,11 @@ class HashTag
     private $weight;
     //private $density;
     
-    function __construct($name,$weight)
+   /* function __construct($name,$weight)
     {
         $this->name = $name;
         $this->weight = $weight;
-    }
+    }*/
     /*
     public function getDensity()
     {

@@ -49,10 +49,10 @@ class Url
         array_push($this->hashTags,$hashTag);
     }
 
-    public function getHashTags()
+/*    public function getHashTags()
     {
         return $this->hashTags;
-    }
+    }*/
 
 }
 ?>
