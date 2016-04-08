@@ -59,7 +59,7 @@ require('../vendor/autoload.php');
                 <a href="http://www.facebook.com/rafael.glikis"> <i class="fa fa-facebook custom-footer-icon"></i></a>
                 <a href="http://www.linkedin.com/in/rafael-glikis-b4361a80?trk=hp-identity-name"><i class="fa fa-linkedin custom-footer-icon"></i></a>
                 <a href="http://github.com/rafaelglikis"> <i class="fa fa-github custom-footer-icon"></i></a>
-                <a href="mailto:rafaelglikis@gmail.com"><i class="fa fa-envelope custom-footer-icon"></i></a>
+                <a href="mailto:rafaelglikis@gmail.com"><i class="fa fa-envelope custom-footer-icon"></i></a>  
             </div>
         </div>
     </div>
