@@ -12,6 +12,8 @@
 
 #custom-search-input button{
     margin: 2px;
+    margin-bottom: 2px;
+    margin-top: 2px;
     background: none;
     box-shadow: none;
     border: solid 1px #E4E4E4;
