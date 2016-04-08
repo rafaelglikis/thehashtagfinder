@@ -11,7 +11,7 @@ class Url
         $this->url = $url;
         $this->title = HtmlHelper::findTitle($url);
         $this->image = HtmlHelper::findMainImage($url);
-        $this->hashTags = ContentHelper::extractKeyWords($url);
+        //$this->hashTags = ContentHelper::extractKeyWords($url);
     }
 
     public function getImage()
