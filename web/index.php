@@ -15,7 +15,7 @@ require('../vendor/autoload.php');
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    
+
     <link rel="stylesheet" type="text/css" href="stylesheets/blue_styles.css">
 
 </head>
@@ -56,11 +56,11 @@ require('../vendor/autoload.php');
                 <p>Developed by <a href="http://rafael.glikis.net/">Rafael Glikis</a> for <a href="http://nextweb.ninja/">Web Ninja</a> contest.</p>
             </div>
             <div class="col-xs-12 col-md-4">
-                <i id="fa fa-envelope">rafaelglikis@gmail.com</i>
-                <i id="fa fa-linkedin"></i>
-                <i id="fa fa-github"></i>
-                <i id="fa fa-skype"></i>
-                <i id="fa fa-facebook"></i>
+                <i class="fa fa-envelope">rafaelglikis@gmail.com</i>
+                <i class="fa fa-linkedin"></i>
+                <i class="fa fa-github"></i>
+                <i class="fa fa-skype"></i>
+                <i class="fa fa-facebook"></i>
             </div>
         </div>
     </div>
