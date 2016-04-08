@@ -3,7 +3,7 @@ class HashTag
 {
     private $name;
     private $weight;
-    //private $density;
+    private $density;
     
     function __construct($name,$weight)
     {
@@ -20,8 +20,7 @@ class HashTag
     {
         $this->density = $density;
     }
-
-
+    
     function getName()
     {
         return $this->name;
