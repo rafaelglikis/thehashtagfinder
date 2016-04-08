@@ -53,7 +53,16 @@ require('../vendor/autoload.php');
 <footer class="custom-footer navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
-            <p>Developed by <a href="http://rafael.glikis.net/">Rafael Glikis</a> for <a href="http://nextweb.ninja/">Web Ninja</a> contest.</p>
+            <div class="col-xs-12 col-md-4">
+                <p>Developed by <a href="http://rafael.glikis.net/">Rafael Glikis</a> for <a href="http://nextweb.ninja/">Web Ninja</a> contest.</p>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <span id="fa fa-envelope">rafaelglikis@gmail.com</span>
+                <span id="fa fa-linkedin"></span>
+                <span id="fa fa-github"></span>
+                <span id="fa fa-skype"></span>
+                <span id="fa fa-facebook"></span>
+            </div>
         </div>
     </div>
 </footer>
