@@ -23,7 +23,15 @@ $sourse = new Url($_POST["url"])
             <img src="<?php echo $sourse->getImage()?>"
                  alt="<?php echo $sourse->getTitle()?>">
             <p>
-                <?php var_dump($sourse->getHashTags());?>
+                <?php
+                $hashTags = $sourse->getHashTags();
+
+                foreach ($hashTags as $hashTag)
+                {
+                    echo $hashTag->$name . "\t" . $hashTag->$weight . "\n";
+                }
+
+                ?>
             </p>
         </div>
     </div>
