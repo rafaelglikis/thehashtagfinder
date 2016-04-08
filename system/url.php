@@ -4,7 +4,6 @@ class Url
     private $url;
     private $title;
     private $image;
-    private $content;
     private $hashTags  = array();
 
     function __construct($url)
@@ -12,7 +11,6 @@ class Url
         $this->url = $url;
         $this->title = HtmlHelper::findTitle($url);
         $this->image = HtmlHelper::findMainImage($url);
-        $this->content = strip_tags($input, '<br>');
     }
 
     public function getImage()
