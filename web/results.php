@@ -20,7 +20,7 @@ $sourse = new Url($_POST["url"])
             <img src="<?php echo $sourse->getImage()?>"
                  alt="<?php echo $sourse->getTitle()?>">
             <p>
-                <?php echo ContentHelper::takeContent($_POST["url"]);?>
+                <?php print_r(ContentHelper::extractKeyWords($_POST["url"]));?>
             </p>
         </div>
     </div>

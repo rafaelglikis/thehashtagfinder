@@ -1,7 +1,17 @@
 <?php
 class ContentHelper
 {
-    static function takeContent($url)
+    //Return an array of kewwords
+    static function extractKeyWords($url)
+    {
+        $content = ContentHelper::extractContent($url);
+        $keyWords = explode(" ", $content);
+        
+        return $keyWords;
+    }
+    
+    //Return a String clear from html, js, stopwords, smallwords
+    static function extractContent($url)
     {
         $html = HtmlHelper::takeHtml($url);
         $html = HtmlHelper::fixHtml($html);
@@ -11,6 +21,7 @@ class ContentHelper
         
         return $content;
     }
+    
     
     static function remove2CharWords($input)
     {
