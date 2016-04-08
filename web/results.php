@@ -20,6 +20,9 @@ $sourse = new Url($_POST["url"])
                  alt="<?php echo $sourse->getTitle()?>">
         </div>
     </div>
+
+    <br>
+    <br>
 </div>
 <?php
 
