@@ -11,6 +11,7 @@ class Url
         $this->url = $url;
         $this->title = HtmlHelper::findTitle($url);
         $this->image = HtmlHelper::findMainImage($url);
+
         $this->hashTags = array_merge($this->hashTags, ContentHelper::extractKeyWords($url));
     }
 
@@ -33,12 +34,12 @@ class Url
     {
         $this->title = $title;
     }
-    
+
     public function getUrl()
     {
         return $this->url;
     }
-    
+
     public function setUrl($url)
     {
         $this->url = $url;
@@ -49,10 +50,9 @@ class Url
         array_push($this->hashTags,$hashTag);
     }
 
-/*    public function getHashTags()
+    public function getHashTags()
     {
         return $this->hashTags;
-    }*/
-
+    }
 }
 ?>
