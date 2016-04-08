@@ -25,12 +25,10 @@ $sourse = new Url($_POST["url"])
             <p>
                 <?php
                 $hashTags = $sourse->getHashTags();
-                //$keyWords = ContentHelper::extractKeyWords($_POST["url"]);
                 foreach ($hashTags as $hashTag)
                 {
-                   echo $hashTag->getName() . "\t" . $hashTag->getWeight() . '<br>';
+                   echo $hashTag->getName() . "\t" . $hashTag->getWeight() . "\t" . $hashTag->getDensity() . '<br>';
                 }
-
                 ?>
             </p>
         </div>
