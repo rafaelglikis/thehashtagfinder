@@ -17,7 +17,57 @@ require('../vendor/autoload.php');
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     -->
     
-    <link rel="stylesheet" type="text/html" href="../web/stylesheets/mystyles.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/blue_styles.css">
+
+    <!--
+    <style>
+        /*
+
+        I implement the stylesheet here because I have problems with heroku server
+        Error: The stylesheet https://blooming-stream-76734.herokuapp.com/web/stylesheets/mystyles.css was not loaded because its MIME type, "text/html", is not "text/css".
+
+        */
+        /* Search */
+        #custom-search-input{
+            padding: 3px;
+            border: solid 1px #E4E4E4;
+            border-radius: 6px;
+            background-color: #fff;
+        }
+
+        #custom-search-input input{
+            border: 0;
+            box-shadow: none;
+        }
+
+        #custom-search-input button{
+            margin: 2px 0 0 0;
+            background: none;
+            box-shadow: none;
+            border: 0;
+            color: #666666;
+            padding: 0 8px 0 10px;
+            border-left: solid 1px #ccc;
+        }
+
+        #custom-search-input button:hover{
+            border: 0;
+            box-shadow: none;
+            border-left: solid 1px #ccc;
+        }
+
+        #custom-search-input .glyphicon-search{
+            font-size: 23px;
+        }
+
+        /* Footer */
+        .row-footer {
+            margin: 0px auto;
+            padding: 20px 0px;
+            background-color: #AfAfAf;
+        }
+    </style>
+    -->
 </head>
 <body>
 <div class="container">
