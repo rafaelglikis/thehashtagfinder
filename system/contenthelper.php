@@ -38,6 +38,10 @@ static function calculateKeyWordsWeight($keyWords)
         $keyWords = explode(" ", $content);
         $keyWords = preg_replace('/[0-9]+/', '', $keyWords);
         $keyWords = array_filter($keyWords);
+
+        //Majestic
+        $majesticKeywords = ContentHelper::getMajecticBacklinks('http://www.subtitles.gr/');
+        var_dump($majesticKeywords);
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords);
         
@@ -51,10 +55,6 @@ static function calculateKeyWordsWeight($keyWords)
         $content = HtmlHelper::fixHtml($html);
         $content = ContentHelper::remove2CharWords($content);
         $content = ContentHelper::removeCommonWords($content);
-
-        //Majestic
-        $majesticKeywords = ContentHelper::getMajecticBacklinks($url);
-        var_dump($majesticKeywords);
         
         return $content;
     }
