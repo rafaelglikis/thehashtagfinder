@@ -47,7 +47,7 @@ $sourse = new Url($_POST["url"])
                     </script>
                 </p>
             </div>
-            
+
             <div class="panel-group" id="accordion"
                  role="tablist" aria-multiselectable="true">
                 <div class="tab-content">
@@ -81,22 +81,6 @@ $sourse = new Url($_POST["url"])
                             <div class="panel-body">
                                 <img src="<?php echo $sourse->getImage()?>"
                                      alt="<?php echo $sourse->getTitle()?>">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingTagCloud">
-                            <h3 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse"
-                                   data-parent="#accordion" href="#tagcloud"
-                                   aria-expanded="false" aria-controls="tagcloud">
-                                    TagCloud <small>Shows the main words of url content as tag cloud.</small></a>
-                            </h3>
-                        </div>
-                        <div role="tabpanel" class="panel-collapse collapse"
-                             id="tagcloud"    aria-labelledby="headingAgumbe">
-                            <div class="panel-body">
-
                             </div>
                         </div>
                     </div>
