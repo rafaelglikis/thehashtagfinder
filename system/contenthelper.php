@@ -10,7 +10,7 @@ class ContentHelper
         $wordWeight = 1; //mult
         $wordInBacklinksWeight = 1.1; //mult
         $backlinkWeigth = 3; //mult
-        $backlinkInTitleWeigth = 2; //mult
+        $backlinkInTitleWeigth = 3; //mult
         $titleWeight = 10;
 
         $title = HtmlHelper::findTitle($url);
