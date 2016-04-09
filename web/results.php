@@ -16,7 +16,6 @@ $sourse = new Url($_POST["url"])
 
 ?>
 <script>
-    <script>
     Reveal.initialize({
 
         // ... add your settings here ...
