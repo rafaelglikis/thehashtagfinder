@@ -24,7 +24,7 @@ static function calculateKeyWordsWeight($keyWords)
             array_push($hashTags,$hashtag);
 
         }
-        
+
         shuffle($hashTags);
 
         return $hashTags;
@@ -48,8 +48,7 @@ static function calculateKeyWordsWeight($keyWords)
     static function extractContent($url)
     {
         $html = HtmlHelper::takeHtml($url);
-        $html = HtmlHelper::fixHtml($html);
-        $content = strip_tags($html);
+        $content = HtmlHelper::fixHtml($html);
         $content = ContentHelper::remove2CharWords($content);
         $content = ContentHelper::removeCommonWords($content);
         
