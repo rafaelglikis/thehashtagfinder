@@ -21,7 +21,7 @@ static function calculateKeyWordsWeight($keyWords)
             array_push($hashTags,$hashtag);
 
             $i++;
-            if(i>50) continue;
+            if($i>50) continue;
         }
         return $hashTags;
     }
