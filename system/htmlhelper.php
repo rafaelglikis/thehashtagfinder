@@ -33,7 +33,7 @@ class HtmlHelper
     static function fixHtml($html)
     {
         $html = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $html);
-        $html = strip_tags($html,'<p><strong><a><iframe><img><ul><ol><li><br><h1><h2><h3><h4>');
+        $html = strip_tags($html);
 
         return $html;
     }
