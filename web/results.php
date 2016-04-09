@@ -107,10 +107,10 @@ $sourse = new Url($_POST["url"])
                                         var chart = new CanvasJS.Chart("chartContainer",
                                             {
                                                 title:{
-                                                    text: "Gaming Consoles Sold in 2012"
+                                                    text: ""
                                                 },
                                                 legend: {
-                                                    maxWidth: 350,
+                                                    maxWidth: 800,
                                                     itemWidth: 120
                                                 },
                                                 data: [
