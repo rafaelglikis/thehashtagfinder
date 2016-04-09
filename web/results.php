@@ -76,7 +76,7 @@ $sourse = new Url($_POST["url"])
                             data: [
                                 {
                                     type: "pie",
-                                    showInLegend: true,
+                                    showInLegend: false,
                                     legendText: "{indexLabel}",
                                     dataPoints: [
                                             <?php
