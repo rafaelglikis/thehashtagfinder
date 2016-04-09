@@ -63,7 +63,7 @@ $sourse = new Url($_POST["url"])
                 window.onload = function () {
                     var chart = new CanvasJS.Chart("chartContainer",
                         {
-                            theme: "theme2",
+                            theme: "theme1",
                             title:{
                                 text: "Keywords weight chart"
                             },
