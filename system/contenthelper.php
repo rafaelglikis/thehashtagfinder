@@ -35,7 +35,7 @@ class ContentHelper
                 break;
             }
             $i++;
-            if($i>50) break;
+            if($i>30) break;
 
             $hashtag = new HashTag($name,$weight*$wordWeight);
 
