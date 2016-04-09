@@ -10,6 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" type="text/css" href="stylesheets/blue_styles.css">
     <script src="../js/tagcloud.js"></script>
