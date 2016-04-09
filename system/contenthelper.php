@@ -15,13 +15,17 @@ class ContentHelper
 
         $hashTags  = array();
 
-        $i=0;
         foreach ($uniqueKeyWordCounts as $name => $weight)
         {
             if (strlen($name) < 3) {
                 unset($uniqueKeyWordCounts[$name]);
                 break;
             }
+        }
+
+        $i=0;
+        foreach ($uniqueKeyWordCounts as $name => $weight)
+        {
 
             $i++;
             if($i>50) break;
