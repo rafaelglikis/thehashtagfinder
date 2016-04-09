@@ -18,8 +18,8 @@ class ContentHelper
         $i=0;
         foreach ($uniqueKeyWordCounts as $name => $weight)
         {
-            if (strlen($name) < 3) {
-                //unset($uniqueKeyWordCounts[$name]);
+            if (strlen($name) < 3)
+            {
                 break;
             }
             $i++;
