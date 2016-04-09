@@ -53,7 +53,7 @@ class ContentHelper
             $i++;
             if($i>10) break;
 
-            $hashtag = new HashTag($name,$weight);
+            $hashtag = new HashTag($name,$weight*3);
             array_push($hashTags,$hashtag);
         }
 
