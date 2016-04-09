@@ -167,7 +167,7 @@ class ContentHelper
         foreach($keywords as &$keyword)
         {
             $keyword = preg_replace("/[^A-Za-z0-9. ]/", '', $keyword);
-            $keyword = trim($keyword, ' ');
+            $keyword = trim($keyword);
         }
         return $keywords;
     }
