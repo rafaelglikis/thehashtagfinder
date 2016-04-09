@@ -23,32 +23,27 @@ $sourse = new Url($_POST["url"])
             <p>Url: <?php echo $sourse->getUrl()?></p>
             <img src="<?php echo $sourse->getImage()?>"
                  alt="<?php echo $sourse->getTitle()?>">
-            <p>
-                <div id="whatever">
-                    <a href="#" rel="7">peace</a>
-                    <a href="#" rel="3">unity</a>
-                    <a href="#" rel="10">love</a>
-                    <a href="#" rel="5">having fun</a>
-                </div>
+            <div id="whatever">
                 <?php
                 $hashTags = $sourse->getHashTags();
                 foreach ($hashTags as $hashTag)
                 {
-                   echo $hashTag->getName() . "\t" . $hashTag->getWeight() . '<br>';
+                    ?>
+                    <a href="#" rel="<?php echo $hashTag->getWeight() ?>">
+                        <?php echo $hashTag->getName() ?></a>
+                    <?php
                 }
                 ?>
-
                 <script>
                     $.fn.tagcloud.defaults = {
                         size: {start: 14, end: 50, unit: 'pt'},
                         color: {start: '#eee', end: '#337'}
                     };
-
                     $(function () {
                         $('#whatever a').tagcloud();
                     });
                 </script>
-            </p>
+            </div>
         </div>
     </div>
 
