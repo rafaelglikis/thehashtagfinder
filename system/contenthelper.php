@@ -56,8 +56,9 @@ class ContentHelper
         }
 
         $uniqueMajesticKeyWordCounts = array_count_values ($majesticKeywords);
-        arsort($uniqueMajesticKeyWordCounts);
 
+        arsort($uniqueMajesticKeyWordCounts);
+        var_dump($keywords);
         $i=0;
         foreach ($uniqueMajesticKeyWordCounts as $name => $weight)
         {
@@ -162,7 +163,6 @@ class ContentHelper
         {
             $keyword = preg_replace("/[^A-Za-z0-9. ]/", '', $keyword);
         }
-        var_dump($keywords);
         return $keywords;
     }
     
