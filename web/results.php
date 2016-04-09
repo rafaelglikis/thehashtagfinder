@@ -71,7 +71,7 @@ $sourse = new Url($_POST["url"])
                                 //maxWidth: 500,
                                 itemWidth: 120
                             },
-                            height:1000,
+                            height:500,
                             width:500,
                             data: [
                                 {
