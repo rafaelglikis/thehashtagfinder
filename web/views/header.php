@@ -16,16 +16,16 @@
 
 </head>
 <body>
-<div class="container">
-    <div class="jumbotron">
-        <div class="row">
-            <div class="col-xs-12  col-md-9">
-                <h1>The HashTag Finder</h1>
-                <p>A Tool that process a given url and retrieves <strong>#hashtags</strong> from its content.</p>
+<header class="jumbotron">
+    <div class="container">
+            <div class="row">
+                <div class="col-xs-12  col-md-9">
+                    <h1>The HashTag Finder</h1>
+                    <p>A Tool that process a given url and retrieves <strong>#hashtags</strong> from its content.</p>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <img src="../images/hashtag_blue.gif" class="img-responsive">
+                </div>
             </div>
-            <div class="col-xs-12 col-md-3">
-                <img src="../images/hashtag_blue.gif" class="img-responsive">
-            </div>
-        </div>
     </div>
-</div>
+</header>
