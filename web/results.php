@@ -16,6 +16,9 @@ $sourse = new Url($_POST["url"])
 
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="js/jqcloud.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheets/jqcloud.css">
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -31,6 +34,21 @@ $sourse = new Url($_POST["url"])
                    echo $hashTag->getName() . "\t" . $hashTag->getWeight() . '<br>';
                 }
                 ?>
+
+                <script>
+                    var words = [
+                        {text: "Lorem", weight: 13},
+                        {text: "Ipsum", weight: 10.5},
+                        {text: "Dolor", weight: 9.4},
+                        {text: "Sit", weight: 8},
+                        {text: "Amet", weight: 6.2},
+                        {text: "Consectetur", weight: 5},
+                        {text: "Adipiscing", weight: 5},
+                        /* ... */
+                    ];
+
+                    $('#demo').jQCloud(words);
+                </script>
             </p>
         </div>
     </div>
