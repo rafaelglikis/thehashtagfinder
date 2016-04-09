@@ -15,6 +15,7 @@ include ('views/header.php');
 $sourse = new Url($_POST["url"])
 
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -27,7 +28,7 @@ $sourse = new Url($_POST["url"])
                 $hashTags = $sourse->getHashTags();
                 foreach ($hashTags as $hashTag)
                 {
-                   echo $hashTag->getName() . "\t" . $hashTag->getWeight() . "\t" . $hashTag->getDensity() . '<br>';
+                   echo $hashTag->getName() . "\t" . $hashTag->getWeight() . '<br>';
                 }
                 ?>
             </p>
