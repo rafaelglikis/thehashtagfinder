@@ -41,6 +41,18 @@ class ContentHelper
             array_push($hashTags,$hashtag);
         }
 
+        $uniqueMajesticKeyWordCounts = array_count_values ($majesticKeywords);
+
+        foreach ($uniqueMajesticKeyWordCounts as $name => $weight)
+        {
+            if (strlen($name) < 3)
+            {
+                break;
+            }
+            $hashtag = new HashTag($name,$weight);
+            array_push($hashTags,$hashtag);
+        }
+        
         // Shuffling the array
         shuffle($hashTags);
 
