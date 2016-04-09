@@ -18,12 +18,15 @@ static function calculateKeyWordsWeight($keyWords)
         {
             $i++;
             if($i>50) break;
-            
+
             $hashtag = new HashTag($name,$weight);
             
             array_push($hashTags,$hashtag);
 
         }
+        
+        shuffle($hashTags);
+
         return $hashTags;
     }
 
