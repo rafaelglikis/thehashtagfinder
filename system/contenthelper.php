@@ -64,7 +64,7 @@ class ContentHelper
             {
                 break;
             }
-            $name = preg_replace("/[^A-Za-z0-9 ]/", '', $name);
+            //$name = preg_replace("/[^A-Za-z0-9 ]/", '', $name);
             $i++;
             if($i>20) break;
 
