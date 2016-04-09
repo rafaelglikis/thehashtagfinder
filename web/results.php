@@ -96,12 +96,45 @@ $sourse = new Url($_POST["url"])
                                 <a class="collapsed" role="button" data-toggle="collapse"
                                    data-parent="#accordion" href="#hashTags"
                                    aria-expanded="false" aria-controls="hashTags">
-                                    #hashtags <small>Top 10 keywords</small></a>
+                                    Chart <small>Keyword weight graphically</small></a>
                             </h3>
                         </div>
                         <div role="tabpanel" class="panel-collapse collapse"
                              id="hashTags"    aria-labelledby="headingHashTags">
                             <div class="panel-body">
+                                <script type="text/javascript">
+                                    window.onload = function () {
+                                        var chart = new CanvasJS.Chart("chartContainer",
+                                            {
+                                                title:{
+                                                    text: "Gaming Consoles Sold in 2012"
+                                                },
+                                                legend: {
+                                                    maxWidth: 350,
+                                                    itemWidth: 120
+                                                },
+                                                data: [
+                                                    {
+                                                        type: "pie",
+                                                        showInLegend: true,
+                                                        legendText: "{indexLabel}",
+                                                        dataPoints: [
+                                                            { y: 4181563, indexLabel: "PlayStation 3" },
+                                                            { y: 2175498, indexLabel: "Wii" },
+                                                            { y: 3125844, indexLabel: "Xbox 360" },
+                                                            { y: 1176121, indexLabel: "Nintendo DS"},
+                                                            { y: 1727161, indexLabel: "PSP" },
+                                                            { y: 4303364, indexLabel: "Nintendo 3DS"},
+                                                            { y: 1717786, indexLabel: "PS Vita"}
+                                                        ]
+                                                    }
+                                                ]
+                                            });
+                                        chart.render();
+                                    }
+                                </script>
+                                <script type="text/javascript" src="js/canvasjs.min.js"></script>
+                                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
                                     <?php
                                     foreach ($hashTags as $hashTag)
                                     {

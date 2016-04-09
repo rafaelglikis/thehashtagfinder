@@ -125,10 +125,10 @@ static function calculateKeyWordsWeight($keyWords, $url)
     {
 
         // EEEEEEK Stop words
+        //'January','February','March','April','May','June','July',
+        //'August','September','October','November','December',
         // https://gist.github.com/keithmorris/4155220
         $commonWords = array('a','able','about','above','abroad',
-            'January','February','March','April','May','June','July',
-            'August','September','October','November','December',
             'according','accordingly','across','actually','adj',
             'after','afterwards','again','against','ago','ahead',
             'ain\'t','all','allow','allows','almost','alone','along',
