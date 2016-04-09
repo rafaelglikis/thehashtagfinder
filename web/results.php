@@ -65,7 +65,8 @@ $sourse = new Url($_POST["url"])
                         {
                             theme: "theme1",
                             title:{
-                                text: "Keywords weight chart"
+                                text: "Keywords weight chart",
+                                fontSize: 25
                             },
                             legend: {
                                 //maxWidth: 500,
