@@ -110,7 +110,7 @@ $sourse = new Url($_POST["url"])
                                     <?php
                                     foreach ($hashTags as $hashTag)
                                     {
-                                        echo $hashTag->getWeight() . "\t" . $hashTag->getName()  . "\n";
+                                        echo $hashTag->getWeight() . "\t" . $hashTag->getName()  . '<br>';
                                     }
                                     ?>">
                                 <!--</p>-->
