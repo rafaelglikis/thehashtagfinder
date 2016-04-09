@@ -158,7 +158,7 @@ class ContentHelper
         curl_close($ch);
 
         //clearing non-alphanumerics
-        foreach($keywords as $keyword)
+        foreach($keywords as &$keyword)
         {
             $keyword = preg_replace("/[^A-Za-z0-9. ]/", '', $keyword);
         }
