@@ -25,14 +25,13 @@ static function calculateKeyWordsWeight($keyWords, $url)
 
             $hashtag = new HashTag($name,$weight);
 
-            /*foreach($majesticKeywords as $majesticKeyword)
+            foreach($majesticKeywords as $majesticKeyword)
             {
                 if (strpos($majesticKeyword, $hashtag->getName()) != false)
                 {
                     $hashtag->increamentWeightBy(2);
-                    var_dump($hashtag);
                 }
-            }*/
+            }
             array_push($hashTags,$hashtag);
         }
 
@@ -128,6 +127,8 @@ static function calculateKeyWordsWeight($keyWords, $url)
         // EEEEEEK Stop words
         // https://gist.github.com/keithmorris/4155220
         $commonWords = array('a','able','about','above','abroad',
+            'January','February','March','April','May','June','July',
+            'August','September','October','November','December',
             'according','accordingly','across','actually','adj',
             'after','afterwards','again','against','ago','ahead',
             'ain\'t','all','allow','allows','almost','alone','along',
