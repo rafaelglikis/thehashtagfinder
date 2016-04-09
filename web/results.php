@@ -26,9 +26,11 @@ $sourse = new Url($_POST["url"])
             <h1><?php echo $sourse->getTitle()?></h1>
             <br>
             <br>
-            <img class="img-responsive center-block"
-                 src="<?php echo $sourse->getImage()?>"
-                 alt="<?php echo $sourse->getTitle()?>">
+            <?php if(filter_var($sourse->getImage(), FILTER_VALIDATE_URL)){ ?>
+                <img class="img-responsive center-block"
+                     src="<?php echo $sourse->getImage()?>"
+                     alt="<?php echo $sourse->getTitle()?>">
+            <?php } //endIf ?>
             <br>
             <br>
             <div id="tag-cloud">
