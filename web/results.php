@@ -82,7 +82,8 @@ $sourse = new Url($_POST["url"])
                         <div role="tabpanel" class="panel-collapse collapse"
                              id="image"    aria-labelledby="headingImage">
                             <div class="panel-body">
-                                <img src="<?php echo $sourse->getImage()?>"
+                                <img align="middle"
+                                     src="<?php echo $sourse->getImage()?>"
                                      alt="<?php echo $sourse->getTitle()?>">
                             </div>
                         </div>
