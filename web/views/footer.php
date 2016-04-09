@@ -8,7 +8,7 @@
             </div>
             <!-- Social Icons and Links -->
             <div class="col-xs-12 col-md-2 col-md-offset-6" id="custom-social">
-                <a href="http://www.facebook.com/rafael.glikis">
+                &nbsp;&nbsp;&nbsp;<a href="http://www.facebook.com/rafael.glikis">
                     <i class="fa fa-facebook custom-footer-icon"></i>
                 </a>&nbsp;&nbsp;&nbsp;
                 <a href="http://www.linkedin.com/in/rafael-glikis-b4361a80?trk=hp-identity-name">
