@@ -72,7 +72,7 @@ $sourse = new Url($_POST["url"])
                                 itemWidth: 120
                             },
                             height:1000,
-                            width:800,
+                            width:500,
                             data: [
                                 {
                                     type: "pie",
