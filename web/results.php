@@ -25,7 +25,7 @@ $sourse = new Url($_POST["url"])
             // other dependencies ...
 
             // add THIS dependency for tagcloud plugin
-            { src: 'plugin/tagcloud/tagcloud.js', async: true }
+            { src: 'js/tagcloud.js', async: true }
 
         ]
     });
