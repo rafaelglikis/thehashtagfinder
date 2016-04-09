@@ -36,7 +36,7 @@ $sourse = new Url($_POST["url"])
                 ?>
                 <script>
                     $.fn.tagcloud.defaults = {
-                        size: {start: 14, end: 50, unit: 'pt'},
+                        size: {start: 10, end: 26, unit: 'pt'},
                         color: {start: '#02a', end: '#337'}
                     };
                     $(function () {
