@@ -53,7 +53,7 @@ static function calculateKeyWordsWeight($keyWords)
         $content = ContentHelper::removeCommonWords($content);
 
         //Majestic
-        $majesticKeywords = getMajecticBacklinks($url);
+        $majesticKeywords = ContentHelper::getMajecticBacklinks($url);
         var_dump($majesticKeywords);
         
         return $content;
