@@ -14,7 +14,6 @@ static function calculateKeyWordsWeight($keyWords, $url)
 
         //Majestic
         $majesticKeywords = ContentHelper::getMajecticBacklinks($url);
-        var_dump($majesticKeywords);
 
         $hashTags  = array();
 
