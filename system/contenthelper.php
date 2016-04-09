@@ -8,10 +8,10 @@ class ContentHelper
     {
         //Weights
         $wordWeight = 1; //mult
-        $wordInBacklinksWeight = 1; //mult
+        $wordInBacklinksWeight = 1.01; //mult
         $backlinkWeigth = 3; //mult
         $backlinkInTitleWeigth = 4; //mult
-        $titleWeight = 10;
+        $titleWeight = 20;
 
         $title = HtmlHelper::findTitle($url);
         $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
