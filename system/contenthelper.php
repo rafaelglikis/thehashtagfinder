@@ -101,6 +101,7 @@ class ContentHelper
         foreach ($newKeyWords as $newKeyWord)
         {
             $newName = '#' . str_replace(' ', '_',$newKeyWord->getName());
+            $newName = trim($newName,'_');
             $newKeyWord->setName($newName);
         }
         return $newKeyWords;
