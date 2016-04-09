@@ -27,4 +27,5 @@ class TextHelper
 
         return $cut;
     }
+
 }

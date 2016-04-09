@@ -79,7 +79,7 @@ class HtmlHelper
         {
             $html = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $html);
             $html = preg_replace('#<style(.*?)>(.*?)</style>#is', '', $html);
-            $html = strip_tags($html, '<img>');
+            $image = TextHelper::strCut($html, '<img src=">','/>');
             var_dump($html);
         }
         //return $image;
