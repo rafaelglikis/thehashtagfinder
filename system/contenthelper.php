@@ -52,7 +52,7 @@ class ContentHelper
             $hashtag = new HashTag($name,$weight);
             array_push($hashTags,$hashtag);
         }
-        
+
         // Shuffling the array
         shuffle($hashTags);
 
@@ -129,7 +129,6 @@ class ContentHelper
             }
         }
         curl_close($ch);
-        var_dump($keywords);
         return $keywords;
     }
     
