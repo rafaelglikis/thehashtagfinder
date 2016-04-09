@@ -67,7 +67,7 @@ static function calculateKeyWordsWeight($keyWords)
 
         //read cookie from file for security
         $cookie = file_get_contents("majecticcookie");
-
+        vardump($cookie);
         //set the url, number of POST vars, POST data
         curl_setopt($ch,CURLOPT_URL, "https://majestic.com/data-output");
         curl_setopt($ch,CURLOPT_POST, count($fields_string));
