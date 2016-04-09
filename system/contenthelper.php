@@ -6,6 +6,12 @@ class ContentHelper
     // Calculate the keywords weight and return an array of hashtags
     static function calculateKeyWordsWeight($keyWords, $url)
     {
+        //Weights
+        $wordWeight = 1;
+        $wordInBacklinksWeight = 1.1; //mult
+        $backlinkWeigth = 3; //mult
+        $backlinkInTitleWeigth = 2; //mult
+
         $title = HtmlHelper::findTitle($url);
 
         $uniqueKeyWordCounts = array_count_values ($keyWords);
@@ -28,20 +34,20 @@ class ContentHelper
             $i++;
             if($i>50) break;
 
-            $hashtag = new HashTag($name,$weight);
+            $hashtag = new HashTag($name,$weight*$wordWeight);
 
             // Give more weight to keywords from backlinks
             foreach($uniqueMajesticKeyWords as $majesticKeyword)
             {
                 if (strpos($majesticKeyword, $hashtag->getName()) != false)
                 {
-                    $hashtag->multWeight(1.1);
+                    $hashtag->multWeight($wordInBacklinksWeight);
                 }
             }
 
             if (strpos($title, $hashtag->getName()) != false)
             {
-                $hashtag->multWeight(2);
+                $hashtag->multWeight($backlinkInTitleWeigth);
             }
 
             array_push($hashTags,$hashtag);
@@ -60,7 +66,7 @@ class ContentHelper
             $i++;
             if($i>20) break;
 
-            $hashtag = new HashTag($name,$weight*3);
+            $hashtag = new HashTag($name,$weight*$backlinkWeigth);
 
             if (strpos($title, $hashtag->getName()) != false)
             {
