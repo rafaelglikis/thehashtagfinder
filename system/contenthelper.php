@@ -169,6 +169,7 @@ class ContentHelper
             $keyword = preg_replace("/[^A-Za-z0-9. ]/", '', $keyword);
             $keyword = trim($keyword);
         }
+        var_dump($keywords);
         return $keywords;
     }
     
