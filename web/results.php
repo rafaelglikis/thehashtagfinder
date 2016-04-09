@@ -85,7 +85,8 @@ $sourse = new Url($_POST["url"])
                                             $len = count($hashTags);
                                             foreach ($hashTags as $hashTag)
                                             {
-                                            ?>{ y: <?php echo $hashTag->getWeight()?>, indexLabel:"<?php echo $hashTag->getName()?>" }<?php if ($i == $len - 1) break;?>,
+                                            ?>{ y: <?php echo $hashTag->getWeight()?>,
+                                                indexLabel:"<?php echo $hashTag->getName()?>" }<?php if ($i == $len - 1) break;?>,
                                         <?php $i++;?>
                                         <?php
                                         }
@@ -98,7 +99,8 @@ $sourse = new Url($_POST["url"])
                 }
             </script>
             <script type="text/javascript" src="js/canvasjs.min.js"></script>
-            <div class="col-xs-12 col-md-6 col-md-offset-3" id="chartContainer" style="height: 500px; width: 100%;"></div>
+            <div class="col-xs-12 col-md-6 col-md-offset-3" id="chartContainer"
+                 style="height: 500px; width: 100%;"></div>
         </div>
     </div>
 
