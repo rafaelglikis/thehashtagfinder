@@ -13,7 +13,7 @@ class ContentHelper
 
         // Take the url backlinks from Majestic
         $majesticKeywords = ContentHelper::getMajecticBacklinks($url);
-
+        $uniqueMajesticKeyWords = array_unique ($majesticKeywords);
         $hashTags  = array();
 
         $i=0;
@@ -30,7 +30,7 @@ class ContentHelper
             $hashtag = new HashTag($name,$weight);
 
             // Give more weight to keywords from backlinks
-            foreach($majesticKeywords as $majesticKeyword)
+            foreach($uniqueMajesticKeyWords as $majesticKeyword)
             {
                 if (strpos($majesticKeyword, $hashtag->getName()) != false)
                 {
