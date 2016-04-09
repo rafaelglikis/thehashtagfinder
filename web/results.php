@@ -93,65 +93,6 @@ $sourse = new Url($_POST["url"])
             </script>
             <script type="text/javascript" src="js/canvasjs.min.js"></script>
             <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-            <div class="panel-group" id="accordion"
-                 role="tablist" aria-multiselectable="true">
-                <div class="tab-content">
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingTitle">
-                            <h3 class="panel-title">
-                                <a role="button" data-toggle="collapse"
-                                   data-parent="#accordion" href="#title"
-                                   aria-expanded="true" aria-controls="title">
-                                    Title <small>Title of given url</small></a>
-                            </h3>
-                        </div>
-                        <div role="tabpanel" class="panel-collapse collapse in"
-                             id="title"    aria-labelledby="headingTitle">
-                            <div class="panel-body">
-                                <p><?php echo $sourse->getTitle()?></p>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                    if(filter_var($sourse->getImage(), FILTER_VALIDATE_URL)) { ?>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingImage">
-                            <h3 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse"
-                                   data-parent="#accordion" href="#image"
-                                   aria-expanded="false" aria-controls="image">
-                                    Main Image <small>An image of the url that describe it's content most.</small></a>
-                            </h3>
-                        </div>
-                        <div role="tabpanel" class="panel-collapse collapse"
-                             id="image"    aria-labelledby="headingImage">
-                            <div class="panel-body">
-                                <img class="img-responsive center-block"
-                                     src="<?php echo $sourse->getImage()?>"
-                                     alt="<?php echo $sourse->getTitle()?>">
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                    } //endIf?>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingHashTags">
-                            <h3 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse"
-                                   data-parent="#accordion" href="#hashTags"
-                                   aria-expanded="false" aria-controls="hashTags">
-                                    Chart <small>Keyword weight graphically</small></a>
-                            </h3>
-                        </div>
-                        <div role="tabpanel" class="panel-collapse collapse"
-                             id="hashTags"    aria-labelledby="headingHashTags">
-                            <div class="panel-body">
-                                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
