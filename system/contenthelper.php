@@ -29,7 +29,7 @@ class ContentHelper
         // Creating hashtag objects O(n^2)
         foreach ($uniqueKeyWordCounts as $name => $weight)
         {
-            if (strlen($name) < 3)
+            if (strlen($name) < 3 || strlen($name) > 35)
             {
                 break;
             }
