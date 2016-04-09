@@ -39,18 +39,19 @@ $sourse = new Url($_POST["url"])
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingDanny">
+                        <div class="panel-heading" role="tab" id="headingImage">
                             <h3 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse"
-                                   data-parent="#accordion" href="#danny"
-                                   aria-expanded="false" aria-controls="danny">
-                                    Dhanasekaran Witherspoon <small>Chief Food Officer</small></a>
+                                   data-parent="#accordion" href="#image"
+                                   aria-expanded="false" aria-controls="image">
+                                    Main Image <small>An image of the url that describe it's content most.</small></a>
                             </h3>
                         </div>
                         <div role="tabpanel" class="panel-collapse collapse"
-                             id="danny"    aria-labelledby="headingDanny">
+                             id="image"    aria-labelledby="headingImage">
                             <div class="panel-body">
-                                <p>Our CFO, Danny, as he is affectionately referred to by his colleagues, comes from a long established family tradition in farming and produce. His experiences growing up on a farm in the Australian outback gave him great appreciation for varieties of food sources. As he puts it in his own words, <em>Everything that runs, wins, and everything that stays, pays!</em></p>
+                                <img src="<?php echo $sourse->getImage()?>"
+                                     alt="<?php echo $sourse->getTitle()?>">
                             </div>
                         </div>
                     </div>
@@ -90,8 +91,7 @@ $sourse = new Url($_POST["url"])
             </div>
             <h2></h2>
             <p>Url: <?php echo $sourse->getUrl()?></p>
-            <img src="<?php echo $sourse->getImage()?>"
-                 alt="<?php echo $sourse->getTitle()?>">
+
             <div id="whatever">
                 <p>
                     <?php
