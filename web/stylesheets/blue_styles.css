@@ -48,5 +48,9 @@
 /* Body */
 body {
     padding-bottom: 150px;
+}
+
+/* HTML */
+html * {
     font-family: 'Lato', sans-serif;
 }
