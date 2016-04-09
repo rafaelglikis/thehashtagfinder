@@ -34,9 +34,9 @@ $sourse = new Url($_POST["url"])
                             <img class="img-responsive center-block"
                                  src="<?php echo $sourse->getImage()?>"
                                  alt="<?php echo $sourse->getTitle()?>">
+                            <br>
+                            <br>
                         <?php } //endIf ?>
-                        <br>
-                        <br>
                         <div id="tag-cloud">
                             <p  class="text-justify">
                                 <?php

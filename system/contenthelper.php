@@ -203,7 +203,7 @@ static function calculateKeyWordsWeight($keyWords, $url)
             'whole','who\'ll','whom','whomever','who\'s','whose','why','will','willing','wish',
             'with','within','without','wonder','won\'t','would','wouldn\'t','x','y','yes','yet',
             'you','you\'d','you\'ll','your','you\'re','yours','yourself','yourselves','you\'ve',
-            'z','zero');
+            'z','zero', 'nbsp');
 
         return preg_replace('/\b('.implode('|',$commonWords).')\b/','',$input);
     }
