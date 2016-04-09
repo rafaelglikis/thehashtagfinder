@@ -98,7 +98,7 @@ class ContentHelper
         $keyWords = array_filter($keyWords); // Remove empty values etc
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords, $url);
-        foreach ($newKeyWords as $newKeyWord)
+        foreach ($newKeyWords as &$newKeyWord)
         {
             $newName = '#' . str_replace(' ', '_',$newKeyWord->getName());
             $newName = trim($newName,'_');
