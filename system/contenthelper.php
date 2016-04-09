@@ -48,7 +48,7 @@ class ContentHelper
 
             if (strpos($title, $hashtag->getName()) != false)
             {
-                $hashtag->multWeight($backlinkInTitleWeigth);
+                $hashtag->multWeight($wordInBacklinksWeight);
             }
 
             array_push($hashTags,$hashtag);
@@ -64,7 +64,7 @@ class ContentHelper
             {
                 break;
             }
-            //$name = preg_replace("/[^A-Za-z0-9 ]/", '', $name);
+            $name = preg_replace("/[^A-Za-z0-9 ]/", '', $name);
             $i++;
             if($i>20) break;
 
@@ -72,7 +72,7 @@ class ContentHelper
 
             if (strpos($title, $hashtag->getName()) != false)
             {
-                $hashtag->multWeight(3);
+                $hashtag->multWeight($backlinkInTitleWeigth);
             }
             array_push($hashTags,$hashtag);
         }
