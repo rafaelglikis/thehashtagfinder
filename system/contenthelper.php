@@ -96,7 +96,7 @@ class ContentHelper
         $keyWords = array_filter($keyWords); // Remove empty values etc
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords, $url);
-        var_dump($newKeyWords);
+
         return $newKeyWords;
     }
     
@@ -162,6 +162,7 @@ class ContentHelper
         {
             $keyword = preg_replace("/[^A-Za-z0-9. ]/", '', $keyword);
         }
+        var_dump($keywords);
         return $keywords;
     }
     
