@@ -15,10 +15,52 @@ include ('views/header.php');
 $sourse = new Url($_POST["url"])
 
 ?>
+<script>
+    <script>
+    Reveal.initialize({
+
+        // ... add your settings here ...
+
+        // Optional reveal.js plugins
+        dependencies: [
+            // other dependencies ...
+
+            // add THIS dependency for tagcloud plugin
+            { src: 'plugin/tagcloud/tagcloud.js', async: true }
+
+        ]
+    });
+</script>
 
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
+            <section tagcloud>
+                Twitter Bootstrap
+                jQuery
+                less
+                GruntJS
+                JSHint
+                JSLint
+                markdown
+                sass
+                jade
+                coffeescript
+                codekit
+                livereload
+                web-build
+                jQuery UI
+                mustache
+                emmet.io
+                bower
+                browserstack
+                npm
+                RequireJS
+                socket.io
+                jQuery Mobile
+                node.js
+                Jasmine
+            </section>
             <h2><?php echo $sourse->getTitle()?></h2>
             <p>Url: <?php echo $sourse->getUrl()?></p>
             <img src="<?php echo $sourse->getImage()?>"
