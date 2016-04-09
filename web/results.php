@@ -23,7 +23,14 @@ $sourse = new Url($_POST["url"])
                 <li><a href="index.php">Home</a></li>
                 <li class="active">Results for: <?php echo $sourse->getUrl()?> </li>
             </ol>
-
+            <h1><?php echo $sourse->getTitle()?></h1>
+            <br>
+            <br>
+            <img class="img-responsive center-block"
+                 src="<?php echo $sourse->getImage()?>"
+                 alt="<?php echo $sourse->getTitle()?>">
+            <br>
+            <br>
             <div id="tag-cloud">
                 <p  class="text-justify">
                     <?php
