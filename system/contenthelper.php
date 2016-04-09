@@ -6,14 +6,15 @@ class ContentHelper
     // Calculate the keywords weight and return an array of hashtags
     static function calculateKeyWordsWeight($keyWords, $url)
     {
-        $uniqueKeyWordCounts = array_count_values ($keyWords);
+        $title = HtmlHelper::findTitle($url);
 
+        $uniqueKeyWordCounts = array_count_values ($keyWords);
         // Sort ascending
         arsort($uniqueKeyWordCounts);
 
         // Take the url backlinks from Majestic
         $majesticKeywords = ContentHelper::getMajecticBacklinks($url);
-        $uniqueMajesticKeyWords = array_unique ($majesticKeywords);
+        $uniqueMajesticKeyWords = array_unique($majesticKeywords); // Unic values
         $hashTags  = array();
 
         $i=0;
@@ -34,9 +35,15 @@ class ContentHelper
             {
                 if (strpos($majesticKeyword, $hashtag->getName()) != false)
                 {
-                    $hashtag->increamentWeightBy(2);
+                    $hashtag->multWeight(2);
                 }
             }
+
+            if (strpos($title, $hashtag->getName()) != false)
+            {
+                $hashtag->multWeight(3);
+            }
+
             array_push($hashTags,$hashtag);
         }
 
@@ -54,8 +61,16 @@ class ContentHelper
             if($i>20) break;
 
             $hashtag = new HashTag($name,$weight*3);
+
+            if (strpos($title, $hashtag->getName()) != false)
+            {
+                $hashtag->multWeight(3);
+            }
             array_push($hashTags,$hashtag);
         }
+        
+        $hashtag = new HashTag($title,10);
+        array_push($hashTags,$hashtag);
 
         // Shuffling the array
         shuffle($hashTags);

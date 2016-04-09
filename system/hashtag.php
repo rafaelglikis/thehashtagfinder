@@ -30,8 +30,13 @@ class HashTag
         $this->weight = $weight;
     }
 
-    public function increamentWeightBy($value)
+    public function addWeight($value)
     {
         $this->weight += $value;
+    }
+
+    public function multWeight($value)
+    {
+        $this->weight *= $value;
     }
 }
