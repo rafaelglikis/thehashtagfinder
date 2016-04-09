@@ -68,6 +68,11 @@ $sourse = new Url($_POST["url"])
                             </div>
                         </div>
                     </div>
+                    <?php
+                    if(filter_var($sourse->getImage(), FILTER_VALIDATE_URL))
+                    {
+
+                    ?>
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingImage">
                             <h3 class="panel-title">
@@ -85,6 +90,9 @@ $sourse = new Url($_POST["url"])
                             </div>
                         </div>
                     </div>
+                    <?php
+                    }
+                    ?>
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingHashTags">
                             <h3 class="panel-title">
@@ -97,14 +105,12 @@ $sourse = new Url($_POST["url"])
                         <div role="tabpanel" class="panel-collapse collapse"
                              id="hashTags"    aria-labelledby="headingHashTags">
                             <div class="panel-body">
-                                <!--<p>-->
                                     <?php
                                     foreach ($hashTags as $hashTag)
                                     {
                                         echo $hashTag->getWeight() . "\t" . $hashTag->getName()  . '<br>';
                                     }
-                                    ?>">
-                                <!--</p>-->
+                                    ?>
                             </div>
                         </div>
                     </div>
