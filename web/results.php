@@ -15,8 +15,6 @@ include ('views/header.php');
 $sourse = new Url($_POST["url"])
 
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="js/jqcloud.js"></script>
 
 <div class="container">
     <div class="row">
