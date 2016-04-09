@@ -1,8 +1,0 @@
-{
-  "require" : {
-    "twbs/bootstrap": "^3.3"
-  },
-  "require-dev": {
-    "heroku/heroku-buildpack-php": "*"
-  }
-}
