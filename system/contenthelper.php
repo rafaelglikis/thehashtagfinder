@@ -51,10 +51,59 @@ static function calculateKeyWordsWeight($keyWords)
         $content = HtmlHelper::fixHtml($html);
         $content = ContentHelper::remove2CharWords($content);
         $content = ContentHelper::removeCommonWords($content);
+
+        //Majestic
+        $majesticKeywords = getMajecticBacklinks($url);
+        var_dump($majesticKeywords);
         
         return $content;
     }
-    
+
+    function getMajecticBacklinks($url)
+    {
+        $fields_string = "format=Csv&MaxSourceURLsPerRefDomain=1&UsePrefixScan=0&index_data_source=Fresh&item=".urlencode($url)."&mode=0&request_name=ExplorerBacklinks&RefDomain=";
+        //open connection
+        $ch = curl_init();
+
+        //read cookie from file for security
+        $cookie = file_get_contents("majecticcookie");
+
+        //set the url, number of POST vars, POST data
+        curl_setopt($ch,CURLOPT_URL, "https://majestic.com/data-output");
+        curl_setopt($ch,CURLOPT_POST, count($fields_string));
+        curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+        curl_setopt($ch,CURLOPT_COOKIE, $cookie);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_ENCODING ,"UTF-8");
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $keywords = array();
+
+        $result = curl_exec($ch);
+
+        if ($result || strpos($result, 'eURL","AnchorText","SourceTrustFlow","SourceCitationFlow","Domain","DomainTrustFlow')!== FALSE)
+        {
+            $lines = explode("\n", $result);
+            foreach ($lines as $line)
+            {
+                $csv = str_getcsv($line);
+                if ($csv
+                    && is_array($csv)
+                    &&  isset($csv[1])
+                    && $csv[1]
+                    && strpos($url,$csv[1]) === false
+                    && strpos($csv[1],"http://") === false
+                    && $csv[1]!='AnchorText'
+                )
+                {
+                    $keywords[] = $csv[1];
+                }
+            }
+        }
+        curl_close($ch);
+        return $keywords;
+    }
     
     static function remove2CharWords($input)
     {
