@@ -18,11 +18,11 @@ $sourse = new Url($_POST["url"])
 
 <div class="container">
     <div class="row">
-        <ol class="breadcrumb">
-            <li><a href="index.php">Home</a></li>
-            <li class="active">Results for: <?php echo $sourse->getUrl()?> </li>
-        </ol>
         <div class="col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="index.php">Home</a></li>
+                <li class="active">Results for: <?php echo $sourse->getUrl()?> </li>
+            </ol>
             <div class="panel-group" id="accordion"
                  role="tablist" aria-multiselectable="true">
                 <div class="tab-content">
