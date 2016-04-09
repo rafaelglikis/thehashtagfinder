@@ -96,7 +96,7 @@ class ContentHelper
         $keyWords = array_filter($keyWords); // Remove empty values etc
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords, $url);
-        
+        var_dump($newKeyWords);
         return $newKeyWords;
     }
     
