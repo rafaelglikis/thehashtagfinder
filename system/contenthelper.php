@@ -65,7 +65,8 @@ class ContentHelper
         $content = ContentHelper::extractContent($url);
 
         $keyWords = explode(" ", $content); // Creat an array from $content words
-        $keyWords = preg_replace('/[0-9]+/', '', '/[^[:alnum:]]/', $keyWords); // Remove numbers
+        $keyWords = preg_replace('/[0-9]+/', '', $keyWords); // Remove numbers
+        $keyWords = preg_replace("/[^A-Za-z0-9 ]/", '', $keyWords); // Remove non-alphanumeric 
         $keyWords = array_filter($keyWords); // Remove empty values etc
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords, $url);
