@@ -71,6 +71,14 @@ class HtmlHelper
                 break;
             }
         }
-        return $image;
+        if(filter_var($image, FILTER_VALIDATE_URL))
+        {
+            return $image;
+        }
+        else
+        {
+            $html = strip_tags($html, '<img>');
+            var_dump($html);
+        }
     }
 }
