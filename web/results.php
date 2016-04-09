@@ -97,7 +97,7 @@ $sourse = new Url($_POST["url"])
                 }
             </script>
             <script type="text/javascript" src="js/canvasjs.min.js"></script>
-            <div id="chartContainer" style="height: 500px; width: 100%;"></div>
+            <div class="col-xs-12 col-md-6 col-md-offset-3" id="chartContainer" style="height: 500px; width: 100%;"></div>
         </div>
     </div>
 
