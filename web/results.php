@@ -75,7 +75,7 @@ $sourse = new Url($_POST["url"])
                                         foreach ($hashTags as $hashTag)
                                         {
                                             ?>
-                                            <a href="#" rel="<?php echo $hashTag->getWeight()*1000 ?>">
+                                            <a href="#" rel="<?php echo $hashTag->getWeight() ?>">
                                                 <?php echo $hashTag->getName() ?></a>
                                             <?php
                                         }
