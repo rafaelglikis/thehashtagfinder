@@ -56,6 +56,43 @@ $sourse = new Url($_POST["url"])
             </div>
             <br>
             <br>
+            <!-- Chart -->
+            <script type="text/javascript">
+                window.onload = function () {
+                    var chart = new CanvasJS.Chart("chartContainer",
+                        {
+                            title:{
+                                text: ""
+                            },
+                            legend: {
+                                maxWidth: 800,
+                                itemWidth: 200
+                            },
+                            data: [
+                                {
+                                    type: "pie",
+                                    showInLegend: true,
+                                    legendText: "{indexLabel}",
+                                    dataPoints: [
+                                            <?php
+                                            $i=0;
+                                            $len = count($hashTags);
+                                            foreach ($hashTags as $hashTag)
+                                            {
+                                            ?>{ y: <?php echo $hashTag->getWeight()?>, indexLabel:"<?php echo $hashTag->getName()?>" }<?php if ($i == $len - 1) break;?>,
+                                        <?php $i++;?>
+                                        <?php
+                                        }
+                                        ?>
+                                    ]
+                                }
+                            ]
+                        });
+                    chart.render();
+                }
+            </script>
+            <script type="text/javascript" src="js/canvasjs.min.js"></script>
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
             <div class="panel-group" id="accordion"
                  role="tablist" aria-multiselectable="true">
                 <div class="tab-content">
@@ -109,41 +146,6 @@ $sourse = new Url($_POST["url"])
                         <div role="tabpanel" class="panel-collapse collapse"
                              id="hashTags"    aria-labelledby="headingHashTags">
                             <div class="panel-body">
-                                <script type="text/javascript">
-                                    window.onload = function () {
-                                        var chart = new CanvasJS.Chart("chartContainer",
-                                            {
-                                                title:{
-                                                    text: ""
-                                                },
-                                                legend: {
-                                                    maxWidth: 800,
-                                                    itemWidth: 200
-                                                },
-                                                data: [
-                                                    {
-                                                        type: "pie",
-                                                        showInLegend: true,
-                                                        legendText: "{indexLabel}",
-                                                        dataPoints: [
-                                                            <?php
-                                                                $i=0;
-                                                                $len = count($hashTags);
-                                                                foreach ($hashTags as $hashTag)
-                                                                {
-                                                                    ?>{ y: <?php echo $hashTag->getWeight()?>, indexLabel:"<?php echo $hashTag->getName()?>" }<?php if ($i == $len - 1) break;?>,
-                                                                    <?php $i++;?>
-                                                                <?php
-                                                                }
-                                                            ?>
-                                                        ]
-                                                    }
-                                                ]
-                                            });
-                                        chart.render();
-                                    }
-                                </script>
-                                <script type="text/javascript" src="js/canvasjs.min.js"></script>
                                 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
                             </div>
                         </div>
