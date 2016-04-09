@@ -9,7 +9,7 @@ class ContentHelper
         //Weights
         $wordWeight = 1; //mult
         $wordInBacklinksWeight = 1.01; //mult
-        $backlinkWeigth = 5; //mult
+        $backlinkWeigth = 3; //mult
         $backlinkInTitleWeigth = 4; //mult
         $titleWeight = 20;
 
