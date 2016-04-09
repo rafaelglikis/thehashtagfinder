@@ -32,14 +32,20 @@
 
 /* Footer */
 .custom-footer {
-    margin: 0px auto;
-    padding: 5px 0px;
+    margin: 0 auto;
+    padding: 5px 0;
     background-color: #eeeeee;
 }
+
 .custom-footer-icon{
     font-size:35px;
 }
 
 #custom-social{
-    padding: 7px 0px;
+    padding: 7px 0;
+}
+
+/* Body */
+body {
+    padding-bottom: 70px;
 }
