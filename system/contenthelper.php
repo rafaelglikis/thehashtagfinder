@@ -2,9 +2,7 @@
 include('init.php');
 class ContentHelper
 {
-
-
-static function calculateKeyWordsWeight($keyWords, $url)
+    static function calculateKeyWordsWeight($keyWords, $url)
     {
         $uniqueKeyWords = array_unique ($keyWords);
         $uniqueKeyWordCounts = array_count_values ($keyWords);
@@ -20,6 +18,11 @@ static function calculateKeyWordsWeight($keyWords, $url)
         $i=0;
         foreach ($uniqueKeyWordCounts as $name => $weight)
         {
+            if (strlen($name) < 3) {
+                unset($uniqueKeyWordCounts[$name]);
+                break;
+            }
+
             $i++;
             if($i>50) break;
 
@@ -203,7 +206,7 @@ static function calculateKeyWordsWeight($keyWords, $url)
             'whole','who\'ll','whom','whomever','who\'s','whose','why','will','willing','wish',
             'with','within','without','wonder','won\'t','would','wouldn\'t','x','y','yes','yet',
             'you','you\'d','you\'ll','your','you\'re','yours','yourself','yourselves','you\'ve',
-            'z','zero', 'nbsp', 'm', 'h');
+            'z','zero', 'nbsp');
 
         return preg_replace('/\b('.implode('|',$commonWords).')\b/','',$input);
     }
