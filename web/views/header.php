@@ -23,7 +23,7 @@
     <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-9 col-md-9">
-                    <a href="../index.php" style="color:#333333"><h1>The HashTag Finder</h1></a>
+                    <a href="../index.php"><h1 style="color:#333333">The HashTag Finder</h1></a>
                     <p>URL content analysis tool</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3">

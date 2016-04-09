@@ -117,6 +117,7 @@ class ContentHelper
             }
         }
         curl_close($ch);
+        var_dump($keywords);
         return $keywords;
     }
     
