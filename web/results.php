@@ -119,13 +119,13 @@ $sourse = new Url($_POST["url"])
                                                         showInLegend: true,
                                                         legendText: "{indexLabel}",
                                                         dataPoints: [
-                                                            { y: 4181563, indexLabel: "PlayStation 3" },
-                                                            { y: 2175498, indexLabel: "Wii" },
-                                                            { y: 3125844, indexLabel: "Xbox 360" },
-                                                            { y: 1176121, indexLabel: "Nintendo DS"},
-                                                            { y: 1727161, indexLabel: "PSP" },
-                                                            { y: 4303364, indexLabel: "Nintendo 3DS"},
-                                                            { y: 1717786, indexLabel: "PS Vita"}
+                                                            <?php
+                                                            foreach ($hashTags as $hashTag)
+                                                            {
+                                                                ?>{ y: <?php echo $hashTag->getWeight()?>, indexLabel: <?php echo $hashTag->getName()?> },
+                                                            <?php
+                                                            }
+                                                            ?>
                                                         ]
                                                     }
                                                 ]
@@ -135,12 +135,6 @@ $sourse = new Url($_POST["url"])
                                 </script>
                                 <script type="text/javascript" src="js/canvasjs.min.js"></script>
                                 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                                    <?php
-                                    foreach ($hashTags as $hashTag)
-                                    {
-                                        echo $hashTag->getWeight() . "\t" . $hashTag->getName()  . '<br>';
-                                    }
-                                    ?>
                             </div>
                         </div>
                     </div>
