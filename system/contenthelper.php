@@ -14,19 +14,13 @@ class ContentHelper
         $majesticKeywords = ContentHelper::getMajecticBacklinks($url);
 
         $hashTags  = array();
-
-        foreach ($uniqueKeyWordCounts as $name => $weight)
-        {
-            if (strlen($name) < 3) {
-                unset($uniqueKeyWordCounts[$name]);
-                break;
-            }
-        }
-
+        
         $i=0;
         foreach ($uniqueKeyWordCounts as $name => $weight)
         {
-
+            if (strlen($name) < 3) {
+                break;
+            }
             $i++;
             if($i>50) break;
 
