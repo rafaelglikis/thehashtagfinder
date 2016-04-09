@@ -17,9 +17,15 @@
 </head>
 <body>
 <div class="container">
-    <div class="jumbotron">
-        <h1>The HashTag Finder</h1>
-        <p>A Tool that process a given url and retrieves <strong>#hashtags</strong> from its content.</p>
-        <img src="../images/hashtag_blue.gif" class="img-responsive">
+    <div class="row">
+        <div class="jumbotron">
+            <div class="col-xs-12 col-md-3 col-md-offset-9">
+                <img src="../images/hashtag_blue.gif" class="img-responsive">
+            </div>
+            <div class="col-xs-12  col-md-9">
+                <h1>The HashTag Finder</h1>
+                <p>A Tool that process a given url and retrieves <strong>#hashtags</strong> from its content.</p>
+            </div>
+        </div>
     </div>
 </div>
