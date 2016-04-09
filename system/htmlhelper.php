@@ -77,6 +77,8 @@ class HtmlHelper
         }
         else
         {
+            $html = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $html);
+            $html = preg_replace('#<style(.*?)>(.*?)</style>#is', '', $html);
             $html = strip_tags($html, '<img>');
             var_dump($html);
         }
