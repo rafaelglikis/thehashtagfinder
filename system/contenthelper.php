@@ -12,11 +12,16 @@ static function calculateKeyWordsWeight($keyWords)
         var_dump($uniqueKeyWordCounts);
 
         $hashTags  = array();
+
+        $i=0;
         foreach ($uniqueKeyWordCounts as $name => $weight) 
         {
             $hashtag = new HashTag($name,$weight);
             
             array_push($hashTags,$hashtag);
+
+            $i++;
+            if(i<50) break;
         }
         return $hashTags;
     }
@@ -25,7 +30,7 @@ static function calculateKeyWordsWeight($keyWords)
     static function extractKeyWords($url)
     {
         $content = ContentHelper::extractContent($url);
-        
+
         $keyWords = explode(" ", $content);
         $keyWords = preg_replace('/[0-9]+/', '', $keyWords);
         $keyWords = array_filter($keyWords);
