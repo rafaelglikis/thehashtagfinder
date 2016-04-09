@@ -69,10 +69,7 @@ $sourse = new Url($_POST["url"])
                         </div>
                     </div>
                     <?php
-                    if(filter_var($sourse->getImage(), FILTER_VALIDATE_URL))
-                    {
-
-                    ?>
+                    if(filter_var($sourse->getImage(), FILTER_VALIDATE_URL)) { ?>
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingImage">
                             <h3 class="panel-title">
@@ -91,8 +88,7 @@ $sourse = new Url($_POST["url"])
                         </div>
                     </div>
                     <?php
-                    }
-                    ?>
+                    } //endIf?>
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingHashTags">
                             <h3 class="panel-title">
