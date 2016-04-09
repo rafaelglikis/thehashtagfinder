@@ -26,10 +26,11 @@ class ContentHelper
         $hashTags  = array();
 
         $i=0;
+
         // Creating hashtag objects O(n^2)
         foreach ($uniqueKeyWordCounts as $name => $weight)
         {
-            if (strlen($name) < 3 || strlen($name) > 35)
+            if (strlen($name) < 3)
             {
                 break;
             }
@@ -62,12 +63,12 @@ class ContentHelper
         $i=0;
         foreach ($uniqueMajesticKeyWordCounts as $name => $weight)
         {
-            if (strlen($name) < 3)
+            if (strlen($name) < 3 || strlen($name) > 35)
             {
                 break;
             }
             $i++;
-            if($i>20) break;
+            if($i>10) break;
 
             $hashtag = new HashTag($name,$weight*$backlinkWeigth);
 
