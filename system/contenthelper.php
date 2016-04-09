@@ -10,7 +10,7 @@ class ContentHelper
         $wordWeight = 1; //mult
         $wordInBacklinksWeight = 1.1; //mult
         $backlinkWeigth = 3; //mult
-        $backlinkInTitleWeigth = 3; //mult
+        $backlinkInTitleWeigth = 4; //mult
         $titleWeight = 10;
 
         $title = HtmlHelper::findTitle($url);
@@ -97,7 +97,10 @@ class ContentHelper
         $keyWords = array_filter($keyWords); // Remove empty values etc
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords, $url);
-
+        foreach ($newKeyWords as $newKeyWord)
+        {
+            $newKeyWord->setName('#' . str_replace(''. '_',$newKeyWord->getName()));
+        }
         return $newKeyWords;
     }
     
@@ -159,10 +162,10 @@ class ContentHelper
         curl_close($ch);
 
         //clearing non-alphanumerics
-        foreach($keywords as &$keyword)
+        /*foreach($keywords as &$keyword)
         {
             $keyword = preg_replace("/[^A-Za-z0-9. ]/", '', $keyword);
-        }
+        }*/
         return $keywords;
     }
     
