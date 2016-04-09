@@ -27,7 +27,7 @@ static function calculateKeyWordsWeight($keyWords, $url)
 
             foreach($majesticKeywords as $majesticKeyword)
             {
-                vat_dump(strpos($hashtag->getName(), $majesticKeyword));
+                var_dump(strpos($hashtag->getName(), $majesticKeyword));
                 if (strpos($hashtag->getName(), $majesticKeyword) !== false)
                 {
                     $hashtag->increamentWeightBy(2);
