@@ -9,7 +9,7 @@ static function calculateKeyWordsWeight($keyWords)
         $uniqueKeyWordCounts = array_count_values ($keyWords);
 
         arsort($uniqueKeyWordCounts);
-
+        vardump($uniqueKeyWordCounts);
         $hashTags  = array();
         foreach ($uniqueKeyWordCounts as $name => $weight) 
         {
