@@ -1,124 +1,92 @@
-// tagcloud
-(function(){
-    [].forEach.call( document.querySelectorAll('[tagcloud]'), function(cloud) {
-        // Find all tagcloud items with a weight defined and add them to this array
-        var weights = [].slice.call(cloud.querySelectorAll('[tagcloud-weight]'))
-                        .map(function(el){ return el.getAttribute('tagcloud-weight') })
-                        .sort(function(a, b){ return b-a }); // Sort descending
+/*!
+ * jquery.tagcloud.js
+ * A Simple Tag Cloud Plugin for JQuery
+ *
+ * https://github.com/addywaddy/jquery.tagcloud.js
+ * created by Adam Groves
+ */
+(function($) {
 
-        var upperBound = weights[0];
-        var lowerBound = weights[ weights.length - 1 ];
-        var denominator = upperBound - lowerBound;
-        var slideNotes = cloud.querySelectorAll('.notes');
-        var isBlackWhite = cloud.hasAttribute('bw');
+    /*global jQuery*/
+    "use strict";
 
-        /**
-         * Parses the text, removing any notes and formats each node with a span if one
-         * doesn't exist
-         *
-         * @param text {String} the text of the slide
-         * @returns {String} the formatted slide content
-         **/
-        function formatTags(text) {
-            for(index = 0; index < slideNotes.length; ++index) {
-                text = text.replace(slideNotes[index].textContent, '');
-            }
-            //@see http://stackoverflow.com/questions/24512636/split-words-shuffle-jumble-letters
-            var a = text.split(/\n/),
-            n = a.length;
+    var compareWeights = function(a, b)
+    {
+        return a - b;
+    };
 
-            if (cloud.hasAttribute('shuffle')) {
-                //shuffle order
-                for (var i = n - 1; i > 0; i--) {
-                    var j = Math.floor(Math.random() * (i + 1));
-                    var tmp = a[i];
-                    a[i] = a[j];
-                    a[j] = tmp;
-                }
-            } //end if shuffle
-
-            return a.filter(function(item) {
-                return item.trim() !== '';
-            })
-            .map(function(item) {
-            return ( item.indexOf('span') === -1 ) ? '<span>' + item.trim() + '</span> ' : item.trim();
-            })
-            .join("");
-
+    // Converts hex to an RGB array
+    var toRGB = function(code) {
+        if (code.length === 4) {
+            code = code.replace(/(\w)(\w)(\w)/gi, "\$1\$1\$2\$2\$3\$3");
         }
+        var hex = /(\w{2})(\w{2})(\w{2})/.exec(code);
+        return [parseInt(hex[1], 16), parseInt(hex[2], 16), parseInt(hex[3], 16)];
+    };
 
-        /**
-         * Calculates the size of the element.
-         * If one or more of the tags has a weight attribute, all sizes are based on weights.
-         * If none of the elements have weights, the sizes are random.
-         *
-         * @param {DOM Element} the tag to calculate the size of.
-         * @return {Number} the percentage to set the font size to
-         **/
-        function calcSize(elem) {
-            var prctnge;
+    // Converts an RGB array to hex
+    var toHex = function(ary) {
+        return "#" + jQuery.map(ary, function(i) {
+                var hex =  i.toString(16);
+                hex = (hex.length === 1) ? "0" + hex : hex;
+                return hex;
+            }).join("");
+    };
 
-            // At least one of our cloud items is weighted, base sizes around weights
-            if( weights.length > 0 ) {
-                var itemWeight = elem.getAttribute('tagcloud-weight') || 0;
-                var numerator = itemWeight - lowerBound;
-                prctnge = (numerator / denominator) * 150 + 50;
-            }
-            // None of the cloud items are weighted, base the size randomly
-            else {
-                prctnge = Math.random() * 150 + 50;
-            }
+    var colorIncrement = function(color, range) {
+        return jQuery.map(toRGB(color.end), function(n, i) {
+            return (n - toRGB(color.start)[i])/range;
+        });
+    };
 
-            if (cloud.hasAttribute('large')) {
-                prctnge = prctnge * 1.2;
-            }
-
-            return prctnge;
-        }
-
-        /**
-         * Applies a color to the tag.
-         * If one or more tags have a weight attribute, colors are more intense
-         * based on the weight. Otherwise colors, are chosen randomly.
-         *
-         * @param {DOM Element} the tag to color.
-         **/
-        function tagColor(elem, isBlackWhite) {
-            var color;
-
-            if (isBlackWhite) {
-                var col = Math.round(Math.random() * 155 + 100);
-                color = 'rgb('+ col  +',' + col + ',' + col + ')';
+    var tagColor = function(color, increment, weighting) {
+        var rgb = jQuery.map(toRGB(color.start), function(n, i) {
+            var ref = Math.round(n + (increment[i] * weighting));
+            if (ref > 255) {
+                ref = 255;
             } else {
-                color = 'hsl('+ Math.random()*360 +', 40%, 50%)';
+                if (ref < 0) {
+                    ref = 0;
+                }
             }
+            return ref;
+        });
+        return toHex(rgb);
+    };
 
-            return color;
+    $.fn.tagcloud = function(options) {
+
+        var opts = $.extend({}, $.fn.tagcloud.defaults, options);
+        var tagWeights = this.map(function(){
+            return $(this).attr("rel");
+        });
+        tagWeights = jQuery.makeArray(tagWeights).sort(compareWeights);
+        var lowest = tagWeights[0];
+        var highest = tagWeights.pop();
+        var range = highest - lowest;
+        if(range === 0) {range = 1;}
+        // Sizes
+        var fontIncr, colorIncr;
+        if (opts.size) {
+            fontIncr = (opts.size.end - opts.size.start)/range;
         }
-
-        // Replace the inner html of the slide with the formatted tags
-        cloud.innerHTML = formatTags(cloud.innerHTML);
-
-        // Append the slideNotes to the slide again
-        for(index = 0; index < slideNotes.length; ++index) {
-            cloud.appendChild(slideNotes[index]);
+        // Colors
+        if (opts.color) {
+            colorIncr = colorIncrement (opts.color, range);
         }
-
-        // Size and colour the cloud tags
-        [].forEach.call( cloud.querySelectorAll('span'), function(elem) {
-            elem.style.fontSize = calcSize(elem) + '%';
-            elem.classList.add('clouditem');
-            if( elem.hasAttribute('tagcloud-link') ) {
-                newelem = document.createElement('a');
-                newelem.innerHTML = elem.innerHTML;
-                newelem.style.color = tagColor(elem, isBlackWhite);
-                newelem.setAttribute('href', '/#/' + elem.getAttribute('tagcloud-link'));
-                elem.innerHTML = '';
-                elem.appendChild(newelem);
+        return this.each(function() {
+            var weighting = $(this).attr("rel") - lowest;
+            if (opts.size) {
+                $(this).css({"font-size": opts.size.start + (weighting * fontIncr) + opts.size.unit});
             }
-            else {
-                elem.style.color = tagColor(elem, isBlackWhite);
+            if (opts.color) {
+                $(this).css({"color": tagColor(opts.color, colorIncr, weighting)});
             }
         });
-    });
-})();
+    };
+
+    $.fn.tagcloud.defaults = {
+        size: {start: 14, end: 18, unit: "pt"}
+    };
+
+})(jQuery);
