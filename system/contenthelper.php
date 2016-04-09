@@ -1,21 +1,24 @@
 <?php
+// Contains the cookie for majestic
 include('init.php');
 class ContentHelper
 {
+    // Calculate the keywords weight and return an array of hashtags
     static function calculateKeyWordsWeight($keyWords, $url)
     {
-        $uniqueKeyWords = array_unique ($keyWords);
         $uniqueKeyWordCounts = array_count_values ($keyWords);
 
+        // Sort ascending
         arsort($uniqueKeyWordCounts);
-        //var_dump($uniqueKeyWordCounts);
 
-        //Majestic
+        // Take the url backlinks from Majestic
         $majesticKeywords = ContentHelper::getMajecticBacklinks($url);
 
         $hashTags  = array();
 
         $i=0;
+
+        // Creating hashtag objects O(n^2)
         foreach ($uniqueKeyWordCounts as $name => $weight)
         {
             if (strlen($name) < 3)
@@ -27,6 +30,7 @@ class ContentHelper
 
             $hashtag = new HashTag($name,$weight);
 
+            // Give more weight to keywords from backlinks
             foreach($majesticKeywords as $majesticKeyword)
             {
                 if (strpos($majesticKeyword, $hashtag->getName()) != false)
@@ -37,26 +41,27 @@ class ContentHelper
             array_push($hashTags,$hashtag);
         }
 
+        // Shuffling the array
         shuffle($hashTags);
 
         return $hashTags;
     }
 
-    //Return an array of kewwords
+    // Clear return an array of hashtags
     static function extractKeyWords($url)
     {
         $content = ContentHelper::extractContent($url);
 
-        $keyWords = explode(" ", $content);
-        $keyWords = preg_replace('/[0-9]+/', '', $keyWords);
-        $keyWords = array_filter($keyWords);
+        $keyWords = explode(" ", $content); // Creat an array from $content words
+        $keyWords = preg_replace('/[0-9]+/', '', $keyWords); // Remove numbers
+        $keyWords = array_filter($keyWords); // Remove empty values etc
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords, $url);
         
         return $newKeyWords;
     }
     
-    //Return a String clear from html, js, stopwords, smallwords
+    // Return a String clear from html, js, stopwords, smallwords
     static function extractContent($url)
     {
         $html = HtmlHelper::takeHtml($url);
@@ -67,6 +72,7 @@ class ContentHelper
         return $content;
     }
 
+    // Return an array of the url backlings (using cookie) taken from init.php
     function getMajecticBacklinks($url)
     {
         $fields_string = "format=Csv&MaxSourceURLsPerRefDomain=1&UsePrefixScan=0&index_data_source=Fresh&item=".urlencode($url)."&mode=0&request_name=ExplorerBacklinks&RefDomain=";
@@ -114,18 +120,17 @@ class ContentHelper
         return $keywords;
     }
     
-    static function remove2CharWords($input)
+    static function remove2CharWords($content)
     {
         return trim( preg_replace(
             "/[^a-z0-9']+([a-z0-9']{1,3}[^a-z0-9']+)*/i",
             " ",
-            " $input "
+            " $content "
         ) );
     }
 
     static function removeCommonWords($input)
     {
-
         // EEEEEEK Stop words
         //'January','February','March','April','May','June','July',
         //'August','September','October','November','December',

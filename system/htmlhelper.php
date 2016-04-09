@@ -12,6 +12,7 @@ class HtmlHelper
         return $data;
     }
 
+    // Return the html code of url
     static function takeHtml($url)
     {
         $html = '0';
@@ -30,6 +31,7 @@ class HtmlHelper
         return $html;
     }
 
+    // Removes scripts, styles, and clear html tags
     static function fixHtml($html)
     {
         $html = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $html);
@@ -39,6 +41,7 @@ class HtmlHelper
         return $html;
     }
 
+    // Return the <title> of the url
     static function findTitle($url)
     {
         $html = HtmlHelper::takeHtml($url);
@@ -51,6 +54,7 @@ class HtmlHelper
         return $title;
     }
 
+    // Return the og:image of the url
     static function findMainImage($url)
     {
         $html = HtmlHelper::takeHtml($url);

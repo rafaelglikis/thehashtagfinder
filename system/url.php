@@ -6,7 +6,7 @@ class Url
     private $image;
     private $hashTags  = array();
     
-    function __construct($url)
+    public function __construct($url)
     {
         $this->url = $url;
         $this->title = HtmlHelper::findTitle($url);
@@ -45,11 +45,12 @@ class Url
         $this->url = $url;
     }
 
-    function addHashTag($hashTag)
+    public function addHashTag($hashTag)
     {
         array_push($this->hashTags,$hashTag);
     }
 
+    
     public function getHashTags()
     {
         return $this->hashTags;

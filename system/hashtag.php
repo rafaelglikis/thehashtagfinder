@@ -4,33 +4,33 @@ class HashTag
     private $name;
     private $weight;
     
-    function __construct($name,$weight)
+    public function __construct($name,$weight)
     {
         $this->name = $name;
         $this->weight = $weight;
     }
 
-    function getName()
+    public function getName()
     {
         return $this->name;
     }
 
-    function getWeight()
+    public function getWeight()
     {
         return $this->weight;
     }
 
-    function setName($name)
+    public function setName($name)
     {
         $this->name = $name;
     }
 
-    function setWeight($weight)
+    public function setWeight($weight)
     {
         $this->weight = $weight;
     }
 
-    function increamentWeightBy($value)
+    public function increamentWeightBy($value)
     {
         $this->weight += $value;
     }

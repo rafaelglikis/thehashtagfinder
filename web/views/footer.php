@@ -1,3 +1,4 @@
+<!-- Footer -->
 <footer class="custom-footer navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
@@ -5,6 +6,7 @@
                 <br>
                 <p>Developed by <a href="http://rafael.glikis.net/">Rafael Glikis</a> for <a href="http://nextweb.ninja/">Web Ninja</a> contest.</p>
             </div>
+            <!-- Social Icons and Links -->
             <div class="col-xs-12 col-md-2 col-md-offset-6" id="custom-social">
                 <a href="http://www.facebook.com/rafael.glikis">
                     <i class="fa fa-facebook custom-footer-icon"></i>
