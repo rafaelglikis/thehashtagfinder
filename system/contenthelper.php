@@ -17,7 +17,6 @@ class ContentHelper
         $hashTags  = array();
 
         $i=0;
-
         // Creating hashtag objects O(n^2)
         foreach ($uniqueKeyWordCounts as $name => $weight)
         {
@@ -42,13 +41,18 @@ class ContentHelper
         }
 
         $uniqueMajesticKeyWordCounts = array_count_values ($majesticKeywords);
+        arsort($uniqueMajesticKeyWordCounts);
 
+        $i=0;
         foreach ($uniqueMajesticKeyWordCounts as $name => $weight)
         {
             if (strlen($name) < 3)
             {
                 break;
             }
+            $i++;
+            if($i>50) break;
+            
             $hashtag = new HashTag($name,$weight);
             array_push($hashTags,$hashtag);
         }
