@@ -7,10 +7,11 @@ class ContentHelper
     static function calculateKeyWordsWeight($keyWords, $url)
     {
         //Weights
-        $wordWeight = 1;
+        $wordWeight = 1; //mult
         $wordInBacklinksWeight = 1.1; //mult
         $backlinkWeigth = 3; //mult
         $backlinkInTitleWeigth = 2; //mult
+        $titleWeight = 10;
 
         $title = HtmlHelper::findTitle($url);
 
@@ -63,6 +64,7 @@ class ContentHelper
             {
                 break;
             }
+            $name = preg_replace("/[^A-Za-z0-9 ]/", '', $name);
             $i++;
             if($i>20) break;
 
@@ -75,7 +77,7 @@ class ContentHelper
             array_push($hashTags,$hashtag);
         }
 
-        $hashtag = new HashTag($title,10);
+        $hashtag = new HashTag($title,$titleWeight);
         array_push($hashTags,$hashtag);
 
         // Shuffling the array
@@ -91,7 +93,6 @@ class ContentHelper
 
         $keyWords = explode(" ", $content); // Creat an array from $content words
         $keyWords = preg_replace('/[0-9]+/', '', $keyWords); // Remove numbers
-        //$keyWords = preg_replace('\PL+', '', $keyWords); // Remove non-alphanumeric
         $keyWords = array_filter($keyWords); // Remove empty values etc
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords, $url);
