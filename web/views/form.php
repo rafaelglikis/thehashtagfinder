@@ -1,5 +1,8 @@
 <div class="container">
     <div class="row">
+        <ol class="breadcrumb">
+            <li class="active"><a href="#">Home</a></li>
+        </ol>
         <div class="col-xs-12 col-md-2 col-md-offset-2">
             <img src="images/hashtag_blue.png" alt="hashtag" style="height:125px; width:125px;">
         </div>
