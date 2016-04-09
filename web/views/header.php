@@ -17,8 +17,8 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="jumbotron">
+    <div class="jumbotron">
+        <div class="row">
             <div class="col-xs-12 col-md-3 col-md-offset-9">
                 <img src="../images/hashtag_blue.gif" class="img-responsive">
             </div>
