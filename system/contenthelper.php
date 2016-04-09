@@ -35,13 +35,13 @@ class ContentHelper
             {
                 if (strpos($majesticKeyword, $hashtag->getName()) != false)
                 {
-                    $hashtag->multWeight(2);
+                    $hashtag->multWeight(1.1);
                 }
             }
 
             if (strpos($title, $hashtag->getName()) != false)
             {
-                $hashtag->multWeight(3);
+                $hashtag->multWeight(2);
             }
 
             array_push($hashTags,$hashtag);
@@ -68,7 +68,7 @@ class ContentHelper
             }
             array_push($hashTags,$hashtag);
         }
-        
+
         $hashtag = new HashTag($title,10);
         array_push($hashTags,$hashtag);
 
