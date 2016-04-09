@@ -144,8 +144,6 @@ class ContentHelper
     static function removeCommonWords($input)
     {
         // EEEEEEK Stop words
-        //'January','February','March','April','May','June','July',
-        //'August','September','October','November','December',
         // https://gist.github.com/keithmorris/4155220
         $commonWords = array('a','able','about','above','abroad',
             'according','accordingly','across','actually','adj',
@@ -156,6 +154,8 @@ class ContentHelper
             'any','anybody','anyhow','anyone','anything','anyway','anyways',
             'anywhere','apart','appear','appreciate','appropriate',
             'are','aren\'t','around','as','a\'s','aside','ask','asking',
+            'January','February','March','April','May','June','July',
+            'August','September','October','November','December',
             'associated','at','available','away','awfully','b','back','backward',
             'backwards','be','became','because','become','becomes','becoming','been',
             'before','beforehand','begin','behind','being','believe','below','beside',
