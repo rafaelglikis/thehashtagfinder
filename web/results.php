@@ -111,7 +111,7 @@ $sourse = new Url($_POST["url"])
                                                 },
                                                 legend: {
                                                     maxWidth: 800,
-                                                    itemWidth: 120
+                                                    itemWidth: 200
                                                 },
                                                 data: [
                                                     {
