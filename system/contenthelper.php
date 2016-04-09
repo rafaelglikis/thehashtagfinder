@@ -13,7 +13,7 @@ static function calculateKeyWordsWeight($keyWords)
         $hashTags  = array();
         foreach ($uniqueKeyWordCounts as $name => $weight) 
         {
-            if($name = " " || $name = NULL)
+            if($name = "" || preg_match("/[0-9]+/", $name))
             {
                 break;
             }
