@@ -5,12 +5,12 @@ class ContentHelper
 
 static function calculateKeyWordsWeight($keyWords)
     {
-        $keyWords = array_filter($keyWords);
         $uniqueKeyWords = array_unique ($keyWords);
         $uniqueKeyWordCounts = array_count_values ($keyWords);
 
         arsort($uniqueKeyWordCounts);
         var_dump($uniqueKeyWordCounts);
+
         $hashTags  = array();
         foreach ($uniqueKeyWordCounts as $name => $weight) 
         {
@@ -18,7 +18,6 @@ static function calculateKeyWordsWeight($keyWords)
             
             array_push($hashTags,$hashtag);
         }
-
         return $hashTags;
     }
 
@@ -27,6 +26,9 @@ static function calculateKeyWordsWeight($keyWords)
     {
         $content = ContentHelper::extractContent($url);
         $keyWords = explode(" ", $content);
+
+        $keyWords = array_filter($keyWords);
+        $keyWords = preg_replace('/[0-9]+/', '', $keyWords);
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords);
         
