@@ -31,11 +31,10 @@ static function calculateKeyWordsWeight($keyWords, $url)
                 if (strpos($hashtag->getName(), $majesticKeyword) !== false)
                 {
                     $hashtag->increamentWeightBy(500);
+                    var_dump($hashtag);
                 }
             }
-            
             array_push($hashTags,$hashtag);
-
         }
 
         shuffle($hashTags);
