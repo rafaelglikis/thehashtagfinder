@@ -20,5 +20,6 @@
     <div class="jumbotron">
         <h1>The HashTag Finder</h1>
         <p>A Tool that process a given url and retrieves <strong>#hashtags</strong> from its content.</p>
+        <img src="../images/hashtag_blue.gif" class="img-responsive">
     </div>
 </div>
