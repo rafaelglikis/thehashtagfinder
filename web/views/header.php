@@ -23,7 +23,7 @@
                     <h1>The HashTag Finder</h1>
                     <p>A Tool that process a given url and retrieves <strong>#hashtags</strong> from its content.</p>
                 </div>
-                <div class="col-xs-12 col-md-3">
+                <div class="col-xs-3 col-xs-offset-9 col-md-3">
                     <img src="../images/hashtag_blue.gif" class="img-responsive">
                 </div>
             </div>
