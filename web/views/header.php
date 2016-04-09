@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-9 col-md-9">
                     <h1>The HashTag Finder</h1>
-                    <p>A URL content analysis tool</p>
+                    <p>URL content analysis tool</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3">
                     <img src="../images/hashtag_blue.gif" class="img-responsive">
