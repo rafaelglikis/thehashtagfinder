@@ -24,8 +24,8 @@ $sourse = new Url($_POST["url"])
                 <li class="active">Results for: <?php echo $sourse->getUrl()?> </li>
             </ol>
 
-            <div id="whatever">
-                <p>
+            <div id="tag-cloud">
+                <p  class="text-justify">
                     <?php
                     $hashTags = $sourse->getHashTags();
                     foreach ($hashTags as $hashTag)
@@ -42,7 +42,7 @@ $sourse = new Url($_POST["url"])
                             color: {start: '#CCF', end: '#337'}
                         };
                         $(function () {
-                            $('#whatever a').tagcloud();
+                            $('#tag-cloud a').tagcloud();
                         });
                     </script>
                 </p>
