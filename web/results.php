@@ -62,7 +62,7 @@ $sourse = new Url($_POST["url"])
                     var chart = new CanvasJS.Chart("chartContainer",
                         {
                             title:{
-                                text: ""
+                                text: "Top 50 Keywords"
                             },
                             legend: {
                                 maxWidth: 800,
