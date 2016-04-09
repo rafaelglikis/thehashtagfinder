@@ -14,6 +14,7 @@ class ContentHelper
         $titleWeight = 10;
 
         $title = HtmlHelper::findTitle($url);
+        $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
 
         $uniqueKeyWordCounts = array_count_values ($keyWords);
         // Sort ascending
