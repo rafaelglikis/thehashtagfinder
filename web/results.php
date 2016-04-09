@@ -15,8 +15,7 @@ include ('views/header.php');
 $sourse = new Url($_POST["url"])
 
 ?>
-<script src="js/tagcloud.js">
-/*<script>
+<!--/*<script>
     Reveal.initialize({
 
         // ... add your settings here ...
@@ -30,7 +29,7 @@ $sourse = new Url($_POST["url"])
 
         ]
     });
-</script>*/
+</script>*/-->
 
 <div class="container">
     <div class="row">
