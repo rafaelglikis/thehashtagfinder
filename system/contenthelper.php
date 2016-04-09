@@ -58,7 +58,7 @@ class ContentHelper
         $uniqueMajesticKeyWordCounts = array_count_values ($majesticKeywords);
 
         arsort($uniqueMajesticKeyWordCounts);
-        var_dump($uniqueMajesticKeyWordCounts);
+        //var_dump($uniqueMajesticKeyWordCounts);
         $i=0;
         foreach ($uniqueMajesticKeyWordCounts as $name => $weight)
         {
@@ -99,6 +99,7 @@ class ContentHelper
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords, $url);
         foreach ($newKeyWords as $newKeyWord)
         {
+            var_dump(str_replace('', '_',$newKeyWord->getName()));
             $newName = '#' . str_replace('', '_',$newKeyWord->getName());
             $newKeyWord->setName($newName);
         }
