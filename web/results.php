@@ -106,7 +106,14 @@ $sourse = new Url($_POST["url"])
                         <div role="tabpanel" class="panel-collapse collapse"
                              id="hashTags"    aria-labelledby="headingHashTags">
                             <div class="panel-body">
-                                <p></p>
+                                <p>
+                                    <?php
+                                    foreach ($hashTags as $hashTag)
+                                    {
+                                        echo $hashTag->getWeight() . "\t" . $hashTag->getName()  . "\n";
+                                    }
+                                    ?>">
+                                </p>
                             </div>
                         </div>
                     </div>
