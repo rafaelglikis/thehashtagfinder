@@ -58,7 +58,7 @@ class ContentHelper
         $uniqueMajesticKeyWordCounts = array_count_values ($majesticKeywords);
 
         arsort($uniqueMajesticKeyWordCounts);
-        var_dump($keywords);
+        var_dump($uniqueMajesticKeyWordCounts);
         $i=0;
         foreach ($uniqueMajesticKeyWordCounts as $name => $weight)
         {
