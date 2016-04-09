@@ -23,18 +23,18 @@ $sourse = new Url($_POST["url"])
                  role="tablist" aria-multiselectable="true">
                 <div class="tab-content">
                     <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingPeter">
+                        <div class="panel-heading" role="tab" id="headingTitle">
                             <h3 class="panel-title">
                                 <a role="button" data-toggle="collapse"
-                                   data-parent="#accordion" href="#peter"
-                                   aria-expanded="true" aria-controls="peter">
-                                    Peter Pan <small>Chief Epicurious Officer</small></a>
+                                   data-parent="#accordion" href="#title"
+                                   aria-expanded="true" aria-controls="title">
+                                    Title <small>Title of given url</small></a>
                             </h3>
                         </div>
                         <div role="tabpanel" class="panel-collapse collapse in"
-                             id="peter"    aria-labelledby="headingPeter">
+                             id="title"    aria-labelledby="headingTitle">
                             <div class="panel-body">
-                                <p>Our CEO, Peter, credits his hardworking East Asian immigrant parents who undertook the arduous journey to the shores of America with the intention of giving their children the best future. His mother's wizardy in the kitchen whipping up the tastiest dishes with whatever is available inexpensively at the supermarket, was his first inspiration to create the fusion cuisines for which <em>The Frying Pan</em> became well known. He brings his zeal for fusion cuisines to this restaurant, pioneering cross-cultural culinary connections.</p>
+                                <p><?php echo $sourse->getTitle()?></p>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ $sourse = new Url($_POST["url"])
                     </div>
                 </div>
             </div>
-            <h2><?php echo $sourse->getTitle()?></h2>
+            <h2></h2>
             <p>Url: <?php echo $sourse->getUrl()?></p>
             <img src="<?php echo $sourse->getImage()?>"
                  alt="<?php echo $sourse->getTitle()?>">
