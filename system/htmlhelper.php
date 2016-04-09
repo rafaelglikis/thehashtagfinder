@@ -75,6 +75,14 @@ class HtmlHelper
         {
             return $image;
         }
-        return NULL;
+        else
+        {
+            $html = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $html);
+            $html = preg_replace('#<style(.*?)>(.*?)</style>#is', '', $html);
+            $image = TextHelper::strCut($html, '<img src=">');
+            $image = TextHelper::strCut($image ,'"');
+            var_dump($image);
+        }
+        //return $image;
     }
 }
