@@ -67,7 +67,8 @@ $sourse = new Url($_POST["url"])
                                 text: "Keywords weight chart"
                             },
                             legend: {
-                                maxWidth: 500,
+                                width:500
+                                //maxWidth: 500,
                                 itemWidth: 120
                             },
                             data: [
