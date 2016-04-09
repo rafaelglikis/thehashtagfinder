@@ -25,7 +25,7 @@
                 </form>
             </div>
         </div>
-        <div class="col-xs-12 col-md-2">
-        </div>
+        <div class="col-xs-12 col-md-2"></div>
+        <br><br><br><br><br><br><br>
     </div>
 </div>
