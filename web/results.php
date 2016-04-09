@@ -23,6 +23,31 @@ $sourse = new Url($_POST["url"])
                 <li><a href="index.php">Home</a></li>
                 <li class="active">Results for: <?php echo $sourse->getUrl()?> </li>
             </ol>
+
+            <div id="whatever">
+                <p>
+                    <?php
+                    $hashTags = $sourse->getHashTags();
+                    foreach ($hashTags as $hashTag)
+                    {
+                        ?>
+                        <a href="#" rel="<?php echo $hashTag->getWeight() ?>">
+                            <?php echo $hashTag->getName() ?></a>
+                        <?php
+                    }
+                    ?>
+                    <script>
+                        $.fn.tagcloud.defaults = {
+                            size: {start: 10, end: 26, unit: 'pt'},
+                            color: {start: '#CCF', end: '#337'}
+                        };
+                        $(function () {
+                            $('#whatever a').tagcloud();
+                        });
+                    </script>
+                </p>
+            </div>
+            
             <div class="panel-group" id="accordion"
                  role="tablist" aria-multiselectable="true">
                 <div class="tab-content">
@@ -71,29 +96,7 @@ $sourse = new Url($_POST["url"])
                         <div role="tabpanel" class="panel-collapse collapse"
                              id="tagcloud"    aria-labelledby="headingAgumbe">
                             <div class="panel-body">
-                                <div id="whatever">
-                                    <p>
-                                        <?php
-                                        $hashTags = $sourse->getHashTags();
-                                        foreach ($hashTags as $hashTag)
-                                        {
-                                            ?>
-                                            <a href="#" rel="<?php echo $hashTag->getWeight() ?>">
-                                                <?php echo $hashTag->getName() ?></a>
-                                            <?php
-                                        }
-                                        ?>
-                                        <script>
-                                            $.fn.tagcloud.defaults = {
-                                                size: {start: 10, end: 26, unit: 'pt'},
-                                                color: {start: '#CCF', end: '#337'}
-                                            };
-                                            $(function () {
-                                                $('#whatever a').tagcloud();
-                                            });
-                                        </script>
-                                    </p>
-                                </div>
+
                             </div>
                         </div>
                     </div>
