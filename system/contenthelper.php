@@ -25,10 +25,10 @@ static function calculateKeyWordsWeight($keyWords)
     static function extractKeyWords($url)
     {
         $content = ContentHelper::extractContent($url);
+        
         $keyWords = explode(" ", $content);
-
-        $keyWords = array_filter($keyWords);
         $keyWords = preg_replace('/[0-9]+/', '', $keyWords);
+        $keyWords = array_filter($keyWords);
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords);
         
