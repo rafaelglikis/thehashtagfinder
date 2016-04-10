@@ -103,6 +103,21 @@ class ContentHelper
         return $newKeyWords;
     }
 
+    static function extractHeading1Keywords($url)
+    {
+        $html = file_get_contents($url);
+        $dom = new DOMDocument;
+        $dom->loadHTML($html);
+        $headings = array();
+        $keywords = $dom->getElementsByTagName('h1');
+        foreach ($keywords as $keyword) {
+            $heading = $keyword->nodeValue;
+            $heading = preg_replace("/[^A-Za-z ]/", '',  $heading);
+            array_push($headings, $heading);
+        }
+        return $headings;
+    }
+
     static function extractStrongKeywords($url)
     {
         $html = file_get_contents($url);
@@ -115,7 +130,6 @@ class ContentHelper
             $strong = preg_replace("/[^A-Za-z ]/", '',  $strong);
             array_push($strongs, $strong);
         }
-        var_dump($strongs);
         return $strongs;
     }
     
@@ -335,4 +349,4 @@ class ContentHelper
 
 }
 
-ContentHelper::extractStrongKeywords('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');
+ContentHelper::extractHeading1Keywords('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');
