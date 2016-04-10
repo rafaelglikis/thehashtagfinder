@@ -90,7 +90,7 @@ class HtmlHelper
                 $image = $image->getAttribute('src');
                 break;
             }
-            if (!filter_var($url, FILTER_VALIDATE_URL) !== false)
+            if (!filter_var($image, FILTER_VALIDATE_URL) !== false)
             {
                 $image = $url . $image;
             }
