@@ -153,6 +153,10 @@ class ContentHelper
             if($i>$keywordCount) { break;}
 
             $hashtag = new HashTag($name,$weight);
+            if(strlen($hashtag->getName()) < 1)
+            {
+                break;
+            }
             array_push($hashTags,$hashtag);
         }
 
