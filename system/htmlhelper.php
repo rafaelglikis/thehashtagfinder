@@ -82,7 +82,7 @@ class HtmlHelper
         {
             $html = file_get_contents($url);
             $dom = new domDocument;
-            $dom->loadHTML($html);
+            @$dom->loadHTML($html);
             $dom->preserveWhiteSpace = false;
             $images = $dom->getElementsByTagName('img');
             foreach ($images as $image)
@@ -106,17 +106,15 @@ class HtmlHelper
     {
         $html = file_get_contents($url);
         $dom = new domDocument;
-        $dom->loadHTML($html);
-        $dom->preserveWhiteSpace = false;
+        @$dom->loadHTML($html);
         $images = $dom->getElementsByTagName('img');
         var_dump($images);
         $altTexts = [];
         foreach ($images as $image)
         {
-            $alt = $image->getAttribute('alt');
+            echo $image->getAttribute('alt');
             array_push($altTexts,$alt);
         }
-        var_dump($altTexts);
     }
 }
 
