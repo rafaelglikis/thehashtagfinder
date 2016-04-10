@@ -163,7 +163,7 @@ class ContentHelper
         // Creating Hashtag Objects
         $hashTags  = array();
         array_push($hashTags,new HashTag($title,$titleWeight));
-
+        var_dump($hashTags);
         $i=0;
         foreach ($uniqueStrongs as $name => $weight)
         {
