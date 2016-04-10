@@ -253,7 +253,7 @@ class ContentHelper
 
         // Shuffling the array
         shuffle($hashTags);
-
+        var_dump($hashTags);
         return $hashTags;
     }
 
