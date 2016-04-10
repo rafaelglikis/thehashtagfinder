@@ -115,7 +115,10 @@ class HtmlHelper
                 }
                 $image = $url . $image;
             }
-            return $image;
+            if (!filter_var($image, FILTER_VALIDATE_URL) !== false)
+            {
+                return $image;
+            }
         }
         return NULL;
     }
