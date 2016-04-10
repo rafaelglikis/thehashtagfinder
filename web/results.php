@@ -75,53 +75,10 @@ $sourse = new Url($_POST["url"])
                     <br>
                     <br>
                     <!-- Chart -->
-                    <script type="text/javascript">
-                        window.onload = function () {
-                            var chart = new CanvasJS.Chart("chartContainer",
-                                {
-                                    theme: "theme1",
-                                    title:{
-                                        text: "Keywords weight chart",
-                                        fontSize: 25
-                                    },
-                                    legend: {
-                                        //maxWidth: 500,
-                                        itemWidth: 120
-                                    },
-                                    height:400,
-                                    width:500,
-                                    data: [
-                                        {
-                                            type: "pie"
-                                            showInLegend: false,
-                                            legendText: "{indexLabel}",
-                                            dataPoints: [
-                                                    <?php
-                                                    $i=0;
-                                                    $len = count($hashTags);
-                                                    foreach ($hashTags as $hashTag)
-                                                    {
-                                                    ?>{ y: <?php echo $hashTag->getWeight()?>,
-                                                    indexLabel:"<?php echo $hashTag->getName()?>" }<?php if ($i == $len - 1) break;?>,
-                                                <?php $i++;?>
-                                                <?php
-                                                }
-                                                ?>
-                                            ]
-                                        }
-                                    ]
-                                });
-                            chart.render();
-                        }
-                    </script>
-                    <script type="text/javascript" src="js/canvasjs.min.js"></script>
-                    <div class="col-xs-12 col-md-6 col-md-offset-3" id="chartContainer"
-                         style="height: 500px; width: 100%;"></div>
-
                     <script src="js/Chart.js"></script>
 
-                    <div id="canvas-holder">
-                        <canvas id="chart-area" width="300" height="300"/>
+                    <div id="row row-centered canvas-holder">
+                        <canvas id="chart-area" width="500" height="500"/>
                     </div>
 
 
@@ -143,30 +100,6 @@ $sourse = new Url($_POST["url"])
                             <?php
                             }
                             ?>
-                            /*{
-                                value: 50,
-                                color: "#46BFBD",
-                                highlight: "#5AD3D1",
-                                label: "Green"
-                            },
-                            {
-                                value: 100,
-                                color: "#FDB45C",
-                                highlight: "#FFC870",
-                                label: "Yellow"
-                            },
-                            {
-                                value: 40,
-                                color: "#949FB1",
-                                highlight: "#A8B3C5",
-                                label: "Grey"
-                            },
-                            {
-                                value: 120,
-                                color: "#4D5360",
-                                highlight: "#616774",
-                                label: "Dark Grey"
-                            }*/
                         ];
                         window.onload = function(){
                             var ctx = document.getElementById("chart-area").getContext("2d");
