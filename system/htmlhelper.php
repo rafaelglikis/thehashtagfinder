@@ -94,6 +94,7 @@ class HtmlHelper
             {
                 $image = $url . $image;
             }
+            var_dump($image);
             return $image;
         }
         
