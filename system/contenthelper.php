@@ -89,7 +89,7 @@ class ContentHelper
     }
     
         // Clear return an array of hashtags
-    static function takeKeyWords($url)
+    static function takeHashTags($url)
     {
         $keyWords = ContentHelper::extractContentKeywords($url);
         
