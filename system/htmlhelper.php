@@ -6,6 +6,7 @@ class HtmlHelper
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
         $data = curl_exec($ch);
         curl_close($ch);
 
@@ -14,34 +15,6 @@ class HtmlHelper
 
     // Return the html code of url
     static function takeHtml($url)
-    {
-        $client = Client::getInstance();
-
-        /**
-         * @see JonnyW\PhantomJs\Http\Request
-         **/
-        $request = $client->getMessageFactory()->createRequest($url ,'GET');
-
-        /**
-         * @see JonnyW\PhantomJs\Http\Response
-         **/
-        $response = $client->getMessageFactory()->createResponse();
-
-// Send the request
-        $client->send($request, $response);
-
-        if($response->getStatus() === 200) {
-
-            // Dump the requested page content
-            return $response->getContent();
-        }
-        else {
-            return takeHtmlClassic($url);
-        }
-    }
-
-    // Return the html code of url
-    static function takeHtmlClassic($url)
     {
         $html = '0';
         $html = file_get_contents($url);

@@ -1,20 +1,8 @@
 {
   "require" : {
-    "jakoch/phantomjs-installer": "2.1.1",
-    "jonnyw/php-phantomjs": "4.*"
+
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
-  },
-  "config": {
-    "bin-dir": "bin"
-  },
-  "scripts": {
-    "post-install-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
-    ],
-    "post-update-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
-    ]
   }
 }
