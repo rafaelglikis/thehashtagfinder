@@ -152,22 +152,18 @@ class ContentHelper
             $i++;
             if($i>$keywordCount) { break;}
 
+            // Add # and replace < >,<-> with <_>
+            $name = trim($name);
+            $name = str_replace("- ", "", $name);
+            $name = str_replace("-", "", $name);
+            $name = "#" . str_replace(" ", "_",$name);
+                
             $hashtag = new HashTag($name,$weight);
             if(strlen($hashtag->getName()) < 1)
             {
                 break;
             }
             array_push($hashTags,$hashtag);
-        }
-
-        // Add # and replace < > with <_>
-        foreach ($hashTags as &$hashTag)
-        {
-            var_dump(trim($hashTag->getName()));
-            $name = str_replace("- ", "", trim($hashTag->getName()));
-            $name = str_replace("-", "", $name);
-            $name = "#" . str_replace(" ", "_",$name);
-            $hashTag->setName($name);
         }
 
         // Shuffling the array
