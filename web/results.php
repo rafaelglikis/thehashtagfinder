@@ -133,13 +133,13 @@ $sourse = new Url($_POST["url"])
                             foreach ($hashTags as $hashTag)
                             {
                             ?>
-                            {
-                                value: <?php echo $hashTag->getWeight()?>,
-                                color:"#F7464A",
-                                highlight: "#FF5A5E",
-                                label: <?php echo $hashTag->getName()?>
-                            }<?php if ($i > 20) break;?>,
-                            <?php $i++;?>
+                                {
+                                    value: <?php echo $hashTag->getWeight()?>,
+                                    color:"#F7464A",
+                                    highlight: "#FF5A5E",
+                                    label: "<?php echo $hashTag->getName()?>"
+                                }<?php if ($i > 20) break;?>,
+                                <?php $i++;?>
                             <?php
                             }
                             ?>
