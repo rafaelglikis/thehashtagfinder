@@ -147,6 +147,8 @@ class ContentHelper
         $title = trim($title);
         $title = str_replace("- ", "", $title);
         $title = str_replace("-", "", $title);
+        $title = str_replace("– ", "", $title);
+        $title = str_replace("–", "", $title);
         $title = "#" . str_replace(" ", "_",$title);
         array_push($hashTags,new HashTag($title,$titleWeight));
 
