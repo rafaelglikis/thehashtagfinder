@@ -85,9 +85,16 @@ class HtmlHelper
             $dom->loadHTML($html);
             $dom->preserveWhiteSpace = false;
             $images = $dom->getElementsByTagName('img');
-            foreach ($images as $image) {
-                echo $image->getAttribute('src');
+            foreach ($images as $image)
+            {
+                $image = $image->getAttribute('src');
+                break;
             }
+            if (!filter_var($url, FILTER_VALIDATE_URL) !== false)
+            {
+                $image = $url . $image;
+            }
+            return $image;
         }
         
         return NULL;
