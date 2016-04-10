@@ -6,7 +6,7 @@ class HtmlHelper
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-        //curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
+        curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
         $data = curl_exec($ch);
         curl_close($ch);
 
@@ -17,9 +17,9 @@ class HtmlHelper
     static function takeHtml($url)
     {
         $html = '0';
-        $html = file_get_contents($url);
+        //$html = file_get_contents($url);
 
-        if ($html == '0')
+        /*if ($html == '0')
         {
             ///*/**/*/print "file_get_contents_failed!\n";
             //print "Trying cURL!\n";
@@ -28,7 +28,10 @@ class HtmlHelper
             {
                 //print "Failed to get url content.\n";
             }
-        }
+        }*/
+
+        $html = HtmlHelper::curl($url);
+
         return $html;
     }
 
