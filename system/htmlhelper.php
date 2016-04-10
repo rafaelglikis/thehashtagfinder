@@ -111,8 +111,9 @@ class HtmlHelper
 
         $tags = $doc->getElementsByTagName('img');
 
-        foreach ($tags as $tag) {
-            echo $tag->getAttribute('src');
+        foreach ($tags as $tag)
+        {
+            echo $tag->attributes->getNamedItem('alt')->nodeValue;
         }
     }
 }
