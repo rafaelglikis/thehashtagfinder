@@ -9,7 +9,7 @@ class ContentHelper
         $html = HtmlHelper::takeHtml($url);
         
         // Weights
-        $titleWeight = 100;
+        $titleWeight = 50;
         $strongKeywordWeight = 17;
         $altKeywordWeight = 15;
         $backlingCaptionWeight = 12;
