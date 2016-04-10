@@ -115,6 +115,7 @@ class ContentHelper
             $heading = preg_replace("/[^A-Za-z ]/", '',  $heading);
             array_push($headings, $heading);
         }
+        var_dump($headings);
         return $headings;
     }
 
@@ -125,7 +126,8 @@ class ContentHelper
         $dom->loadHTML($html);
         $strongs = array();
         $strongKeywords = $dom->getElementsByTagName('strong');
-        foreach ($strongKeywords as $strongKeyword) {
+        foreach ($strongKeywords as $strongKeyword)
+        {
             $strong = $strongKeyword->nodeValue;
             $strong = preg_replace("/[^A-Za-z ]/", '',  $strong);
             array_push($strongs, $strong);
