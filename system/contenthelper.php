@@ -46,57 +46,59 @@ class ContentHelper
             $strong = strtolower($strong);
         }
         $uniqueStrongs = array_count_values($strongs);
+        arsort($uniqueStrongs); // Sort ascending
 
         foreach ($alts as &$alt)
         {
             $alt = strtolower($alt);
         }
         $uniqueAlts = array_count_values($alts);
+        arsort($uniqueAlts); // Sort ascending
 
         foreach ($h1s as &$h1)
         {
             $h1 = strtolower($h1);
         }
         $uniqueH1s = array_count_values($h1s);
+        arsort($uniqueH1s); // Sort ascending
 
         foreach ($h2s as &$h2)
         {
             $h2 = strtolower($h2);
         }
         $uniqueH2s = array_count_values($h2s);
+        arsort($uniqueH2s); // Sort ascending
 
         foreach ($h3s as &$h3)
         {
             $h3 = strtolower($h3);
         }
         $uniqueH3s = array_count_values($h3s);
+        arsort($uniqueH3s); // Sort ascending
 
         foreach ($metas as &$meta)
         {
             $meta = strtolower($meta);
         }
         $uniqueMetas = array_count_values($metas);
+        arsort($uniqueMetas); // Sort ascending
 
         foreach ($backlingCaptions as &$backlingCaption)
         {
             $backlingCaption = strtolower($backlingCaption);
         }
         $uniqueBacklingCaptions = array_count_values($backlingCaptions);
+        arsort($uniqueBacklingCaptions); // Sort ascending
 
         foreach ($contents as &$content)
         {
             $content = strtolower($contents);
         }
         $uniqueContents = array_count_values($contents);
-        var_dump($uniqueContents);
-
-        $uniqueKeywords = array_merge($uniqueStrongs,$uniqueAlts,$uniqueH1s,$uniqueH2s,$uniqueH3s,$uniqueMetas,$uniqueBacklingCaptions.$uniqueContents);
-        arsort($uniqueKeywords); // Sort ascending
-
-        //var_dump($uniqueKeywords);
+        arsort($uniqueContents); // Sort ascending
 
         // Creating Hashtag Objects
-        /*$hashTags  = array();
+        $hashTags  = array();
         array_push($hashTags,new HashTag($title,$titleWeight));
         $i=0;
         foreach ($uniqueStrongs as $name => $weight)
@@ -184,7 +186,7 @@ class ContentHelper
 
             $hashtag = new HashTag($name,$weight*$contentKeywordWeight);
             array_push($hashTags,$hashtag);
-        }*/
+        }
 
         // Shuffling the array
         shuffle($hashTags);
