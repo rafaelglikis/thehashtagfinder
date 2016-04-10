@@ -18,14 +18,14 @@ class ContentHelper
         $contentKeywordWeight = 0.5;
 
         // Count - Set Limit each tag
-        $strongKeywordCount = 10;
+        /*$strongKeywordCount = 10;
         $altKeywordCount = 10;
         $backlingCaptionCount = 10;
         $h1KeywordCount = 10;
         $metaKeywordCount = 10;
         $h2KeywordCount = 10;
         $h3KeywordCount = 10;
-        $contentKeywordCount = 10;
+        $contentKeywordCount = 10;*/
 
         // KeyWords Initialize
         $title = HtmlHelper::findTitle($url);
@@ -152,9 +152,23 @@ class ContentHelper
 
 
         // Creating Hashtag Objects
+        $keywordCount = 50;
         $hashTags  = array();
         array_push($hashTags,new HashTag($title,$titleWeight));
+
         $i=0;
+        foreach ($uniqueKeywords as $name => $weight)
+        {
+            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
+            $i++;
+            if($i>$keywordCount) { break;}
+
+            $hashtag = new HashTag($name,$weight);
+            array_push($hashTags,$hashtag);
+        }
+
+
+        /*$i=0;
         foreach ($uniqueStrongs as $name => $weight)
         {
             if (strlen($name) < 3 || strlen($name) > 35) { continue;}
@@ -249,7 +263,7 @@ class ContentHelper
         {
             $name = "#" . str_replace(" ", "_",trim($hashTag->getName()));
             $hashTag->setName($name);
-        }
+        }*/
 
         return $hashTags;
     }
