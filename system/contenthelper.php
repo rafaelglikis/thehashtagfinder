@@ -29,6 +29,7 @@ class ContentHelper
         // KeyWords Initialize
         $title = HtmlHelper::findTitle($url);
         $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
+        $title = strtolower($title);
         $strongs = ContentHelper::extractStrongKeywords($url);
         $alts = ContentHelper::extractImagesAlts($url);
         $h1s = ContentHelper::extractHeading1Keywords($url);
@@ -39,27 +40,59 @@ class ContentHelper
         $contents = ContentHelper::extractContentKeywords($url);
 
         // Clear multiple values and add weight to them
+        foreach ($strongs as &$strong)
+        {
+            $strong = strtolower($strong);
+        }
         $uniqueStrongs = array_count_values($strongs);
         arsort($uniqueStrongs); // Sort ascending
 
+        foreach ($alts as &$alt)
+        {
+            $alt = strtolower($alt);
+        }
         $uniqueAlts = array_count_values($alts);
         arsort($uniqueAlts); // Sort ascending
 
+        foreach ($h1s as &$h1)
+        {
+            $h1 = strtolower($h1);
+        }
         $uniqueH1s = array_count_values($h1s);
         arsort($uniqueH1s); // Sort ascending
 
+        foreach ($h2s as &$h2)
+        {
+            $h2 = strtolower($h2);
+        }
         $uniqueH2s = array_count_values($h2s);
         arsort($uniqueH2s); // Sort ascending
 
+        foreach ($h3s as &$h3)
+        {
+            $h3 = strtolower($h3);
+        }
         $uniqueH3s = array_count_values($h3s);
         arsort($uniqueH3s); // Sort ascending
 
+        foreach ($metas as &$meta)
+        {
+            $meta = strtolower($meta);
+        }
         $uniqueMetas = array_count_values($metas);
         arsort($uniqueMetas); // Sort ascending
 
+        foreach ($backlingCaptions as &$backlingCaption)
+        {
+            $backlingCaption = strtolower($backlingCaption);
+        }
         $uniqueBacklingCaptions = array_count_values($backlingCaptions);
         arsort($uniqueBacklingCaptions); // Sort ascending
 
+        foreach ($contents as &$content)
+        {
+            $content = strtolower($contents);
+        }
         $uniqueContents = array_count_values($contents);
         arsort($uniqueContents); // Sort ascending
 
