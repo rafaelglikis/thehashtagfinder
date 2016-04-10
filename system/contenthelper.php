@@ -111,7 +111,7 @@ class ContentHelper
         $metaKeywordWeight = 9;
         $h2KeywordWeight = 8;
         $h3KeywordWeight = 5;
-        $contentKeywordWeight = 1;
+        $contentKeywordWeight = 0.5;
 
         // Count - Set Limit each tag
         $strongKeywordCount = 10;
@@ -253,7 +253,6 @@ class ContentHelper
 
         // Shuffling the array
         shuffle($hashTags);
-        var_dump($hashTags);
         return $hashTags;
     }
 
