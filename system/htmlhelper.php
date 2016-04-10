@@ -102,47 +102,4 @@ class HtmlHelper
         }
         return NULL;
     }
-
-    // Return an array of url image alts
-    static function findImagesAlts($url)
-    {
-        $html = file_get_contents($url);
-
-        $doc = new DOMDocument();
-        @$doc->loadHTML($html);
-
-        $tags = $doc->getElementsByTagName('img');
-        $alts = array();
-        foreach ($tags as $tag)
-        {
-            if(strlen($tag->attributes->getNamedItem('alt')->nodeValue) <3)
-            {
-                continue;
-            }
-            array_push($alts, $tag->attributes->getNamedItem('alt')->nodeValue);
-        }
-        return $alts;
-    }
-
-    static function findMetaDescriptionDescription($link)
-    {
-        $html = HtmlHelper::takeHtml($link);
-        $doc = new DOMDocument();
-        @$doc->loadHTML($html);
-        $metas = $doc->getElementsByTagName('meta');
-        $description = NULL;
-        for ($i = 0; $i < $metas->length; $i++)
-        {
-            $meta = $metas->item($i);
-            if($meta->getAttribute('property') == 'og:description')
-            {
-                $description = $meta->getAttribute('content');
-                var_dump($description);
-                return $description;
-            }
-        }
-        return $description;
-    }
 }
-
-HtmlHelper::findMetaDescriptionDescription('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');

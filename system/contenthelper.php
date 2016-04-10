@@ -88,8 +88,17 @@ class ContentHelper
         return $hashTags;
     }
 
-    // Clear return an array of hashtags
-    static function extractKeyWords($url)
+    static function stringToArray($string)
+    {
+        $words = explode(" ", $string); // Creat an array from $content words
+        $words = preg_replace('/[0-9]+/', '', $string); // Remove numbers
+        $words = array_filter($string); // Remove empty values etc
+
+        return $words;
+    }
+
+        // Clear return an array of hashtags
+    static function extractContentKeyWords($url)
     {
         $content = ContentHelper::extractContent($url);
 
@@ -171,6 +180,48 @@ class ContentHelper
             $keyword = trim($keyword);
         }
         return $keywords;
+    }
+
+    // Return an array of url image alts
+    static function findImagesAlts($url)
+    {
+        $html = file_get_contents($url);
+
+        $doc = new DOMDocument();
+        @$doc->loadHTML($html);
+
+        $tags = $doc->getElementsByTagName('img');
+        $alts = array();
+        foreach ($tags as $tag)
+        {
+            if(strlen($tag->attributes->getNamedItem('alt')->nodeValue) <3)
+            {
+                continue;
+            }
+            array_push($alts, $tag->attributes->getNamedItem('alt')->nodeValue);
+        }
+        return $alts;
+    }
+
+    static function findMetaDescriptionDescriptionTags($link)
+    {
+        $html = HtmlHelper::takeHtml($link);
+        $doc = new DOMDocument();
+        @$doc->loadHTML($html);
+        $metas = $doc->getElementsByTagName('meta');
+        $description = NULL;
+        for ($i = 0; $i < $metas->length; $i++)
+        {
+            $meta = $metas->item($i);
+            if($meta->getAttribute('property') == 'og:description')
+            {
+                $description = $meta->getAttribute('content');
+                return $description;
+            }
+        }
+        $keyWords = stringToArray($description);
+        var_dump($keyWords);
+        return $keyWords;
     }
     
     static function remove2CharWords($content)
@@ -268,3 +319,5 @@ class ContentHelper
         return preg_replace('/\b('.implode('|',$commonWords).')\b/','',$input);
     }
 }
+
+ContentHelper::findMetaDescriptionDescriptionTags('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');
