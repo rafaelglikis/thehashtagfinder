@@ -144,7 +144,10 @@ class ContentHelper
         $keywordCount = 50;
         $hashTags  = array();
 
-        $title =
+        $title = trim($title);
+        $title = str_replace("- ", "", $title);
+        $title = str_replace("-", "", $title);
+        $title = "#" . str_replace(" ", "_",$title);
         array_push($hashTags,new HashTag($title,$titleWeight));
 
         $i=0;
