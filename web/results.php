@@ -79,6 +79,7 @@ $sourse = new Url($_POST["url"])
 
                         <div id="canvas-holder">
                             <center>
+                                <p> Hashtag weights </p>
                                 <canvas id="chart-area" width="500" height="500"/>
                             </center>
                         </div>
