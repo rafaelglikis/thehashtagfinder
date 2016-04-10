@@ -167,7 +167,7 @@ class ContentHelper
         $i=0;
         foreach ($uniqueStrongs as $name => $weight)
         {
-            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
             $i++;
             if($i>$strongKeywordCount) { break;}
 
