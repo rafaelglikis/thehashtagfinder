@@ -76,14 +76,10 @@ $sourse = new Url($_POST["url"])
                     <br>
                     <!-- Chart -->
                     <script src="js/Chart.js"></script>
-                    <div class="container">
-                        <div class="row">
-                            <div id="col-md-6 col-md-offset-3 canvas-holder">
+
+                            <div id="center-block canvas-holder">
                                 <canvas id="chart-area" width="500" height="500"/>
                             </div>
-                        </div>
-                    </div>
-
 
                     <script>
                         function getRandomInt(min, max)
