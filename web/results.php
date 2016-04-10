@@ -121,8 +121,6 @@ $sourse = new Url($_POST["url"])
             </div>
         </div>
     </div>
-
-    <br><br><br><br><br><br><br><br>
 </div>
 <?php
 
