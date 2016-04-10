@@ -51,11 +51,6 @@
                         http://www.psarema.info
                     </a>
                 </p>
-                <p>
-                    <a href="https://blooming-stream-76734.herokuapp.com/results.php?url=http%3A%2F%2Fwww.psarema.info">
-                        http://www.psarema.info [Greek url]
-                    </a>
-                </p>
             <div>
         </div>
         <br><br><br><br><br><br><br>
