@@ -20,7 +20,7 @@ class HtmlHelper
         /**
          * @see JonnyW\PhantomJs\Http\Request
          **/
-        $request = $client->getMessageFactory()->createRequest($url 'GET');
+        $request = $client->getMessageFactory()->createRequest($url ,'GET');
 
         /**
          * @see JonnyW\PhantomJs\Http\Response
