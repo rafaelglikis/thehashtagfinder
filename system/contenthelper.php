@@ -137,7 +137,7 @@ class ContentHelper
             else
             {
                 $uniqueKeywords[$name] = $weight;
-                var_dump($weight);
+                var_dump($uniqueKeywords[$name]);
             }
         }
 
