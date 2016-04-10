@@ -44,6 +44,7 @@ class HtmlHelper
     // Return the <title> of the url
     static function findTitle($url)
     {
+        die($url);
         $html = HtmlHelper::takeHtml($url);
         var_dump($html);
         die():
