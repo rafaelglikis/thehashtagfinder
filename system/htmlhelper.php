@@ -87,7 +87,7 @@ class HtmlHelper
             $images = $dom->getElementsByTagName('img');
             foreach ($images as $image)
             {
-                $image = $image->getAttribute('src');
+                $image = $image->attributes->getAttribute('src');
                 break;
             }
             if (!filter_var($image, FILTER_VALIDATE_URL) !== false)
@@ -110,11 +110,13 @@ class HtmlHelper
         @$doc->loadHTML($html);
 
         $tags = $doc->getElementsByTagName('img');
-
+        $alts = array();
         foreach ($tags as $tag)
         {
-            echo $tag->attributes->getNamedItem('alt')->nodeValue;
+            array_push($alts, $tag->attributes->getNamedItem('alt')->nodeValue);
         }
+        var_dump($alts);
+        return $alts;
     }
 }
 
