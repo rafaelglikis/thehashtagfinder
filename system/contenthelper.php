@@ -129,11 +129,11 @@ class ContentHelper
         $strongs = ContentHelper::extractStrongKeywords($url);
         $alts = ContentHelper::extractImagesAlts($url);
         $h1s = ContentHelper::extractHeading1Keywords($url);
-        /*$h2s = ContentHelper::extractHeading2Keywords($url);
+        $h2s = ContentHelper::extractHeading2Keywords($url);
         $h3s = ContentHelper::extractHeading3Keywords($url);
         $metas = ContentHelper::extractMetaDescriptionTags($url);
         $backlingCaptions = ContentHelper::getMajecticBacklinks($url);
-        $contents = ContentHelper::extractContentKeywords($url);*/
+        $contents = ContentHelper::extractContentKeywords($url);
 
         // Clear multiple values and add weight to them
         $uniqueStrongs = array_count_values($strongs);
@@ -145,7 +145,7 @@ class ContentHelper
         $uniqueH1s = array_count_values($h1s);
         arsort($uniqueH1s); // Sort ascending
 
-        /*$uniqueH2s = array_count_values($h2s);
+        $uniqueH2s = array_count_values($h2s);
         arsort($uniqueH2s); // Sort ascending
 
         $uniqueH3s = array_count_values($h3s);
@@ -158,7 +158,7 @@ class ContentHelper
         arsort($uniqueBacklingCaptions); // Sort ascending
 
         $uniqueContents = array_count_values($contents);
-        arsort($uniqueContents); // Sort ascending*/
+        arsort($uniqueContents); // Sort ascending
 
         // Creating Hashtag Objects
         $hashTags  = array();
@@ -196,7 +196,7 @@ class ContentHelper
             array_push($hashTags,$hashtag);
         }
 
-        /*$i=0;
+        $i=0;
         foreach ($uniqueH2s as $name => $weight)
         {
             if (strlen($name) < 3 || strlen($name) > 35) { continue;}
@@ -249,7 +249,7 @@ class ContentHelper
 
             $hashtag = new HashTag($name,$weight*$contentKeywordWeight);
             array_push($hashTags,$hashtag);
-        }*/
+        }
 
         // Shuffling the array
         shuffle($hashTags);
