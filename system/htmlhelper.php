@@ -68,6 +68,7 @@ class HtmlHelper
             $phrase = preg_replace("/[^A-Za-z ]/", '',  $phrase);
             array_push($phrases, $phrase);
         }
+        var_dump($phrases);
         return $phrases;
     }
 
