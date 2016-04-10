@@ -138,6 +138,7 @@ class ContentHelper
         // Clear multiple values and add weight to them
         $uniqueStrongs = array_count_values($strongs);
         arsort($uniqueStrongs); // Sort ascending
+        var_dump($uniqueStrongs);
 
         /*$uniqueH1s = array_count_values($h1s);
         arsort($uniqueH1s); // Sort ascending
