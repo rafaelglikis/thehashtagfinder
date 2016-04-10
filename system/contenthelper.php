@@ -167,12 +167,11 @@ class ContentHelper
         $i=0;
         foreach ($uniqueStrongs as $name => $weight)
         {
-            if (strlen($name) > 35) { break;}
+            if (strlen($name) < 3 || strlen($name) > 35) { break;}
             $i++;
             if($i>$strongKeywordCount) { break;}
 
             $hashtag = new HashTag($name,$weight*$strongKeywordWeight);
-            var_dump($hashtag);
             array_push($hashTags,$hashtag);
         }
 
@@ -255,6 +254,8 @@ class ContentHelper
 
         // Shuffling the array
         shuffle($hashTags);
+
+        var_dump($hashTags);
 
         return $hashTags;
     }
