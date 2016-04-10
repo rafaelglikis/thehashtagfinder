@@ -121,7 +121,7 @@ class ContentHelper
         $keywords = array_merge($keywords,$uniqueH2s);
         $keywords = array_merge($keywords,$uniqueH3s);
         $keywords = array_merge($keywords,$uniqueMetas);
-        $keywords = array_merge($keywords,$uniqueBacklingCaptions);
+        //$keywords = array_merge($keywords,$uniqueBacklingCaptions);
         $keywords = array_merge($keywords,$uniqueContents);
 
         arsort($keywords); // Sort ascending
