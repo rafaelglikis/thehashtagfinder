@@ -13,7 +13,7 @@ class ContentHelper
         $strongKeywordWeight = 17;
         $altKeywordWeight = 15;
         $backlingCaptionWeight = 17;
-        $h1KeywordWeight = 10;
+        $h1KeywordWeight = 14;
         $metaKeywordWeight = 9;
         $h2KeywordWeight = 8;
         $h3KeywordWeight = 5;
@@ -127,7 +127,7 @@ class ContentHelper
         arsort($keywords); // Sort ascending
 
         // Add weights
-        $uniqueKeywords = array();
+        /*$uniqueKeywords = array();
         foreach ($keywords as $name => $weight)
         {
             if(array_key_exists($name, $uniqueKeywords))
@@ -138,7 +138,7 @@ class ContentHelper
             {
                 $uniqueKeywords[$name] = $weight;
             }
-        }
+        }*/
 
         // Creating Hashtag Objects
         $keywordCount = 50;
@@ -168,6 +168,7 @@ class ContentHelper
             {
                 break;
             }
+
             array_push($hashTags,$hashtag);
         }
 
