@@ -127,13 +127,23 @@ $sourse = new Url($_POST["url"])
 
                     <script>
                         var pieData = [
+                            <?php
+                            $i=0;
+                            $len = count($hashTags);
+                            foreach ($hashTags as $hashTag)
                             {
-                                value: 300,
+                            ?>
+                            {
+                                value: <?php echo $hashTag->getWeight()?>,
                                 color:"#F7464A",
                                 highlight: "#FF5A5E",
-                                label: "Red"
-                            },
-                            {
+                                label: <?php echo $hashTag->getName()?>
+                            }<?php if ($i > 20) break;?>,
+                            <?php $i++;?>
+                            <?php
+                            }
+                            ?>
+                            /*{
                                 value: 50,
                                 color: "#46BFBD",
                                 highlight: "#5AD3D1",
@@ -156,7 +166,7 @@ $sourse = new Url($_POST["url"])
                                 color: "#4D5360",
                                 highlight: "#616774",
                                 label: "Dark Grey"
-                            }
+                            }*/
                         ];
                         window.onload = function(){
                             var ctx = document.getElementById("chart-area").getContext("2d");
