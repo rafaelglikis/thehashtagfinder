@@ -127,7 +127,7 @@ class ContentHelper
         arsort($keywords); // Sort ascending
 
         // Add weights
-        /*$uniqueKeywords = array();
+        $uniqueKeywords = array();
         foreach ($keywords as $name => $weight)
         {
             if(array_key_exists($name, $uniqueKeywords))
@@ -138,7 +138,7 @@ class ContentHelper
             {
                 $uniqueKeywords[$name] = $weight;
             }
-        }*/
+        }
 
         // Creating Hashtag Objects
         $keywordCount = 50;
