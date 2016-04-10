@@ -52,56 +52,76 @@ class ContentHelper
             $weight *= $strongKeywordWeight;
         }
 
-        //arsort($uniqueStrongs); // Sort ascending
 
         foreach ($alts as &$alt)
         {
             $alt = strtolower($alt);
         }
         $uniqueAlts = array_count_values($alts);
-        //arsort($uniqueAlts); // Sort ascending
+        foreach ($uniqueAlts as  $name => &$weight )
+        {
+            $weight *= $altKeywordWeight;
+        }
 
         foreach ($h1s as &$h1)
         {
             $h1 = strtolower($h1);
         }
         $uniqueH1s = array_count_values($h1s);
-        //arsort($uniqueH1s); // Sort ascending
+        foreach ($uniqueH1s as  $name => &$weight )
+        {
+            $weight *= $h1KeywordWeight;
+        }
 
         foreach ($h2s as &$h2)
         {
             $h2 = strtolower($h2);
         }
         $uniqueH2s = array_count_values($h2s);
-        //arsort($uniqueH2s); // Sort ascending
+        foreach ($uniqueH2s as  $name => &$weight )
+        {
+            $weight *= $h2KeywordWeight;
+        }
 
         foreach ($h3s as &$h3)
         {
             $h3 = strtolower($h3);
         }
         $uniqueH3s = array_count_values($h3s);
-        //arsort($uniqueH3s); // Sort ascending
+        foreach ($uniqueH3s as  $name => &$weight )
+        {
+            $weight *= $h3KeywordWeight;
+        }
 
         foreach ($metas as &$meta)
         {
             $meta = strtolower($meta);
         }
         $uniqueMetas = array_count_values($metas);
-        //arsort($uniqueMetas); // Sort ascending
+        foreach ($uniqueMetas as  $name => &$weight )
+        {
+            $weight *= $metaKeywordWeight;
+        }
 
         foreach ($backlingCaptions as &$backlingCaption)
         {
             $backlingCaption = strtolower($backlingCaption);
         }
         $uniqueBacklingCaptions = array_count_values($backlingCaptions);
-        //arsort($uniqueBacklingCaptions); // Sort ascending
+        foreach ($uniqueBacklingCaptions as  $name => &$weight )
+        {
+            $weight *= $backlingCaptionWeight;
+        }
 
         foreach ($contents as &$content)
         {
             $content = strtolower($contents);
         }
         $uniqueContents = array_count_values($contents);
-        //arsort($uniqueContents); // Sort ascending
+        foreach ($uniqueContents as  $name => &$weight )
+        {
+            $weight *= $contentKeywordWeight;
+        }
 
         // Merge arrays
         $keywords = array_merge($uniqueStrongs,$uniqueAlts);
