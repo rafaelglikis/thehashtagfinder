@@ -107,7 +107,7 @@ class ContentHelper
     {
         $html = file_get_contents($url);
         $dom = new DOMDocument;
-        $dom->loadXML($html);
+        $dom->loadHTML($html);
         $strongs = array();
         $strongKeywords = $dom->getElementsByTagName('strong');
         foreach ($strongKeywords as $strongKeyword) {
