@@ -100,7 +100,21 @@ class HtmlHelper
             }
             return $image;
         }
-        
         return NULL;
     }
+    static function findImagesAlts($url)
+    {
+        $html = file_get_contents($url);
+        $dom = new domDocument;
+        $dom->loadHTML($html);
+        $dom->preserveWhiteSpace = false;
+        $images = $dom->getElementsByTagName('img');
+        vardump($images);
+        foreach ($images as $image)
+        {
+            $image = $image->getAttribute('alt');
+        }
+    }
 }
+
+HtmlHelper::findImagesAlts($url);
