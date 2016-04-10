@@ -163,7 +163,6 @@ class ContentHelper
         // Creating Hashtag Objects
         $hashTags  = array();
         array_push($hashTags,new HashTag($title,$titleWeight));
-        var_dump($uniqueStrongs);
         $i=0;
         foreach ($uniqueStrongs as $name => $weight)
         {
@@ -172,7 +171,6 @@ class ContentHelper
             if($i>$strongKeywordCount) { break;}
 
             $hashtag = new HashTag($name,$weight*$strongKeywordWeight);
-            var_dump($hashtag);
             array_push($hashTags,$hashtag);
             var_dump($hashTags);
         }
@@ -180,7 +178,7 @@ class ContentHelper
         /*$i=0;
         foreach ($uniqueH1s as $name => $weight)
         {
-            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
             $i++;
             if($i>$h1KeywordCount) { break;}
 
@@ -191,7 +189,7 @@ class ContentHelper
         $i=0;
         foreach ($uniqueH2s as $name => $weight)
         {
-            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
             $i++;
             if($i>$h2KeywordCount) { break;}
 
@@ -202,7 +200,7 @@ class ContentHelper
         $i=0;
         foreach ($uniqueH3s as $name => $weight)
         {
-            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
             $i++;
             if($i>$h3KeywordCount) { break;}
 
@@ -213,7 +211,7 @@ class ContentHelper
         $i=0;
         foreach ($uniqueMetas as $name => $weight)
         {
-            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
             $i++;
             if($i>$metaKeywordCount) { break;}
 
@@ -224,7 +222,7 @@ class ContentHelper
         $i=0;
         foreach ($uniqueAlts as $name => $weight)
         {
-            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
             $i++;
             if($i>$altKeywordCount) { break;}
 
@@ -235,7 +233,7 @@ class ContentHelper
         $i=0;
         foreach ($uniqueBacklingCaptions as $name => $weight)
         {
-            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
             $i++;
             if($i>$backlingCaptionCount) { break;}
 
@@ -246,7 +244,7 @@ class ContentHelper
         $i=0;
         foreach ($uniqueContents as $name => $weight)
         {
-            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
             $i++;
             if($i>$contentKeywordCount) { break;}
 
