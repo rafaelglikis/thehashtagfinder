@@ -104,7 +104,7 @@ class ContentHelper
 
         // Weights
         $titleWeight = 20;
-        $strongKeywordWeight = 15;
+ /*       $strongKeywordWeight = 15;
         $altKeywordWeight = 13;
         $backlingCaptionWeight = 12;
         $h1KeywordWeight = 10;
@@ -121,11 +121,11 @@ class ContentHelper
         $metaKeywordCount = 10;
         $h2KeywordCount = 10;
         $h3KeywordCount = 10;
-        $contentKeywordCount = 10;
+        $contentKeywordCount = 10;*/
 
         // KeyWords Initialize
         $title = HtmlHelper::findTitle($url);
-        $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
+/*        $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
         $strongs = ContentHelper::extractStrongKeywords($url);
         $h1s = ContentHelper::extractHeading1Keywords($url);
         $h2s = ContentHelper::extractHeading2Keywords($url);
@@ -133,12 +133,9 @@ class ContentHelper
         $metas = ContentHelper::extractMetaDescriptionTags($url);
         $alts = ContentHelper::extractImagesAlts($url)
         $backlingCaptions = ContentHelper::getMajecticBacklinks($url);
-        $contents = ContentHelper::extractContentKeywords($url);
+        $contents = ContentHelper::extractContentKeywords($url);*/
 
-        // Clear multiple values and add weight to them
-        $uniqueTitle = array_count_values($title);
-        arsort($uniqueTitle); // Sort ascending
-
+        /*// Clear multiple values and add weight to them
         $uniqueStrongs = array_count_values($strongs);
         arsort($uniqueStrongs); // Sort ascending
 
@@ -161,13 +158,13 @@ class ContentHelper
         arsort($uniqueBacklingCaptions); // Sort ascending
 
         $uniqueContents = array_count_values($contents);
-        arsort($uniqueContents); // Sort ascending
+        arsort($uniqueContents); // Sort ascending*/
 
         // Creating Hashtag Objects
         $hashTags  = array();
         array_push($hashTags,new HashTag($title,$titleWeight));
 
-        $i=0;
+        /*$i=0;
         foreach ($uniqueStrongs as $name => $weight)
         {
             if (strlen($name) < 3 || strlen($name) > 35) { break;}
@@ -253,7 +250,7 @@ class ContentHelper
 
             $hashtag = new HashTag($name,$weight*$contentKeywordWeight);
             array_push($hashTags,$hashtag);
-        }
+        }*/
 
         // Shuffling the array
         shuffle($hashTags);
