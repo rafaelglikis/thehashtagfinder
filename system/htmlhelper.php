@@ -105,15 +105,14 @@ class HtmlHelper
     static function findImagesAlts($url)
     {
         $html = file_get_contents($url);
-        $dom = new domDocument;
-        @$dom->loadHTML($html);
-        $images = $dom->getElementsByTagName('img');
-        var_dump($images);
-        $altTexts = [];
-        foreach ($images as $image)
-        {
-            //echo $image->getAttribute('alt');
-            array_push($altTexts,$alt);
+
+        $doc = new DOMDocument();
+        @$doc->loadHTML($html);
+
+        $tags = $doc->getElementsByTagName('img');
+
+        foreach ($tags as $tag) {
+            echo $tag->getAttribute('src');
         }
     }
 }
