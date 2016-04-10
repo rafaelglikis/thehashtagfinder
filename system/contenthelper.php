@@ -87,20 +87,11 @@ class ContentHelper
 
         return $hashTags;
     }
-
-    static function stringToArray($string)
-    {
-        $words = explode(" ", $string); // Creat an array from $content words
-        $words = preg_replace('/[0-9]+/', '', $words); // Remove numbers
-        $words = array_filter($words); // Remove empty values etc
-
-        return $words;
-    }
-
+    
         // Clear return an array of hashtags
-    static function extractContentKeyWords($url)
+    static function extractKeyWords($url)
     {
-        $content = ContentHelper::extractContent($url);
+        $content = ContentHelper::extractContentKeywords($url);
 
         $keyWords = explode(" ", $content); // Creat an array from $content words
         $keyWords = preg_replace('/[0-9]+/', '', $keyWords); // Remove numbers
@@ -117,7 +108,7 @@ class ContentHelper
     }
     
     // Return a String clear from html, js, stopwords, smallwords
-    static function extractContent($url)
+    static function extractContentKeywords($url)
     {
         $html = HtmlHelper::takeHtml($url);
         $content = HtmlHelper::fixHtml($html);
@@ -203,9 +194,10 @@ class ContentHelper
         return $alts;
     }
 
-    static function findMetaDescriptionDescriptionTags($link)
+    // Return an array of url meta description tags
+    static function findMetaDescriptionDescriptionTags($url)
     {
-        $html = HtmlHelper::takeHtml($link);
+        $html = HtmlHelper::takeHtml($url);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
         $metas = $doc->getElementsByTagName('meta');
@@ -316,6 +308,16 @@ class ContentHelper
             'z','zero', 'nbsp');
 
         return preg_replace('/\b('.implode('|',$commonWords).')\b/','',$input);
+    }
+
+    // Convert a string to array of strings
+    static function stringToArray($string)
+    {
+        $words = explode(" ", $string); // Creat an array from $content words
+        $words = preg_replace('/[0-9]+/', '', $words); // Remove numbers
+        $words = array_filter($words); // Remove empty values etc
+
+        return $words;
     }
 }
 
