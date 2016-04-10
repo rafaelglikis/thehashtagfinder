@@ -44,8 +44,14 @@ class ContentHelper
         foreach ($strongs as &$strong)
         {
             $strong = strtolower($strong);
+
         }
         $uniqueStrongs = array_count_values($strongs);
+        foreach ($uniqueStrongs as  $name => &$weight )
+        {
+            $weight *= $strongKeywordWeight;
+        }
+
         //arsort($uniqueStrongs); // Sort ascending
 
         foreach ($alts as &$alt)
