@@ -105,8 +105,8 @@ class ContentHelper
         // Weights
         $titleWeight = 20;
         $strongKeywordWeight = 15;
-        /*$altKeywordWeight = 13;
-        $backlingCaptionWeight = 12;
+        $altKeywordWeight = 13;
+        /*$backlingCaptionWeight = 12;
         $h1KeywordWeight = 10;
         $metaKeywordWeight = 9;
         $h2KeywordWeight = 8;
@@ -115,8 +115,8 @@ class ContentHelper
 
         // Count - Set Limit each tag
         $strongKeywordCount = 10;
-        /*$altKeywordCount = 10;
-        $backlingCaptionCount = 10;
+        $altKeywordCount = 10;
+        /*$backlingCaptionCount = 10;
         $h1KeywordCount = 10;
         $metaKeywordCount = 10;
         $h2KeywordCount = 10;
@@ -127,17 +127,20 @@ class ContentHelper
         $title = HtmlHelper::findTitle($url);
         $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
         $strongs = ContentHelper::extractStrongKeywords($url);
+        $alts = ContentHelper::extractImagesAlts($url);
         /*$h1s = ContentHelper::extractHeading1Keywords($url);
         $h2s = ContentHelper::extractHeading2Keywords($url);
         $h3s = ContentHelper::extractHeading3Keywords($url);
         $metas = ContentHelper::extractMetaDescriptionTags($url);
-        $alts = ContentHelper::extractImagesAlts($url)
         $backlingCaptions = ContentHelper::getMajecticBacklinks($url);
         $contents = ContentHelper::extractContentKeywords($url);*/
 
         // Clear multiple values and add weight to them
         $uniqueStrongs = array_count_values($strongs);
         arsort($uniqueStrongs); // Sort ascending
+
+        $uniqueAlts = array_count_values($alts);
+        arsort($uniqueAlts); // Sort ascending
 
         /*$uniqueH1s = array_count_values($h1s);
         arsort($uniqueH1s); // Sort ascending
@@ -150,9 +153,6 @@ class ContentHelper
 
         $uniqueMetas = array_count_values($metas);
         arsort($uniqueMetas); // Sort ascending
-
-        $uniqueAlts = array_count_values($alts);
-        arsort($uniqueAlts); // Sort ascending
 
         $uniqueBacklingCaptions = array_count_values($backlingCaptions);
         arsort($uniqueBacklingCaptions); // Sort ascending
@@ -172,7 +172,17 @@ class ContentHelper
 
             $hashtag = new HashTag($name,$weight*$strongKeywordWeight);
             array_push($hashTags,$hashtag);
-            var_dump($hashTags);
+        }
+
+        $i=0;
+        foreach ($uniqueAlts as $name => $weight)
+        {
+            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
+            $i++;
+            if($i>$altKeywordCount) { break;}
+
+            $hashtag = new HashTag($name,$weight*$altKeywordWeight);
+            array_push($hashTags,$hashtag);
         }
 
         /*$i=0;
@@ -216,17 +226,6 @@ class ContentHelper
             if($i>$metaKeywordCount) { break;}
 
             $hashtag = new HashTag($name,$weight*$metaKeywordWeight);
-            array_push($hashTags,$hashtag);
-        }
-
-        $i=0;
-        foreach ($uniqueAlts as $name => $weight)
-        {
-            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
-            $i++;
-            if($i>$altKeywordCount) { break;}
-
-            $hashtag = new HashTag($name,$weight*$altKeywordWeight);
             array_push($hashTags,$hashtag);
         }
 
