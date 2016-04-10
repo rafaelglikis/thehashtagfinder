@@ -108,8 +108,14 @@ class ContentHelper
         $html = file_get_contents($url);
         $dom = new DOMDocument;
         $dom->loadXML($html);
+        $strongs = array();
         $strongKeywords = $dom->getElementsByTagName('strong');
-        var_dump($strongKeywords);
+        foreach ($strongKeywords as $strongKeyword) {
+            echo $strongKeywords->nodeValue, PHP_EOL;
+            array_push($strongs, $strongKeywords->nodeValue);
+        }
+        var_dump($strongs);
+        return $strongs;
     }
     
     // Return an array of content keywords
