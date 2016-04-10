@@ -78,7 +78,7 @@ $sourse = new Url($_POST["url"])
                     <script src="js/Chart.js"></script>
                     <div class="container">
                         <div class="row row-centered">
-                            <div id="col-xs-6 col-centered canvas-holder">
+                            <div id="col-md-6 col-md-offset-3 canvas-holder">
                                 <canvas id="chart-area" width="500" height="500"/>
                             </div>
                         </div>
@@ -128,7 +128,7 @@ $sourse = new Url($_POST["url"])
                                 }<?php if ($i > 20) break;?>,
                                 <?php $i++;?>
                             <?php
-                            }S
+                            }
                             ?>
                         ];
                         window.onload = function(){
