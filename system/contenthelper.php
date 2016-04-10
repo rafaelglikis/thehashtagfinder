@@ -259,11 +259,13 @@ class ContentHelper
         // Shuffling the array
         shuffle($hashTags);
 
+        */
+        // Add # and replace < > with <_>
         foreach ($hashTags as $hashTag)
         {
             $name = "#" . str_replace(" ", "_",trim($hashTag->getName()));
             $hashTag->setName($name);
-        }*/
+        }
 
         // Shuffling the array
         shuffle($hashTags);
