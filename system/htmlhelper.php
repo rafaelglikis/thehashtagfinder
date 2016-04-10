@@ -29,7 +29,7 @@ class HtmlHelper
                 //print "Failed to get url content.\n";
             }
         }
-        $html = HtmlHelper::curl($url);
+        //$html = HtmlHelper::curl($url);
 
         return $html;
     }
