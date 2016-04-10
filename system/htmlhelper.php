@@ -72,6 +72,7 @@ class HtmlHelper
         return $phrases;
     }
 
+    //Tries to complete relative image urls, for example /images/logo.png becomes 
     private function fixImage($imageUrl, $baseUrl)
     {
         if ((strpos(strtolower($imageUrl),"http://") === false
@@ -90,7 +91,9 @@ class HtmlHelper
         return $imageUrl;
     }
 
-    // Return the og:image of the url
+    //Tries to find the main image of the url.
+    // Tries to find the facebook og:image tag and
+    // if that fails, it retrieves the first image from the source code
     static function findMainImage($html, $url = false)
     {
         $doc = new DOMDocument();
