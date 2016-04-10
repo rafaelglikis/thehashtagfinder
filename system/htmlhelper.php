@@ -113,7 +113,8 @@ class HtmlHelper
         $altTexts = [];
         foreach ($images as $image)
         {
-            array_push($altTexts,$image->getAttribute('alt'));
+            $alt = $image->getAttribute('alt');
+            array_push($altTexts,$alt);
         }
         var_dump($altTexts);
     }
