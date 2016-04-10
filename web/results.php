@@ -121,9 +121,10 @@ $sourse = new Url($_POST["url"])
                             {
                             ?>
                                 {
+                                    rand: getRandomInt(0, 3)
                                     value: <?php echo $hashTag->getWeight()?>,
-                                    color:colorset[getRandomInt(0, 3)].color,
-                                    highlight: colorset[getRandomInt(0, 3)].highlight,
+                                    color:colorset[this.rand].color,
+                                    highlight: colorset[this.rand].highlight,
                                     label: "<?php echo $hashTag->getName()?>"
                                 }<?php if ($i > 20) break;?>,
                                 <?php $i++;?>
