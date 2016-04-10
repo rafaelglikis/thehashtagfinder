@@ -137,10 +137,10 @@ class HtmlHelper
             if($meta->getAttribute('property') == 'og:description')
             {
                 $description = $meta->getAttribute('content');
+                var_dump($description);
                 return $description;
             }
         }
-        var_dump($description);
         return $description;
     }
 }
