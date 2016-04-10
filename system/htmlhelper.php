@@ -121,7 +121,6 @@ class HtmlHelper
             }
             array_push($alts, $tag->attributes->getNamedItem('alt')->nodeValue);
         }
-        var_dump($alts);
         return $alts;
     }
 
@@ -141,6 +140,7 @@ class HtmlHelper
                 return $description;
             }
         }
+        var_dump($description);
         return $description;
     }
 }
