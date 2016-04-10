@@ -138,7 +138,6 @@ class ContentHelper
         // Clear multiple values and add weight to them
         $uniqueStrongs = array_count_values($strongs);
         arsort($uniqueStrongs); // Sort ascending
-        var_dump($uniqueStrongs);
 
         /*$uniqueH1s = array_count_values($h1s);
         arsort($uniqueH1s); // Sort ascending
@@ -168,11 +167,12 @@ class ContentHelper
         $i=0;
         foreach ($uniqueStrongs as $name => $weight)
         {
-            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            if (strlen($name) > 35) { break;}
             $i++;
             if($i>$strongKeywordCount) { break;}
 
             $hashtag = new HashTag($name,$weight*$strongKeywordWeight);
+            var_dump($hashtag);
             array_push($hashTags,$hashtag);
         }
 
