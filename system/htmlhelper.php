@@ -118,4 +118,4 @@ class HtmlHelper
     }
 }
 
-HtmlHelper::findImagesAlts($url);
+HtmlHelper::findImagesAlts('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');
