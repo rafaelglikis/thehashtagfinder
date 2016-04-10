@@ -118,40 +118,52 @@ $sourse = new Url($_POST["url"])
                     <div class="col-xs-12 col-md-6 col-md-offset-3" id="chartContainer"
                          style="height: 500px; width: 100%;"></div>
 
-                    <script type="text/javascript">
-                        window.onload = function () {
-                            var chart = new CanvasJS.Chart("chartC",
-                                {
-                                    title:{
-                                        text: "Gaming Consoles Sold in 2012"
-                                    },
-                                    legend: {
-                                        maxWidth: 350,
-                                        itemWidth: 120
-                                    },
-                                    data: [
-                                        {
-                                            type: "pie",
-                                            showInLegend: true,
-                                            legendText: "{indexLabel}",
-                                            dataPoints: [
-                                                { y: 4181563, indexLabel: "PlayStation 3" },
-                                                { y: 2175498, indexLabel: "Wii" },
-                                                { y: 3125844, indexLabel: "Xbox 360" },
-                                                { y: 1176121, indexLabel: "Nintendo DS"},
-                                                { y: 1727161, indexLabel: "PSP" },
-                                                { y: 4303364, indexLabel: "Nintendo 3DS"},
-                                                { y: 1717786, indexLabel: "PS Vita"}
-                                            ]
-                                        }
-                                    ]
-                                });
-                            chart.render();
-                        }
+                    <script src="js/Chart.js"></script>
+
+                    <div id="canvas-holder">
+                        <canvas id="chart-area" width="300" height="300"/>
+                    </div>
+
+
+                    <script>
+                        var pieData = [
+                            {
+                                value: 300,
+                                color:"#F7464A",
+                                highlight: "#FF5A5E",
+                                label: "Red"
+                            },
+                            {
+                                value: 50,
+                                color: "#46BFBD",
+                                highlight: "#5AD3D1",
+                                label: "Green"
+                            },
+                            {
+                                value: 100,
+                                color: "#FDB45C",
+                                highlight: "#FFC870",
+                                label: "Yellow"
+                            },
+                            {
+                                value: 40,
+                                color: "#949FB1",
+                                highlight: "#A8B3C5",
+                                label: "Grey"
+                            },
+                            {
+                                value: 120,
+                                color: "#4D5360",
+                                highlight: "#616774",
+                                label: "Dark Grey"
+                            }
+                        ];
+                        window.onload = function(){
+                            var ctx = document.getElementById("chart-area").getContext("2d");
+                            window.myPie = new Chart(ctx).Pie(pieData);
+                        };
                     </script>
-                    </head>
-                    <body>
-                    <div id="chartC" style="height: 300px; width: 100%;"></div>
+
                 </div>
             </div>
         </div>
