@@ -88,9 +88,9 @@ class ContentHelper
             $content = strtolower($contents);
         }
         $uniqueContents = array_count_values($contents);
+        var_dump($uniqueContents);
 
-        $uniqueKeywords = array_merge($uniqueStrongs,$uniqueAlts,$uniqueH1s,$uniqueH2s,
-            $uniqueH3s,$uniqueMetas,$uniqueBacklingCaptions.$uniqueContents);
+        $uniqueKeywords = array_merge($uniqueStrongs,$uniqueAlts,$uniqueH1s,$uniqueH2s,$uniqueH3s,$uniqueMetas,$uniqueBacklingCaptions.$uniqueContents);
         arsort($uniqueKeywords); // Sort ascending
 
         var_dump($uniqueKeywords);
