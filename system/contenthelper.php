@@ -93,7 +93,7 @@ class ContentHelper
         $uniqueKeywords = array_merge($uniqueStrongs,$uniqueAlts,$uniqueH1s,$uniqueH2s,$uniqueH3s,$uniqueMetas,$uniqueBacklingCaptions.$uniqueContents);
         arsort($uniqueKeywords); // Sort ascending
 
-        var_dump($uniqueKeywords);
+        //var_dump($uniqueKeywords);
 
         // Creating Hashtag Objects
         /*$hashTags  = array();
