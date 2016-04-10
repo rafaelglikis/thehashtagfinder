@@ -106,10 +106,9 @@ class ContentHelper
     static function extractStrongKeywords($url)
     {
         $html = file_get_contents($url);
-        foreach($html->find('strong') as $a)
-        {
-            $strongKeywords[] = $a->innertext;
-        }
+        $dom = new DOMDocument;
+        $dom->loadXML($html);
+        $strongKeywords = $dom->getElementsByTagName('strong');
         var_dump($strongKeywords);
     }
     
