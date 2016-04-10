@@ -102,6 +102,16 @@ class ContentHelper
         }
         return $newKeyWords;
     }
+
+    static function extractStrongKeywords($url)
+    {
+        $html = file_get_contents($url);
+        foreach($html->find('strong') as $a)
+        {
+            $strongKeywords[] = $a->innertext;
+        }
+        var_dump($strongKeywords);
+    }
     
     // Return an array of content keywords
     static function extractContentKeywords($url)
@@ -319,4 +329,4 @@ class ContentHelper
 
 }
 
-ContentHelper::findMetaDescriptionDescriptionTags('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');
+ContentHelper::extractStrongKeywords('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');
