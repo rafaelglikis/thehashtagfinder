@@ -379,7 +379,6 @@ class ContentHelper
             }
         }
         $keyWords = ContentHelper::stringToArray($description);
-        var_dump($keyWords);
         return $keyWords;
     }
 
