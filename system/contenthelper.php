@@ -104,8 +104,8 @@ class ContentHelper
 
         // Weights
         $titleWeight = 20;
-        $strongKeywordWeight = 15;
-        $altKeywordWeight = 13;
+        $strongKeywordWeight = 17;
+        $altKeywordWeight = 15;
         $backlingCaptionWeight = 12;
         $h1KeywordWeight = 10;
         $metaKeywordWeight = 9;
