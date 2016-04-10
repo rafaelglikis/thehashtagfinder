@@ -75,13 +75,16 @@ class HtmlHelper
     private function fixImage($imageUrl, $baseUrl)
     {
         if ((strpos(strtolower($imageUrl),"http://") === false
-        ||strpos(strtolower($imageUrl),"https://") === false
-        )&& $baseUrl)
+        &&strpos(strtolower($imageUrl),"https://") === false
+        ))
         {
-            $url = $baseUrl;
-            $parse = parse_url($url);
-            $domain = $parse['host'];
-            $imageUrl = $parse['scheme'].'://'.$domain.'/'.$imageUrl;
+            if ($baseUrl)
+            {
+                $url = $baseUrl;
+                $parse = parse_url($url);
+                $domain = $parse['host'];
+                $imageUrl = $parse['scheme'].'://'.$domain.'/'.$imageUrl;
+            }
         }
         var_dump($imageUrl);
         return $imageUrl;
