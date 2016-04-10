@@ -105,17 +105,36 @@ class ContentHelper
 
     static function extractHeading1Keywords($url)
     {
+        return HtmlHelper::findHtmlTagContent($url,'h1');
+    }
+
+    static function extractHeading2Keywords($url)
+    {
         $html = file_get_contents($url);
         $dom = new DOMDocument;
         $dom->loadHTML($html);
         $headings = array();
-        $keywords = $dom->getElementsByTagName('h1');
+        $keywords = $dom->getElementsByTagName('h2');
         foreach ($keywords as $keyword) {
             $heading = $keyword->nodeValue;
             $heading = preg_replace("/[^A-Za-z ]/", '',  $heading);
             array_push($headings, $heading);
         }
-        var_dump($headings);
+        return $headings;
+    }
+
+    static function extractHeading3Keywords($url)
+    {
+        $html = file_get_contents($url);
+        $dom = new DOMDocument;
+        $dom->loadHTML($html);
+        $headings = array();
+        $keywords = $dom->getElementsByTagName('h3');
+        foreach ($keywords as $keyword) {
+            $heading = $keyword->nodeValue;
+            $heading = preg_replace("/[^A-Za-z ]/", '',  $heading);
+            array_push($headings, $heading);
+        }
         return $headings;
     }
 

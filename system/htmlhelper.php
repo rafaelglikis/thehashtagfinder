@@ -54,6 +54,23 @@ class HtmlHelper
         return $title;
     }
 
+    //Return an array of tag contents
+    static function findHtmlTagContent($url,$tag)
+    {
+        $html = file_get_contents($url);
+        $dom = new DOMDocument;
+        $dom->loadHTML($html);
+        $phrases = array();
+        $tagValues = $dom->getElementsByTagName($tag);
+        foreach ($tagValues as $tagValue) 
+        {
+            $phrase = $tagValue->nodeValue;
+            $phrase = preg_replace("/[^A-Za-z ]/", '',  $phrase);
+            array_push($phrases, $phrase);
+        }
+        return $phrases;
+    }
+
     // Return the og:image of the url
     static function findMainImage($url)
     {
