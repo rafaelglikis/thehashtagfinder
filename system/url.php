@@ -8,6 +8,7 @@ class Url
     
     public function __construct($url)
     {
+        var_dump($url);
         $this->url = $url;
         $this->title = HtmlHelper::findTitle($url);
         $this->image = HtmlHelper::findMainImage($url);
