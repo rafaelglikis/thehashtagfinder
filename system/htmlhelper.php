@@ -42,11 +42,8 @@ class HtmlHelper
     }
 
     // Return the <title> of the url
-    static function findTitle($url)
+    static function findTitle($html)
     {
-
-        $html = HtmlHelper::takeHtml($url);
-
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
         $nodes = $doc->getElementsByTagName('title');
@@ -57,9 +54,8 @@ class HtmlHelper
     }
 
     //Return an array of tag contents
-    static function findHtmlTagContent($url,$tag)
+    static function findHtmlTagContent($html,$tag)
     {
-        $html = file_get_contents($url);
         $dom = new DOMDocument;
         $dom->loadHTML($html);
         $phrases = array();

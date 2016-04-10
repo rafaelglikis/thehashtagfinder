@@ -6,6 +6,8 @@ class ContentHelper
 
     static function makeHashTags($url)
     {
+        $html = HtmlHelper::takeHtml($url);
+        
         // Weights
         $titleWeight = 20;
         $strongKeywordWeight = 17;
@@ -17,28 +19,18 @@ class ContentHelper
         $h3KeywordWeight = 5;
         $contentKeywordWeight = 0.5;
 
-        // Count - Set Limit each tag
-        /*$strongKeywordCount = 10;
-        $altKeywordCount = 10;
-        $backlingCaptionCount = 10;
-        $h1KeywordCount = 10;
-        $metaKeywordCount = 10;
-        $h2KeywordCount = 10;
-        $h3KeywordCount = 10;
-        $contentKeywordCount = 10;*/
-
         // KeyWords Initialize
-        $title = HtmlHelper::findTitle($url);
+        $title = HtmlHelper::findTitle($html);
         $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
         $title = strtolower($title);
-        $strongs = ContentHelper::extractStrongKeywords($url);
-        $alts = ContentHelper::extractImagesAlts($url);
-        $h1s = ContentHelper::extractHeading1Keywords($url);
-        $h2s = ContentHelper::extractHeading2Keywords($url);
-        $h3s = ContentHelper::extractHeading3Keywords($url);
-        $metas = ContentHelper::extractMetaDescriptionTags($url);
+        $strongs = ContentHelper::extractStrongKeywords($html);
+        $alts = ContentHelper::extractImagesAlts($html);
+        $h1s = ContentHelper::extractHeading1Keywords($html);
+        $h2s = ContentHelper::extractHeading2Keywords($html);
+        $h3s = ContentHelper::extractHeading3Keywords($html);
+        $metas = ContentHelper::extractMetaDescriptionTags($html);
         $backlingCaptions = ContentHelper::getMajecticBacklinks($url);
-        $contents = ContentHelper::extractContentKeywords($url);
+        $contents = ContentHelper::extractContentKeywords($html);
 
         // Clear multiple values and add weight to them
         foreach ($strongs as &$strong)
@@ -148,9 +140,6 @@ class ContentHelper
             }
         }
 
-        var_dump($uniqueKeywords);
-
-
         // Creating Hashtag Objects
         $keywordCount = 50;
         $hashTags  = array();
@@ -167,99 +156,6 @@ class ContentHelper
             array_push($hashTags,$hashtag);
         }
 
-
-        /*$i=0;
-        foreach ($uniqueStrongs as $name => $weight)
-        {
-            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
-            $i++;
-            if($i>$strongKeywordCount) { break;}
-
-            $hashtag = new HashTag($name,$weight*$strongKeywordWeight);
-            array_push($hashTags,$hashtag);
-        }
-
-        $i=0;
-        foreach ($uniqueAlts as $name => $weight)
-        {
-            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
-            $i++;
-            if($i>$altKeywordCount) { break;}
-
-            $hashtag = new HashTag($name,$weight*$altKeywordWeight);
-            array_push($hashTags,$hashtag);
-        }
-
-        $i=0;
-        foreach ($uniqueH1s as $name => $weight)
-        {
-            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
-            $i++;
-            if($i>$h1KeywordCount) { break;}
-
-            $hashtag = new HashTag($name,$weight*$h1KeywordWeight);
-            array_push($hashTags,$hashtag);
-        }
-
-        $i=0;
-        foreach ($uniqueH2s as $name => $weight)
-        {
-            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
-            $i++;
-            if($i>$h2KeywordCount) { break;}
-
-            $hashtag = new HashTag($name,$weight*$h2KeywordWeight);
-            array_push($hashTags,$hashtag);
-        }
-
-        $i=0;
-        foreach ($uniqueH3s as $name => $weight)
-        {
-            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
-            $i++;
-            if($i>$h3KeywordCount) { break;}
-
-            $hashtag = new HashTag($name,$weight*$h3KeywordWeight);
-            array_push($hashTags,$hashtag);
-        }
-
-        $i=0;
-        foreach ($uniqueMetas as $name => $weight)
-        {
-            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
-            $i++;
-            if($i>$metaKeywordCount) { break;}
-
-            $hashtag = new HashTag($name,$weight*$metaKeywordWeight);
-            array_push($hashTags,$hashtag);
-        }
-
-        $i=0;
-        foreach ($uniqueBacklingCaptions as $name => $weight)
-        {
-            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
-            $i++;
-            if($i>$backlingCaptionCount) { break;}
-
-            $hashtag = new HashTag($name,$weight*$backlingCaptionWeight);
-            array_push($hashTags,$hashtag);
-        }
-
-        $i=0;
-        foreach ($uniqueContents as $name => $weight)
-        {
-            if (strlen($name) < 3 || strlen($name) > 35) { continue;}
-            $i++;
-            if($i>$contentKeywordCount) { break;}
-
-            $hashtag = new HashTag($name,$weight*$contentKeywordWeight);
-            array_push($hashTags,$hashtag);
-        }
-
-        // Shuffling the array
-        shuffle($hashTags);
-
-        */
         // Add # and replace < > with <_>
         foreach ($hashTags as $hashTag)
         {
@@ -273,30 +169,29 @@ class ContentHelper
         return $hashTags;
     }
 
-    static function extractHeading1Keywords($url)
+    static function extractHeading1Keywords($html)
     {
-        return HtmlHelper::findHtmlTagContent($url,'h1');
+        return HtmlHelper::findHtmlTagContent($html,'h1');
     }
 
-    static function extractHeading2Keywords($url)
+    static function extractHeading2Keywords($html)
     {
-        return HtmlHelper::findHtmlTagContent($url,'h2');
+        return HtmlHelper::findHtmlTagContent($html,'h2');
     }
 
-    static function extractHeading3Keywords($url)
+    static function extractHeading3Keywords($html)
     {
-        return HtmlHelper::findHtmlTagContent($url,'h3');
+        return HtmlHelper::findHtmlTagContent($html,'h3');
     }
 
-    static function extractStrongKeywords($url)
+    static function extractStrongKeywords($html)
     {
-        return HtmlHelper::findHtmlTagContent($url,'strong');
+        return HtmlHelper::findHtmlTagContent($html,'strong');
     }
     
     // Return an array of content keywords
-    static function extractContentKeywords($url)
+    static function extractContentKeywords($html)
     {
-        $html = HtmlHelper::takeHtml($url);
         $content = HtmlHelper::fixHtml($html);
         $keyWords = ContentHelper::stringToArray($content);
         
@@ -359,10 +254,8 @@ class ContentHelper
     }
 
     // Return an array of url image alts
-    static function extractImagesAlts($url)
+    static function extractImagesAlts($html)
     {
-        $html = file_get_contents($url);
-
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
 
