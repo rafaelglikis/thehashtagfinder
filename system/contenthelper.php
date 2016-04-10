@@ -46,67 +46,84 @@ class ContentHelper
             $strong = strtolower($strong);
         }
         $uniqueStrongs = array_count_values($strongs);
-        arsort($uniqueStrongs); // Sort ascending
+        //arsort($uniqueStrongs); // Sort ascending
 
         foreach ($alts as &$alt)
         {
             $alt = strtolower($alt);
         }
         $uniqueAlts = array_count_values($alts);
-        arsort($uniqueAlts); // Sort ascending
+        //arsort($uniqueAlts); // Sort ascending
 
         foreach ($h1s as &$h1)
         {
             $h1 = strtolower($h1);
         }
         $uniqueH1s = array_count_values($h1s);
-        arsort($uniqueH1s); // Sort ascending
+        //arsort($uniqueH1s); // Sort ascending
 
         foreach ($h2s as &$h2)
         {
             $h2 = strtolower($h2);
         }
         $uniqueH2s = array_count_values($h2s);
-        arsort($uniqueH2s); // Sort ascending
+        //arsort($uniqueH2s); // Sort ascending
 
         foreach ($h3s as &$h3)
         {
             $h3 = strtolower($h3);
         }
         $uniqueH3s = array_count_values($h3s);
-        arsort($uniqueH3s); // Sort ascending
+        //arsort($uniqueH3s); // Sort ascending
 
         foreach ($metas as &$meta)
         {
             $meta = strtolower($meta);
         }
         $uniqueMetas = array_count_values($metas);
-        arsort($uniqueMetas); // Sort ascending
+        //arsort($uniqueMetas); // Sort ascending
 
         foreach ($backlingCaptions as &$backlingCaption)
         {
             $backlingCaption = strtolower($backlingCaption);
         }
         $uniqueBacklingCaptions = array_count_values($backlingCaptions);
-        arsort($uniqueBacklingCaptions); // Sort ascending
+        //arsort($uniqueBacklingCaptions); // Sort ascending
 
         foreach ($contents as &$content)
         {
             $content = strtolower($contents);
         }
         $uniqueContents = array_count_values($contents);
-        arsort($uniqueContents); // Sort ascending
+        //arsort($uniqueContents); // Sort ascending
 
-        /*$uniqueKeywords = array_merge($uniqueStrongs,$uniqueAlts);
-        $uniqueKeywords = array_merge($uniqueKeywords,$uniqueH1s);
-        $uniqueKeywords = array_merge($uniqueKeywords,$uniqueH2s);
-        $uniqueKeywords = array_merge($uniqueKeywords,$uniqueH3s);
-        $uniqueKeywords = array_merge($uniqueKeywords,$uniqueMetas);
-        $uniqueKeywords = array_merge($uniqueKeywords,$uniqueBacklingCaptions);
-        $uniqueKeywords = array_merge($uniqueKeywords,$uniqueContents);*/
+        // Merge arrays
+        $keywords = array_merge($uniqueStrongs,$uniqueAlts);
+        $keywords = array_merge($keywords,$uniqueH1s);
+        $keywords = array_merge($keywords,$uniqueH2s);
+        $keywords = array_merge($keywords,$uniqueH3s);
+        $keywords = array_merge($keywords,$uniqueMetas);
+        $keywords = array_merge($keywords,$uniqueBacklingCaptions);
+        $keywords = array_merge($keywords,$uniqueContents);
 
-        $uniqueKeywords = $uniqueStrongs + $uniqueStrongs + $uniqueAlts + $uniqueH1s + $uniqueH2s + $uniqueH3s + $uniqueMetas + $uniqueBacklingCaptions + $uniqueContents;
-        var_dump($uniqueKeywords);
+        arsort($keywords); // Sort ascending
+
+        // Add weights
+        $uniqueKeywords = array();
+        foreach ($keywords as $name => $weight)
+        {
+            if(array_key_exists($name, $uniqueKeywords))
+            {
+                $test[$name] +=  $weight;
+            }
+            else
+            {
+                $test[$name] = $weight;
+            }
+        }
+
+        var_dump($keywords);
+
 
         // Creating Hashtag Objects
         $hashTags  = array();
