@@ -92,7 +92,7 @@ $sourse = new Url($_POST["url"])
                                     width:500,
                                     data: [
                                         {
-                                            type: "pie",
+                                            type: "pie"
                                             showInLegend: false,
                                             legendText: "{indexLabel}",
                                             dataPoints: [
