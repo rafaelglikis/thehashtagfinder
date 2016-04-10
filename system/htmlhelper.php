@@ -80,11 +80,14 @@ class HtmlHelper
         }
         else
         {
-            $doc->preserveWhiteSpace = false;
-            $images = $doc->getElementsByTagName('img');
-            var_dump($images);
-            $image = $images[0]->getAttribute('src');
-            return $image;
+            $html = file_get_contents($url);
+            $dom = new domDocument;
+            $dom->loadHTML($html);
+            $dom->preserveWhiteSpace = false;
+            $images = $dom->getElementsByTagName('img');
+            foreach ($images as $image) {
+                echo $image->getAttribute('src');
+            }
         }
         
         return NULL;
