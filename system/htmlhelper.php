@@ -110,10 +110,12 @@ class HtmlHelper
         $dom->preserveWhiteSpace = false;
         $images = $dom->getElementsByTagName('img');
         var_dump($images);
+        $altTexts = [];
         foreach ($images as $image)
         {
-            $image = $image->getAttribute('alt');
+            array_push($altTexts,$image->getAttribute('alt'));
         }
+        var_dump($altTexts);
     }
 }
 
