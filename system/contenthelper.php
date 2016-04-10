@@ -216,7 +216,9 @@ class ContentHelper
             if($meta->getAttribute('property') == 'og:description')
             {
                 $description = $meta->getAttribute('content');
-                return $description;
+                $keyWords = stringToArray($description);
+                var_dump($keyWords);
+                return $keyWords;
             }
         }
         $keyWords = stringToArray($description);
