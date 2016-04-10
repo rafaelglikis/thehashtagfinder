@@ -114,11 +114,11 @@ class ContentHelper
         {
             if(array_key_exists($name, $uniqueKeywords))
             {
-                $test[$name] +=  $weight;
+                $uniqueKeywords[$name] +=  $weight;
             }
             else
             {
-                $test[$name] = $weight;
+                $uniqueKeywords[$name] = $weight;
             }
         }
 
