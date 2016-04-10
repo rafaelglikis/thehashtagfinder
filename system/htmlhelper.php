@@ -60,7 +60,6 @@ class HtmlHelper
         $html = HtmlHelper::takeHtml($url);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
-        $nodes = $doc->getElementsByTagName('title');
 
         //get and display what you need:
         $metas = $doc->getElementsByTagName('meta');
@@ -77,6 +76,13 @@ class HtmlHelper
         }
         if(filter_var($image, FILTER_VALIDATE_URL))
         {
+            return $image;
+        }
+        else
+        {
+            $dom->preserveWhiteSpace = false;
+            $images = $doc->getElementsByTagName('img');
+            $image = $images[0]->getAttribute('src');
             return $image;
         }
         
