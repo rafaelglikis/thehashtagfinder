@@ -121,15 +121,14 @@ $sourse = new Url($_POST["url"])
                             {
                             ?>
                                 {
-                                    rand: getRandomInt(0, 3)
                                     value: <?php echo $hashTag->getWeight()?>,
-                                    color:colorset[this.rand].color,
-                                    highlight: colorset[this.rand].highlight,
+                                    color:colorset[<?php echo $i%5 ?>].color,
+                                    highlight: colorset[<?php echo $i%5 ?>].highlight,
                                     label: "<?php echo $hashTag->getName()?>"
                                 }<?php if ($i > 20) break;?>,
                                 <?php $i++;?>
                             <?php
-                            }
+                            }S
                             ?>
                         ];
                         window.onload = function(){
