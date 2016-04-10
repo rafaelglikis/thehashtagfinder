@@ -104,18 +104,18 @@ class ContentHelper
 
         // Weights
         $titleWeight = 20;
- /*       $strongKeywordWeight = 15;
-        $altKeywordWeight = 13;
+        $strongKeywordWeight = 15;
+        /*$altKeywordWeight = 13;
         $backlingCaptionWeight = 12;
         $h1KeywordWeight = 10;
         $metaKeywordWeight = 9;
         $h2KeywordWeight = 8;
         $h3KeywordWeight = 5;
-        $contentKeywordWeight = 1;
+        $contentKeywordWeight = 1;*/
 
         // Count - Set Limit each tag
         $strongKeywordCount = 10;
-        $altKeywordCount = 10;
+        /*$altKeywordCount = 10;
         $backlingCaptionCount = 10;
         $h1KeywordCount = 10;
         $metaKeywordCount = 10;
@@ -125,8 +125,8 @@ class ContentHelper
 
         // KeyWords Initialize
         $title = HtmlHelper::findTitle($url);
-/*        $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
-        $strongs = ContentHelper::extractStrongKeywords($url);
+        $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
+        /*$strongs = ContentHelper::extractStrongKeywords($url);
         $h1s = ContentHelper::extractHeading1Keywords($url);
         $h2s = ContentHelper::extractHeading2Keywords($url);
         $h3s = ContentHelper::extractHeading3Keywords($url);
@@ -135,11 +135,11 @@ class ContentHelper
         $backlingCaptions = ContentHelper::getMajecticBacklinks($url);
         $contents = ContentHelper::extractContentKeywords($url);*/
 
-        /*// Clear multiple values and add weight to them
+        // Clear multiple values and add weight to them
         $uniqueStrongs = array_count_values($strongs);
         arsort($uniqueStrongs); // Sort ascending
 
-        $uniqueH1s = array_count_values($h1s);
+        /*$uniqueH1s = array_count_values($h1s);
         arsort($uniqueH1s); // Sort ascending
 
         $uniqueH2s = array_count_values($h2s);
@@ -164,7 +164,7 @@ class ContentHelper
         $hashTags  = array();
         array_push($hashTags,new HashTag($title,$titleWeight));
 
-        /*$i=0;
+        $i=0;
         foreach ($uniqueStrongs as $name => $weight)
         {
             if (strlen($name) < 3 || strlen($name) > 35) { break;}
@@ -175,7 +175,7 @@ class ContentHelper
             array_push($hashTags,$hashtag);
         }
 
-        $i=0;
+        /*$i=0;
         foreach ($uniqueH1s as $name => $weight)
         {
             if (strlen($name) < 3 || strlen($name) > 35) { break;}
