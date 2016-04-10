@@ -80,8 +80,9 @@ class HtmlHelper
         }
         else
         {
-            $dom->preserveWhiteSpace = false;
+            $doc->preserveWhiteSpace = false;
             $images = $doc->getElementsByTagName('img');
+            var_dump($images);
             $image = $images[0]->getAttribute('src');
             return $image;
         }
