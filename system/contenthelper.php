@@ -132,6 +132,7 @@ class ContentHelper
         {
             if(array_key_exists($name, $uniqueKeywords))
             {
+                var_dump($uniqueKeywords[$name]);
                 $uniqueKeywords[$name] =  $uniqueKeywords[$name] + $weight;
                 var_dump($uniqueKeywords[$name]);
             }
