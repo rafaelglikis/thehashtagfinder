@@ -89,7 +89,7 @@ class ContentHelper
     }
     
         // Clear return an array of hashtags
-    static function extractKeyWords($url)
+    static function takeKeyWords($url)
     {
         $keyWords = ContentHelper::extractContentKeywords($url);
         
@@ -103,7 +103,7 @@ class ContentHelper
         return $newKeyWords;
     }
     
-    // Return an array of content tags
+    // Return an array of content keywords
     static function extractContentKeywords($url)
     {
         $html = HtmlHelper::takeHtml($url);
@@ -169,7 +169,7 @@ class ContentHelper
     }
 
     // Return an array of url image alts
-    static function findImagesAlts($url)
+    static function extractImagesAlts($url)
     {
         $html = file_get_contents($url);
 
@@ -208,6 +208,18 @@ class ContentHelper
         $keyWords = ContentHelper::stringToArray($description);
         var_dump($keyWords);
         return $keyWords;
+    }
+
+    // Convert a string to array of strings clear from html, js, stopwords, smallwords
+    static function stringToArray($string)
+    {
+        $string = ContentHelper::remove2CharWords($string);
+        $string = ContentHelper::removeCommonWords($string);
+        $words = explode(" ", $string); // Creat an array from $content words
+        $words = preg_replace('/[0-9]+/', '', $words); // Remove numbers
+        $words = array_filter($words); // Remove empty values etc
+
+        return $words;
     }
     
     static function remove2CharWords($content)
@@ -305,17 +317,6 @@ class ContentHelper
         return preg_replace('/\b('.implode('|',$commonWords).')\b/','',$input);
     }
 
-    // Convert a string to array of strings clear from html, js, stopwords, smallwords
-    static function stringToArray($string)
-    {
-        $string = ContentHelper::remove2CharWords($string);
-        $string = ContentHelper::removeCommonWords($string);
-        $words = explode(" ", $string); // Creat an array from $content words
-        $words = preg_replace('/[0-9]+/', '', $words); // Remove numbers
-        $words = array_filter($words); // Remove empty values etc
-
-        return $words;
-    }
 }
 
 ContentHelper::findMetaDescriptionDescriptionTags('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');
