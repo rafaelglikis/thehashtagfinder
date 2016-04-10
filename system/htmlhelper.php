@@ -70,9 +70,8 @@ class HtmlHelper
     }
 
     // Return the og:image of the url
-    static function findMainImage($url)
+    static function findMainImage($html)
     {
-        $html = HtmlHelper::takeHtml($url);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
 

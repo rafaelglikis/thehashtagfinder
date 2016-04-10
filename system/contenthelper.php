@@ -273,9 +273,8 @@ class ContentHelper
     }
 
     // Return an array of url meta description tags
-    static function extractMetaDescriptionTags($url)
+    static function extractMetaDescriptionTags($html)
     {
-        $html = HtmlHelper::takeHtml($url);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
         $metas = $doc->getElementsByTagName('meta');

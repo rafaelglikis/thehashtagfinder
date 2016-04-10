@@ -8,9 +8,11 @@ class Url
     
     public function __construct($url)
     {
+        $html = HtmlHelper::takeHtml($url);
+        
         $this->url = $url;
-        $this->title = HtmlHelper::findTitle($url);
-        $this->image = HtmlHelper::findMainImage($url);
+        $this->title = HtmlHelper::findTitle($html);
+        $this->image = HtmlHelper::findMainImage($html);
 
         $this->hashTags = array_merge($this->hashTags, ContentHelper::makeHashTags($url));
     }
