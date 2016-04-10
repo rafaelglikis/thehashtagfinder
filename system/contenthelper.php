@@ -265,6 +265,9 @@ class ContentHelper
             $hashTag->setName($name);
         }*/
 
+        // Shuffling the array
+        shuffle($hashTags);
+
         return $hashTags;
     }
 
