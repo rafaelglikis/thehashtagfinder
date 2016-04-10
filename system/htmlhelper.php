@@ -102,6 +102,8 @@ class HtmlHelper
         }
         return NULL;
     }
+
+    // Return an array of url image alts
     static function findImagesAlts($url)
     {
         $html = file_get_contents($url);
