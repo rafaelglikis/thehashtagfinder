@@ -28,6 +28,10 @@
                 </form>
             </div>
         </div>
+        <h2>Examples: </h2>
+        <a href="https://blooming-stream-76734.herokuapp.com/results.php?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FBon_Jovi">https://en.wikipedia.org/wiki/Bon_Jovi</a>
+        <a href="https://blooming-stream-76734.herokuapp.com/results.php?url=http%3A%2F%2Fwww.codingdojo.com%2Fblog%2F9-most-in-demand-programming-languages-of-2016%2F">http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/ </a>
+        <a href="https://blooming-stream-76734.herokuapp.com/results.php?url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F36533908%2Fhow-to-select-specific-data-from-mysql">http://stackoverflow.com/questions/36533908/how-to-select-specific-data-from-mysql </a>
         <div class="col-xs-12 col-md-2"></div>
         <br><br><br><br><br><br><br>
     </div>
