@@ -93,8 +93,8 @@ class ContentHelper
             $uniqueH3s,$uniqueMetas,$uniqueBacklingCaptions.$uniqueContents);
         arsort($uniqueKeywords); // Sort ascending
 
-        vardump($uniqueKeywords);
-        
+        var_dump($uniqueKeywords);
+
         // Creating Hashtag Objects
         /*$hashTags  = array();
         array_push($hashTags,new HashTag($title,$titleWeight));
