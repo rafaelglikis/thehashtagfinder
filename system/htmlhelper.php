@@ -104,7 +104,7 @@ class HtmlHelper
             $images = $dom->getElementsByTagName('img');
             foreach ($images as $image)
             {
-                $image = $image->attributes->getAttribute('src');
+                $image = $image->getAttribute('src');
                 break;
             }
             if (!filter_var($image, FILTER_VALIDATE_URL) !== false)
