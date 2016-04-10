@@ -91,8 +91,8 @@ class ContentHelper
     static function stringToArray($string)
     {
         $words = explode(" ", $string); // Creat an array from $content words
-        $words = preg_replace('/[0-9]+/', '', $string); // Remove numbers
-        $words = array_filter($string); // Remove empty values etc
+        $words = preg_replace('/[0-9]+/', '', $words); // Remove numbers
+        $words = array_filter($words); // Remove empty values etc
 
         return $words;
     }
