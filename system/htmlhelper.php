@@ -86,7 +86,7 @@ class HtmlHelper
                 $imageUrl = $parse['scheme'].'://'.$domain.'/'.$imageUrl;
             }
         }
-        var_dump($imageUrl);
+
         return $imageUrl;
     }
 
@@ -128,7 +128,7 @@ class HtmlHelper
                 break;
             }
             $image = HtmlHelper::fixImage($image, $url);
-            if (!filter_var($image, FILTER_VALIDATE_URL) !== false)
+            if (!filter_var($image, FILTER_VALIDATE_URL) )
             {
                 if(substr($url, -1) !== '/' )
                 {
@@ -136,7 +136,7 @@ class HtmlHelper
                 }
                 $image = $url . $image;
             }
-            if (!filter_var($image, FILTER_VALIDATE_URL) !== false)
+            if (filter_var($image, FILTER_VALIDATE_URL))
             {
                 return $image;
             }
