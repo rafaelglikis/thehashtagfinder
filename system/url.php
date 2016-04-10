@@ -12,7 +12,7 @@ class Url
         
         $this->url = $url;
         $this->title = HtmlHelper::findTitle($html);
-        $this->image = HtmlHelper::findMainImage($html);
+        $this->image = HtmlHelper::findMainImage($html, $url);
 
         $this->hashTags = array_merge($this->hashTags, ContentHelper::makeHashTags($url));
     }

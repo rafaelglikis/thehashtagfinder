@@ -72,8 +72,23 @@ class HtmlHelper
         return $phrases;
     }
 
+    private function fixImage($imageUrl, $baseUrl)
+    {
+        if ((strpos(strtolower($imageUrl),"http://") === false
+        ||strpos(strtolower($imageUrl),"https://") === false
+        )&& $baseUrl)
+        {
+            $url = $baseUrl;
+            $parse = parse_url($url);
+            $domain = $parse['host'];
+            $imageUrl = $parse['scheme'].'://'.$domain.'/'.$imageUrl;
+        }
+        var_dump($imageUrl);
+        return $imageUrl;
+    }
+
     // Return the og:image of the url
-    static function findMainImage($html)
+    static function findMainImage($html, $url = false)
     {
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
@@ -88,6 +103,7 @@ class HtmlHelper
             if($meta->getAttribute('property') == 'og:image')
             {
                 $image = $meta->getAttribute('content');
+                $image = HtmlHelper::fixImage($image, $url);
                 break;
             }
         }
@@ -102,11 +118,13 @@ class HtmlHelper
             @$dom->loadHTML($html);
             $dom->preserveWhiteSpace = false;
             $images = $dom->getElementsByTagName('img');
+            $image = '';
             foreach ($images as $image)
             {
                 $image = $image->getAttribute('src');
                 break;
             }
+            $image = HtmlHelper::fixImage($image, $url);
             if (!filter_var($image, FILTER_VALIDATE_URL) !== false)
             {
                 if(substr($url, -1) !== '/' )
