@@ -111,8 +111,9 @@ class ContentHelper
         $strongs = array();
         $strongKeywords = $dom->getElementsByTagName('strong');
         foreach ($strongKeywords as $strongKeyword) {
-            echo $strongKeyword->nodeValue, PHP_EOL;
-            array_push($strongs, $strongKeyword->nodeValue);
+            $strong = $strongKeyword->nodeValue;
+            $strong = preg_replace("/[^A-Za-z ]/", '',  $strong);
+            array_push($strongs, $strong);
         }
         var_dump($strongs);
         return $strongs;
