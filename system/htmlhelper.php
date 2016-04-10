@@ -113,6 +113,10 @@ class HtmlHelper
         $alts = array();
         foreach ($tags as $tag)
         {
+            if(strlen($tag->attributes->getNamedItem('alt')->nodeValue) <3)
+            {
+                continue;
+            }
             array_push($alts, $tag->attributes->getNamedItem('alt')->nodeValue);
         }
         var_dump($alts);
