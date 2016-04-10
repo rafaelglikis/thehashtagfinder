@@ -46,8 +46,7 @@ class HtmlHelper
     {
 
         $html = HtmlHelper::takeHtml($url);
-        var_dump($html);
- 
+
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
         $nodes = $doc->getElementsByTagName('title');
