@@ -122,7 +122,7 @@ class ContentHelper
             }
         }
 
-        var_dump($keywords);
+        var_dump($uniqueKeywords);
 
 
         // Creating Hashtag Objects
