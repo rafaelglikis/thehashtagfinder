@@ -92,9 +92,12 @@ class HtmlHelper
             }
             if (!filter_var($image, FILTER_VALIDATE_URL) !== false)
             {
+                if(substr($url, -1) !== '/' )
+                {
+                    $url = $url . '/';
+                }
                 $image = $url . $image;
             }
-            var_dump($image);
             return $image;
         }
         
