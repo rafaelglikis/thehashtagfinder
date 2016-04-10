@@ -20,10 +20,7 @@ require_once('../system/hashtag.php');
 include ('views/header.php');
 
 // Creating the url object
-var_dump($_GET);
-var_dump($_GET["url"]);
- 
-$sourse = new Url($_GET["url"])
+$sourse = new Url($_POST["url"])
 ?>
 
 <div class="container">
