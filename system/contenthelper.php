@@ -172,7 +172,9 @@ class ContentHelper
             if($i>$strongKeywordCount) { break;}
 
             $hashtag = new HashTag($name,$weight*$strongKeywordWeight);
+            var_dump($hashtag);
             array_push($hashTags,$hashtag);
+            var_dump($hashTags);
         }
 
         /*$i=0;
@@ -254,8 +256,6 @@ class ContentHelper
 
         // Shuffling the array
         shuffle($hashTags);
-
-        var_dump($hashTags);
 
         return $hashTags;
     }
