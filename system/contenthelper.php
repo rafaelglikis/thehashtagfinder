@@ -143,6 +143,8 @@ class ContentHelper
         // Creating Hashtag Objects
         $keywordCount = 50;
         $hashTags  = array();
+
+        $title =
         array_push($hashTags,new HashTag($title,$titleWeight));
 
         $i=0;
@@ -157,9 +159,9 @@ class ContentHelper
             $name = str_replace("- ", "", $name);
             $name = str_replace("-", "", $name);
             $name = "#" . str_replace(" ", "_",$name);
-                
+
             $hashtag = new HashTag($name,$weight);
-            if(strlen($hashtag->getName()) < 1)
+            if(strlen($hashtag->getName()) < 1 || $hashtag->getName() == "")
             {
                 break;
             }
