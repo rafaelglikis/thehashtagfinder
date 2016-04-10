@@ -45,6 +45,8 @@ class HtmlHelper
     static function findTitle($url)
     {
         $html = HtmlHelper::takeHtml($url);
+        var_dump($html);
+        die():
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
         $nodes = $doc->getElementsByTagName('title');
