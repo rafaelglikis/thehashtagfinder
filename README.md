@@ -23,7 +23,7 @@ For example:
     - Image alt tags and h3 tags have high priority
     - All other text has low priority, but the frequency of each keyword is taken into account.
 
-Also Anchor text on backlinks has very high priority and its being used by the search engines for keyword relevance analysis. In a nutshell if we are analysing http://www.example.com/ what is important is to find websites that link to http://www.example.com/ and get the keywords in the anchor. For example if we have: <strong>&lt;a href="http://www.gnu.org/"&gt;free software&lt;/a&gt; </strong> we know that www.gnu.org contains information about free software.
+Also Anchor text on backlinks has very high priority and its being used by the search engines for keyword relevance analysis. In a nutshell if we are analysing http://www.example.com/ what is important is to find websites that link to http://www.example.com/ and get the keywords in the anchor. For example if we have: <strong>&lt;a href="http://www.gnu.org/"&gt;freesoftware&lt;/a&gt; </strong> we know that www.gnu.org contains information about free software.
 
 More on Anchor text importance here: [https://seo-hacker.com/important-anchor-text-backlink/](https://seo-hacker.com/important-anchor-text-backlink/)
 
