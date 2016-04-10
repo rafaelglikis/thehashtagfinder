@@ -60,7 +60,7 @@ class HtmlHelper
     static function findHtmlTagContent($html,$tag)
     {
         $dom = new DOMDocument;
-        $dom->loadHTML($html);
+        @$dom->loadHTML($html);
         $phrases = array();
         $tagValues = $dom->getElementsByTagName($tag);
         foreach ($tagValues as $tagValue) 
