@@ -126,8 +126,8 @@ class ContentHelper
         // KeyWords Initialize
         $title = HtmlHelper::findTitle($url);
         $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
-        /*$strongs = ContentHelper::extractStrongKeywords($url);
-        $h1s = ContentHelper::extractHeading1Keywords($url);
+        $strongs = ContentHelper::extractStrongKeywords($url);
+        /*$h1s = ContentHelper::extractHeading1Keywords($url);
         $h2s = ContentHelper::extractHeading2Keywords($url);
         $h3s = ContentHelper::extractHeading3Keywords($url);
         $metas = ContentHelper::extractMetaDescriptionTags($url);
