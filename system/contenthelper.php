@@ -136,7 +136,7 @@ class ContentHelper
             }
             else
             {
-                //$uniqueKeywords[$name] = $weight;
+                $uniqueKeywords[$name] = $weight;
             }
         }
 
