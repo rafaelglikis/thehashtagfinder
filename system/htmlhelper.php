@@ -17,9 +17,9 @@ class HtmlHelper
     static function takeHtml($url)
     {
         $html = '0';
-        //$html = file_get_contents($url);
+        $html = file_get_contents($url);
 
-        /*if ($html == '0')
+        if ($html == '0')
         {
             ///*/**/*/print "file_get_contents_failed!\n";
             //print "Trying cURL!\n";
@@ -28,10 +28,7 @@ class HtmlHelper
             {
                 //print "Failed to get url content.\n";
             }
-        }*/
-
-        $html = HtmlHelper::curl($url);
-
+        }
         return $html;
     }
 
