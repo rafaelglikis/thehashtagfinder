@@ -21,6 +21,7 @@ include ('views/header.php');
 
 // Creating the url object
 var_dump($_GET);
+var_dump($_GET["url"]);
 die();
 $sourse = new Url($_GET["url"])
 ?>
