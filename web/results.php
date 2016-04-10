@@ -95,8 +95,8 @@ $sourse = new Url($_POST["url"])
                             ?>
                                 {
                                     value: <?php echo $hashTag->getWeight()?>,
-                                    color:"#F7464A",
-                                    highlight: "#FF5A5E",
+                                    //color:"#F7464A",
+                                    //highlight: "#FF5A5E",
                                     label: "<?php echo $hashTag->getName()?>"
                                 }<?php if ($i > 20) break;?>,
                                 <?php $i++;?>
