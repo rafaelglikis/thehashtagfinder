@@ -103,14 +103,11 @@ class ContentHelper
         return $newKeyWords;
     }
     
-    // Return a String clear from html, js, stopwords, smallwords
+    // Return an array of content tags
     static function extractContentKeywords($url)
     {
         $html = HtmlHelper::takeHtml($url);
         $content = HtmlHelper::fixHtml($html);
-        $content = ContentHelper::remove2CharWords($content);
-        $content = ContentHelper::removeCommonWords($content);
-
         $keyWords = ContentHelper::stringToArray($content);
         
         return $keyWords;
@@ -308,9 +305,11 @@ class ContentHelper
         return preg_replace('/\b('.implode('|',$commonWords).')\b/','',$input);
     }
 
-    // Convert a string to array of strings
+    // Convert a string to array of strings clear from html, js, stopwords, smallwords
     static function stringToArray($string)
     {
+        $string = ContentHelper::remove2CharWords($string);
+        $string = ContentHelper::removeCommonWords($string);
         $words = explode(" ", $string); // Creat an array from $content words
         $words = preg_replace('/[0-9]+/', '', $words); // Remove numbers
         $words = array_filter($words); // Remove empty values etc
