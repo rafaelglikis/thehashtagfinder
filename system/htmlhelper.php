@@ -109,7 +109,7 @@ class HtmlHelper
         $dom->loadHTML($html);
         $dom->preserveWhiteSpace = false;
         $images = $dom->getElementsByTagName('img');
-        vardump($images);
+        var_dump($images);
         foreach ($images as $image)
         {
             $image = $image->getAttribute('alt');
