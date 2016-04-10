@@ -91,11 +91,7 @@ class ContentHelper
         // Clear return an array of hashtags
     static function extractKeyWords($url)
     {
-        $content = ContentHelper::extractContentKeywords($url);
-
-        $keyWords = explode(" ", $content); // Creat an array from $content words
-        $keyWords = preg_replace('/[0-9]+/', '', $keyWords); // Remove numbers
-        $keyWords = array_filter($keyWords); // Remove empty values etc
+        $keyWords = ContentHelper::extractContentKeywords($url);
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords, $url);
         foreach ($newKeyWords as &$newKeyWord)
@@ -114,8 +110,10 @@ class ContentHelper
         $content = HtmlHelper::fixHtml($html);
         $content = ContentHelper::remove2CharWords($content);
         $content = ContentHelper::removeCommonWords($content);
+
+        $keyWords = ContentHelper::stringToArray($content);
         
-        return $content;
+        return $keyWords;
     }
 
     // Return an array of the url backlings (using cookie) taken from init.php
