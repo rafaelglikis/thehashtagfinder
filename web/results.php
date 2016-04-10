@@ -77,7 +77,7 @@ $sourse = new Url($_POST["url"])
                     <!-- Chart -->
                     <script src="js/Chart.js"></script>
                     <div class="container">
-                        <div class="row row-centered">
+                        <div class="row">
                             <div id="col-md-6 col-md-offset-3 canvas-holder">
                                 <canvas id="chart-area" width="500" height="500"/>
                             </div>
