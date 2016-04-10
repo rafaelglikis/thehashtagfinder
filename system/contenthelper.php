@@ -89,9 +89,9 @@ class ContentHelper
     }
     
         // Clear return an array of hashtags
-    static function takeHashTags($url)
+    static function makeHashTags($url)
     {
-        $keyWords = ContentHelper::extractContentKeywords($url);
+        /*$keyWords = ContentHelper::extractContentKeywords($url);
         
         $newKeyWords = ContentHelper::calculateKeyWordsWeight($keyWords, $url);
         foreach ($newKeyWords as &$newKeyWord)
@@ -100,7 +100,165 @@ class ContentHelper
             $newName = trim($newName,"_");
             $newKeyWord->setName($newName);
         }
-        return $newKeyWords;
+        return $newKeyWords;*/
+
+        // Weights
+        $titleWeight = 20;
+        $strongKeywordWeight = 15;
+        $altKeywordWeight = 13;
+        $backlingCaptionWeight = 12;
+        $h1KeywordWeight = 10;
+        $metaKeywordWeight = 9;
+        $h2KeywordWeight = 8;
+        $h3KeywordWeight = 5;
+        $contentKeywordWeight = 1;
+
+        // Count - Set Limit each tag
+        $strongKeywordCount = 10;
+        $altKeywordCount = 10;
+        $backlingCaptionCount = 10;
+        $h1KeywordCount = 10;
+        $metaKeywordCount = 10;
+        $h2KeywordCount = 10;
+        $h3KeywordCount = 10;
+        $contentKeywordCount = 10;
+
+        // KeyWords Initialize
+        $title = HtmlHelper::findTitle($url);
+        $title = preg_replace("/[^A-Za-z0-9 ]/", '', $title);
+        $strongs = ContentHelper::extractStrongKeywords($url);
+        $h1s = ContentHelper::extractHeading1Keywords($url);
+        $h2s = ContentHelper::extractHeading2Keywords($url);
+        $h3s = ContentHelper::extractHeading3Keywords($url);
+        $metas = ContentHelper::extractMetaDescriptionTags($url);
+        $alts = ContentHelper::extractImagesAlts($url)
+        $backlingCaptions = ContentHelper::getMajecticBacklinks($url);
+        $contents = ContentHelper::extractContentKeywords($url);
+
+        // Clear multiple values and add weight to them
+        $uniqueTitle = array_count_values($title);
+        arsort($uniqueTitle); // Sort ascending
+
+        $uniqueStrongs = array_count_values($strongs);
+        arsort($uniqueStrongs); // Sort ascending
+
+        $uniqueH1s = array_count_values($h1s);
+        arsort($uniqueH1s); // Sort ascending
+
+        $uniqueH2s = array_count_values($h2s);
+        arsort($uniqueH2s); // Sort ascending
+
+        $uniqueH3s = array_count_values($h3s);
+        arsort($uniqueH3s); // Sort ascending
+
+        $uniqueMetas = array_count_values($metas);
+        arsort($uniqueMetas); // Sort ascending
+
+        $uniqueAlts = array_count_values($alts);
+        arsort($uniqueAlts); // Sort ascending
+
+        $uniqueBacklingCaptions = array_count_values($backlingCaptions);
+        arsort($uniqueBacklingCaptions); // Sort ascending
+
+        $uniqueContents = array_count_values($contents);
+        arsort($uniqueContents); // Sort ascending
+
+        // Creating Hashtag Objects
+        $hashTags  = array();
+        array_push($hashTags,new HashTag($title,$titleWeight));
+
+        $i=0;
+        foreach ($uniqueStrongs as $name => $weight)
+        {
+            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            $i++;
+            if($i>$strongKeywordCount) { break;}
+
+            $hashtag = new HashTag($name,$weight*$strongKeywordWeight);
+            array_push($hashTags,$hashtag);
+        }
+
+        $i=0;
+        foreach ($uniqueH1s as $name => $weight)
+        {
+            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            $i++;
+            if($i>$h1KeywordCount) { break;}
+
+            $hashtag = new HashTag($name,$weight*$h1KeywordWeight);
+            array_push($hashTags,$hashtag);
+        }
+
+        $i=0;
+        foreach ($uniqueH2s as $name => $weight)
+        {
+            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            $i++;
+            if($i>$h2KeywordCount) { break;}
+
+            $hashtag = new HashTag($name,$weight*$h2KeywordWeight);
+            array_push($hashTags,$hashtag);
+        }
+
+        $i=0;
+        foreach ($uniqueH3s as $name => $weight)
+        {
+            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            $i++;
+            if($i>$h3KeywordCount) { break;}
+
+            $hashtag = new HashTag($name,$weight*$h3KeywordWeight);
+            array_push($hashTags,$hashtag);
+        }
+
+        $i=0;
+        foreach ($uniqueMetas as $name => $weight)
+        {
+            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            $i++;
+            if($i>$metaKeywordCount) { break;}
+
+            $hashtag = new HashTag($name,$weight*$metaKeywordWeight);
+            array_push($hashTags,$hashtag);
+        }
+
+        $i=0;
+        foreach ($uniqueAlts as $name => $weight)
+        {
+            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            $i++;
+            if($i>$altKeywordCount) { break;}
+
+            $hashtag = new HashTag($name,$weight*$altKeywordWeight);
+            array_push($hashTags,$hashtag);
+        }
+
+        $i=0;
+        foreach ($uniqueBacklingCaptions as $name => $weight)
+        {
+            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            $i++;
+            if($i>$backlingCaptionCount) { break;}
+
+            $hashtag = new HashTag($name,$weight*$backlingCaptionWeight);
+            array_push($hashTags,$hashtag);
+        }
+
+        $i=0;
+        foreach ($uniqueContents as $name => $weight)
+        {
+            if (strlen($name) < 3 || strlen($name) > 35) { break;}
+            $i++;
+            if($i>$contentKeywordCount) { break;}
+
+            $hashtag = new HashTag($name,$weight*$contentKeywordWeight);
+            array_push($hashTags,$hashtag);
+        }
+
+        // Shuffling the array
+        shuffle($hashTags);
+
+        return $hashTags;
     }
 
     static function extractHeading1Keywords($url)
@@ -110,48 +268,17 @@ class ContentHelper
 
     static function extractHeading2Keywords($url)
     {
-        $html = file_get_contents($url);
-        $dom = new DOMDocument;
-        $dom->loadHTML($html);
-        $headings = array();
-        $keywords = $dom->getElementsByTagName('h2');
-        foreach ($keywords as $keyword) {
-            $heading = $keyword->nodeValue;
-            $heading = preg_replace("/[^A-Za-z ]/", '',  $heading);
-            array_push($headings, $heading);
-        }
-        return $headings;
+        return HtmlHelper::findHtmlTagContent($url,'h2');
     }
 
     static function extractHeading3Keywords($url)
     {
-        $html = file_get_contents($url);
-        $dom = new DOMDocument;
-        $dom->loadHTML($html);
-        $headings = array();
-        $keywords = $dom->getElementsByTagName('h3');
-        foreach ($keywords as $keyword) {
-            $heading = $keyword->nodeValue;
-            $heading = preg_replace("/[^A-Za-z ]/", '',  $heading);
-            array_push($headings, $heading);
-        }
-        return $headings;
+        return HtmlHelper::findHtmlTagContent($url,'h3');
     }
 
     static function extractStrongKeywords($url)
     {
-        $html = file_get_contents($url);
-        $dom = new DOMDocument;
-        $dom->loadHTML($html);
-        $strongs = array();
-        $strongKeywords = $dom->getElementsByTagName('strong');
-        foreach ($strongKeywords as $strongKeyword)
-        {
-            $strong = $strongKeyword->nodeValue;
-            $strong = preg_replace("/[^A-Za-z ]/", '',  $strong);
-            array_push($strongs, $strong);
-        }
-        return $strongs;
+        return HtmlHelper::findHtmlTagContent($url,'strong');
     }
     
     // Return an array of content keywords
@@ -165,7 +292,7 @@ class ContentHelper
     }
 
     // Return an array of the url backlings (using cookie) taken from init.php
-    function getMajecticBacklinks($url)
+    static function getMajecticBacklinks($url)
     {
         $fields_string = "format=Csv&MaxSourceURLsPerRefDomain=1&UsePrefixScan=0&index_data_source=Fresh&item=".urlencode($url)."&mode=0&request_name=ExplorerBacklinks&RefDomain=";
         //open connection
@@ -241,7 +368,7 @@ class ContentHelper
     }
 
     // Return an array of url meta description tags
-    static function findMetaDescriptionDescriptionTags($url)
+    static function extractMetaDescriptionTags($url)
     {
         $html = HtmlHelper::takeHtml($url);
         $doc = new DOMDocument();
@@ -369,5 +496,3 @@ class ContentHelper
     }
 
 }
-
-ContentHelper::extractHeading1Keywords('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');
