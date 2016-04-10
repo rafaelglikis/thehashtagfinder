@@ -124,6 +124,25 @@ class HtmlHelper
         var_dump($alts);
         return $alts;
     }
+
+    static function findMetaDescriptionDescription($link)
+    {
+        $html = HtmlHelper::takeHtml($link);
+        $doc = new DOMDocument();
+        @$doc->loadHTML($html);
+        $metas = $doc->getElementsByTagName('meta');
+        $description = NULL;
+        for ($i = 0; $i < $metas->length; $i++)
+        {
+            $meta = $metas->item($i);
+            if($meta->getAttribute('property') == 'og:description')
+            {
+                $description = $meta->getAttribute('content');
+                return $description;
+            }
+        }
+        return $description;
+    }
 }
 
-HtmlHelper::findImagesAlts('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');
+HtmlHelper::findMetaDescriptionDescription('http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/');
