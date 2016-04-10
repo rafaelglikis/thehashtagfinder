@@ -86,6 +86,11 @@ $sourse = new Url($_POST["url"])
 
 
                     <script>
+                        function getRandomInt(min, max)
+                        {
+                            return Math.floor(Math.random() * (max - min + 1)) + min;
+                        }
+
                         var colorset = [
                             {
                                 color:"#F7464A",
@@ -117,8 +122,8 @@ $sourse = new Url($_POST["url"])
                             ?>
                                 {
                                     value: <?php echo $hashTag->getWeight()?>,
-                                    color:colorset[1].color,
-                                    highlight: colorset[1].highlight,
+                                    color:colorset[getRandomInt(0, 3)].color,
+                                    highlight: colorset[getRandomInt(0, 3)].highlight,
                                     label: "<?php echo $hashTag->getName()?>"
                                 }<?php if ($i > 20) break;?>,
                                 <?php $i++;?>
