@@ -159,7 +159,7 @@ class ContentHelper
         // Add # and replace < > with <_>
         foreach ($hashTags as $hashTag)
         {
-            $name = str_replace("-", "", trim($hashTag->getName());
+            $name = str_replace("-", "", trim($hashTag->getName()));
             $name = "#" . str_replace(" ", "_",$name);
             $hashTag->setName($name);
         }
